@@ -1,12 +1,14 @@
 "use client";
 
 import { useFullscreen } from "@embedpdf/plugin-fullscreen/react";
+import { usePan } from "@embedpdf/plugin-pan/react";
 import { useScroll } from "@embedpdf/plugin-scroll/react";
 import { SpreadMode, useSpread } from "@embedpdf/plugin-spread/react";
 import { useZoom } from "@embedpdf/plugin-zoom/react";
 import {
   ChevronLeft,
   ChevronRight,
+  Hand,
   Maximize2,
   PanelLeft,
   ScanSearch,
@@ -37,6 +39,7 @@ export const Toolbar = ({
   const { state: fullscreenState, provides: fullscreenProvider } =
     useFullscreen();
   const { state: scrollState, provides: scrollProvider } = useScroll();
+  const { provides: pan, isPanning } = usePan();
 
   if (!zoom || !spread) {
     return null;
@@ -45,6 +48,7 @@ export const Toolbar = ({
   const currentZoomLevel = zoomState?.currentZoomLevel || 1.0;
   const isFullscreen = fullscreenState?.isFullscreen || false;
   const isMarqueeZoomActive = zoom.isMarqueeZoomActive?.() || false;
+  const isPanActive = isPanning || false;
 
   const handleZoomReset = () => {
     zoom.requestZoom(1.0);
@@ -52,6 +56,28 @@ export const Toolbar = ({
 
   const handleToggleMarqueeZoom = () => {
     zoom.toggleMarqueeZoom();
+  };
+
+  const handleTogglePan = () => {
+    if (pan) {
+      // Toggle pan mode - enable desktop pan mode for hand cursor dragging
+      try {
+        if (typeof pan.togglePan === "function") {
+          pan.togglePan();
+        } else if (
+          typeof pan.enablePan === "function" &&
+          typeof pan.disablePan === "function"
+        ) {
+          if (isPanning) {
+            pan.disablePan();
+          } else {
+            pan.enablePan();
+          }
+        }
+      } catch (error) {
+        console.error("Error toggling pan mode:", error);
+      }
+    }
   };
 
   const handleToggleFullscreen = () => {
@@ -158,6 +184,18 @@ export const Toolbar = ({
           title="Area Zoom (Marquee Zoom)"
         >
           <ScanSearch className="w-4 h-4" />
+        </button>
+
+        {/* Hand/Pan Tool */}
+        <button
+          onClick={handleTogglePan}
+          className={`hidden md:block p-2 rounded transition-colors ${
+            isPanActive ? "bg-blue-100 text-blue-600" : "hover:bg-gray-200"
+          }`}
+          aria-label="Pan Tool"
+          title="Pan Tool (Click to enable hand cursor for dragging)"
+        >
+          <Hand className="w-4 h-4" />
         </button>
       </div>
 
