@@ -1,0 +1,106 @@
+{
+  "tools": {
+    "computer_use": {
+      "enabled": false
+    },
+    "text_editor": {
+      "enabled": true
+    },
+    "bash": {
+      "enabled": true
+    }
+  },
+  "rules": [
+    "Follow the project conventions defined in CLAUDE.md",
+    "Use TypeScript with strict typing",
+    "Follow the Controller → Service → Repository → Model architecture pattern",
+    "Always run yarn lint and yarn build after making code changes",
+    "Use Redis caching with createCacheKey() utility for expensive operations",
+    "Place jest.mock() statements at the top of test files",
+    "Use Promise.all() for performance optimization when possible",
+    "Follow SOLID principles and descriptive naming conventions",
+    "Never commit secrets or API keys to the repository",
+    "Use SSH tunnel configuration when needed for database access",
+    "Test both success and error scenarios in tests",
+    "Cache expensive computations and database queries appropriately"
+  ],
+  "projectInfo": {
+    "name": "Splink Rebate API",
+    "type": "Node.js TypeScript Express API",
+    "database": "PostgreSQL with Sequelize ORM",
+    "cache": "Redis (ElastiCache)",
+    "authentication": "JWT with role-based authorization",
+    "documentation": "Swagger UI at http://localhost:3000/",
+    "monitoring": "New Relic",
+    "testing": "Jest with integration and unit tests"
+  },
+  "commands": {
+    "dev": "yarn dev",
+    "build": "yarn build",
+    "lint": "yarn lint",
+    "lint_fix": "yarn lint:fix",
+    "format": "yarn format",
+    "test": "yarn test",
+    "test_watch": "yarn test-watch",
+    "test_coverage": "yarn test:coverage",
+    "migrate": "yarn migrate",
+    "seed": "yarn seed",
+    "start": "yarn start"
+  },
+  "directories": {
+    "source": "src/",
+    "controllers": "src/controllers/",
+    "services": "src/services/",
+    "repositories": "src/repositories/",
+    "models": "src/models/",
+    "middleware": "src/middleware/",
+    "migrations": "src/migrations/",
+    "tests": "src/__tests__/",
+    "config": "src/config/"
+  },
+  "keyFiles": {
+    "authentication": "src/middleware/authentication.ts",
+    "authorization": "src/middleware/authorize.ts",
+    "roles": "src/config/roles.ts",
+    "cache_utility": "src/utils/createCacheKey.ts",
+    "app_constants": "src/config/constants.ts"
+  },
+  "testingGuidelines": {
+    "integration_tests": "src/__tests__/integration/",
+    "service_tests": "src/__tests__/services/",
+    "unit_tests": "src/__tests__/unit/",
+    "mocks": "src/__tests__/mocks/",
+    "coverage_target": "90%+",
+    "mock_placement": "Top of test files with jest.mock()"
+  },
+  "environmentVariables": [
+    "DB_HOST",
+    "DB_USER",
+    "DB_PASSWORD",
+    "DB_NAME",
+    "REDIS_HOST",
+    "REDIS_PORT",
+    "JWT_SECRET",
+    "AWS_ACCESS_KEY_ID",
+    "AWS_SECRET_ACCESS_KEY",
+    "S3_BUCKET_NAME",
+    "NEW_RELIC_LICENSE_KEY",
+    "SSH_HOST",
+    "SSH_USERNAME",
+    "SSH_KEY_PATH",
+    "USE_SSH_TUNNEL"
+  ],
+  "businessEntities": [
+    "Programs",
+    "Stores",
+    "Distributors",
+    "Manufacturers",
+    "Chains",
+    "Users"
+  ],
+  "apiInfo": {
+    "prefix": "/api/v1",
+    "swagger_ui": "http://localhost:3000/",
+    "swagger_json": "/api/v1/swagger.json"
+  }
+}

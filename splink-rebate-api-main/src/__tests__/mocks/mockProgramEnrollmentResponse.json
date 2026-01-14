@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "ManufacturerId": 1,
+      "ManufacturerName": "Wonderful Pistachios",
+      "ManufacturerLogo": "https://example.com/pistachios.png",
+      "ProgramEnrollment": "25"
+    },
+    {
+      "ManufacturerId": 2,
+      "ManufacturerName": "Florida's Natural",
+      "ManufacturerLogo": "/img/florida-natural.png",
+      "ProgramEnrollment": "15"
+    },
+    {
+      "ManufacturerId": 3,
+      "ManufacturerName": "Perfetti van Melle",
+      "ManufacturerLogo": "https://example.com/perfetti.png",
+      "ProgramEnrollment": "30"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "status": "success",
+  "data": {
+    "distributorProgramsData": [
+      {
+        "programName": "Core Program",
+        "completedCompliances": "0",
+        "totalEnrollments": 1,
+        "rebate": "0",
+        "programStartDate": "2025-01-01",
+        "programEndDate": "2025-03-31"
+      }
+    ],
+    "storeProgramsData": [
+      {
+        "tierName": "Tier 1",
+        "programName": "Distribution - Tier 1",
+        "programStartDate": "2025-01-01",
+        "programEndDate": "2025-06-30",
+        "compliancePercentage": 0,
+        "totalRebate": 0,
+        "totalStores": 3428,
+        "qualifiedStores": 0
+      },
+      {
+        "tierName": "Tier 2",
+        "programName": "Distribution - Tier 2",
+        "programStartDate": "2025-01-01",
+        "programEndDate": "2025-06-30",
+        "compliancePercentage": 0,
+        "totalRebate": 0,
+        "totalStores": 3428,
+        "qualifiedStores": 0
+      },
+      {
+        "tierName": "Tier 3",
+        "programName": "Distribution - Tier 3",
+        "programStartDate": "2025-01-01",
+        "programEndDate": "2025-06-30",
+        "compliancePercentage": 0,
+        "totalRebate": 0,
+        "totalStores": 3428,
+        "qualifiedStores": 0
+      }
+    ],
+    "salesRepsProgramsData": []
+  }
+}

@@ -1,0 +1,195 @@
+name: Deploy to Prod Amazon ECS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-and-build:
+    name: Test and Build
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      NODE_ENV: test
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_NAME: testdb
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.14.0"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run eslint
+        run: yarn lint
+
+      - name: Setup test environment
+        run: |
+          cp .env.example .env
+          yarn db:migrate:test
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Make build
+        if: success()
+        run: yarn build
+
+  deploy:
+    name: Deploy to Prod ECS
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Set Deployment Version
+        run: |
+          echo "DEPLOY_VERSION=prod-${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      - name: Build, Tag, and Push Docker Image
+        id: build-image
+        run: |
+          # Get the ECR registry URL
+          ECR_REGISTRY=$(aws ecr describe-repositories --repository-names ${{ vars.ECR_REPOSITORY }} --query 'repositories[0].repositoryUri' --output text)
+
+          IMAGE_TAG=${{ vars.IMAGE_TAG }}
+          BRANCH_NAME=${{ github.ref_name }}
+          echo "Building image with tag: $ECR_REGISTRY:$IMAGE_TAG"
+
+          # Determine the environment based on the branch
+          if [ "$BRANCH_NAME" = "develop" ]; then
+            ENV=develop
+          else
+            ENV=main
+          fi
+
+          # Build and push Docker image
+          docker build --build-arg ENV=$ENV -t $ECR_REGISTRY:${IMAGE_TAG} .
+          docker push $ECR_REGISTRY:${IMAGE_TAG}
+
+          echo "image=$ECR_REGISTRY:${IMAGE_TAG}" >> $GITHUB_ENV
+
+      - name: Generate ECS Task Definition
+        id: generate-td
+        run: |
+          REDIS_URL="${{ secrets.PROD_REDIS_URL }}"
+          sed "s|<EXECUTION_ROLE_ARN>|${{ secrets.EXECUTION_ROLE_ARN }}|g; \
+          s|<TASK_FAMILY>|${{ vars.TASK_FAMILY }}|g; \
+          s|<CONTAINER_NAME>|${{ vars.CONTAINER_NAME }}|g; \
+          s|<ECS_TASK_ROLE_ARN>|${{ secrets.ECS_TASK_ROLE_ARN }}|g; \
+          s|<IMAGE_URI>|${{ env.image }}|g; \
+          s|\${REDIS_URL}|$REDIS_URL|g" \
+          .github/workflows/td-template.json > td.json
+
+      - name: Render New ECS Task Definition
+        id: render-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: td.json
+          container-name: ${{ vars.CONTAINER_NAME }}
+          image: ${{ env.image }}
+
+      - name: Deploy Task Definition to ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{ steps.render-task-def.outputs.task-definition }}
+          service: ${{ vars.ECS_SERVICE }}
+          cluster: ${{ vars.ECS_CLUSTER }}
+          wait-for-service-stability: false
+          force-new-deployment: true
+
+      - name: Generate Worker ECS Task Definition
+        id: generate-worker-td
+        run: |
+          REDIS_URL="${{ secrets.PROD_REDIS_URL }}"
+          sed "s|<EXECUTION_ROLE_ARN>|${{ secrets.EXECUTION_ROLE_ARN }}|g; \
+          s|<TASK_FAMILY>|${{ vars.PROD_WORKER_TASK_FAMILY }}|g; \
+          s|<CONTAINER_NAME>|${{ vars.CONTAINER_NAME }}|g; \
+          s|<ECS_TASK_ROLE_ARN>|${{ secrets.ECS_TASK_ROLE_ARN }}|g; \
+          s|<IMAGE_URI>|${{ env.image }}|g; \
+          s|\${REDIS_URL}|$REDIS_URL|g" \
+          .github/workflows/td-template.json > td-worker.json
+
+          # Override entrypoint to use worker-specific script
+          jq '.containerDefinitions[0].entryPoint = ["/bin/sh", "-c", "exec /app/entrypoint-worker.sh"]' td-worker.json > td-worker-tmp.json && mv td-worker-tmp.json td-worker.json
+
+          # Update port mapping for worker (uses port 3002 instead of 3001)
+          jq '.containerDefinitions[0].portMappings[0].containerPort = 3002 | .containerDefinitions[0].portMappings[0].hostPort = 3002' td-worker.json > td-worker-tmp.json && mv td-worker-tmp.json td-worker.json
+
+          # Update health check to use port 3002
+          jq '.containerDefinitions[0].healthCheck.command = ["CMD-SHELL", "curl -f http://localhost:3002/health || exit 1"]' td-worker.json > td-worker-tmp.json && mv td-worker-tmp.json td-worker.json
+
+          # Update log group for worker
+          jq '.containerDefinitions[0].logConfiguration.options."awslogs-group" = "/ecs/prod-splink-rebate-worker"' td-worker.json > td-worker-tmp.json && mv td-worker-tmp.json td-worker.json
+
+          echo "===== td-worker.json preview ====="
+          jq '.containerDefinitions[] | {name: .name, image: .image, memory: .memory, memoryReservation: .memoryReservation, portMappings: .portMappings, entryPoint: .entryPoint, healthCheck: .healthCheck}' td-worker.json || true
+
+      - name: Render New Worker ECS Task Definition
+        id: render-worker-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: td-worker.json
+          container-name: ${{ vars.CONTAINER_NAME }}
+          image: ${{ env.image }}
+
+      - name: Deploy Worker Task Definition to ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{ steps.render-worker-task-def.outputs.task-definition }}
+          service: ${{ vars.PROD_WORKER_ECS_SERVICE }}
+          cluster: ${{ vars.ECS_CLUSTER }}
+          wait-for-service-stability: false
+          force-new-deployment: true
+
+      - name: New Relic Deployment Marker
+        if: success()
+        uses: newrelic/deployment-marker-action@v2.3.0
+        with:
+          apiKey: ${{ secrets.NEW_RELIC_API_KEY }}
+          guid: ${{ secrets.NEW_RELIC_DEPLOYMENT_ENTITY_GUID }}
+          version: "${{ env.DEPLOY_VERSION }}"
+          user: "${{ github.actor }}"
+          description: "Production deployment via GitHub Actions"

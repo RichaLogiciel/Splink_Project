@@ -1,0 +1,241 @@
+{
+  "status": "success",
+  "data": {
+    "stores": [
+      {
+        "id": 16189,
+        "externalStoreId": "33488",
+        "userInfo": {
+          "id": 17257,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "$1.00 PLUS SUPER STORE",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 19.99
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [
+            {
+              "manufacturer": {
+                "id": 1,
+                "name": "Wonderful Pistachios",
+                "avatar": "https://dev-splink-s3.s3.us-east-2.amazonaws.com/eac8104d-ceff-47fa-95c7-89ad72936c05-image (9).png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 2
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 2,
+                "name": "Florida's Natural",
+                "avatar": "/img/avatar-florida's-natural.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 4
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 3,
+                "name": "Perfetti van Melle",
+                "avatar": "https://dev-splink-s3.s3.us-east-2.amazonaws.com/80adb2bf-2166-4198-ac1d-0e76f3b10a44-avatar-perfetti-van-melle.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 3
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 4,
+                "name": "Highline Warren",
+                "avatar": "/img/avatar-highline-warren.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 1
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 5,
+                "name": "Ford Gum",
+                "avatar": "/img/avatar-ford-gum.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 2
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 6,
+                "name": "Energizer Auto",
+                "avatar": "/img/avatar-energizer-auto-sales.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 2
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 7,
+                "name": "Energizer Battery",
+                "avatar": "/img/avatar-energizer-battery.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 3
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 8,
+                "name": "Lil' Drug Store",
+                "avatar": "/img/avatar-lil'-drug-store.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 2
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 9,
+                "name": "Lil' Drug Store - P&G",
+                "avatar": "/img/avatar-lil'-drug-store---p&g-.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 2
+              },
+              "purchaseVolume": {
+                "amount": 19
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 11,
+                "name": "Quest",
+                "avatar": "/img/avatar-simply-good-foods.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 7
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            },
+            {
+              "manufacturer": {
+                "id": 13,
+                "name": "Just Born",
+                "avatar": "/img/avatar-just-born.png"
+              },
+              "programCompliance": {
+                "completed": 0,
+                "total": 3
+              },
+              "purchaseVolume": {
+                "amount": 0
+              },
+              "totalSavings": {
+                "amount": 0
+              },
+              "isEnrolled": false
+            }
+          ],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      }
+    ],
+    "totalStores": 1,
+    "currentPage": 1,
+    "totalPages": 1
+  }
+}

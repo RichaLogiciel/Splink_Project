@@ -1,0 +1,176 @@
+{
+  "id": "a7pse6gff2",
+  "storeInfo": {
+    "name": "Shaw's Come & Go",
+    "location": "Grand Rapids, MN",
+    "rep": {
+      "avatar": "",
+      "name": "Courtney Henry"
+    }
+  },
+  "salesData": {
+    "purchaseVolume": {
+      "amount": 45000,
+      "yoy": 12
+    },
+    "totalSavings": {
+      "amount": 500,
+      "yoy": 12
+    },
+    "totalOppSavings": {
+      "amount": 23
+    }
+  },
+  "programData": {
+    "totalProgram": 9,
+    "totalEnrolled": 5,
+    "enrolledProgram": [
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-wonderful-pistachios.png",
+          "name": "Wonderful Pistachios"
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 3100
+        },
+        "totalSavings": {
+          "amount": 1100
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-perfetti-van-melle.png",
+          "name": "Perfetti Van Melle"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 5000
+        },
+        "totalSavings": {
+          "amount": 75
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-lil-drug-store.png",
+          "name": "Lil’ Drug Store"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 2000
+        },
+        "totalSavings": {
+          "amount": 85
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-highline-warren.png",
+          "name": "Highline Warren"
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 6500
+        },
+        "totalSavings": {
+          "amount": 135
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-ford-gum.png",
+          "name": "Ford Gum"
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 2800
+        },
+        "totalSavings": {
+          "amount": 90
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-floridas-natural.png",
+          "name": "Floridas Natural"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 800
+        },
+        "totalSavings": {
+          "amount": 60
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-hersheys.png",
+          "name": "Hershey’s"
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 3100
+        },
+        "totalSavings": {
+          "amount": 100
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-energizer.png",
+          "name": "Energizer"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 5000
+        },
+        "totalSavings": {
+          "amount": 75
+        }
+      }
+    ],
+    "remainingProgram": [
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-pg.png",
+          "name": "P&G"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 2500
+        },
+        "totalSavings": {
+          "amount": 85
+        }
+      }
+    ]
+  }
+}

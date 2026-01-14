@@ -1,0 +1,54 @@
+{
+  "status": "success",
+  "data": {
+    "totalSalesReps": 9,
+    "totalEarnings": "0.00",
+    "salesRepData": [
+      {
+        "name": "BILL VENEMA",
+        "storesCount": "0",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "BILL VENEMA",
+        "storesCount": "91",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "CARTER WENDLANDT",
+        "storesCount": "1",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "CARTER WENDLANDT",
+        "storesCount": "106",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "HOUSE ACCOUNTS ",
+        "storesCount": "465",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "JEFF NEU ",
+        "storesCount": "73",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "RUSTY JEWETT ",
+        "storesCount": "29",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "SUSAN WENTZ",
+        "storesCount": "81",
+        "totalEarnedRebate": null
+      },
+      {
+        "name": "TODD BRAIEDY ",
+        "storesCount": "26",
+        "totalEarnedRebate": null
+      }
+    ]
+  }
+}

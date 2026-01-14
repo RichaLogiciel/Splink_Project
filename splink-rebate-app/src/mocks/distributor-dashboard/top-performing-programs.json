@@ -1,0 +1,32 @@
+[
+  {
+    "manufacturer": "Wonderful Pistachios",
+    "saleVolume": 55000,
+    "savings": 5500,
+    "logo": "/img/avatar-wonderful-pistachios.png"
+  },
+  {
+    "manufacturer": "Perfetti Van Melle",
+    "saleVolume": 45000,
+    "savings": 4500,
+    "logo": "/img/avatar-perfetti-van-melle.png"
+  },
+  {
+    "manufacturer": "Lil’ Drug Store",
+    "saleVolume": 39000,
+    "savings": 2925,
+    "logo": "/img/avatar-lil-drug-store.png"
+  },
+  {
+    "manufacturer": "Highline Warren",
+    "saleVolume": 36000,
+    "savings": 2700,
+    "logo": "/img/avatar-highline-warren.png"
+  },
+  {
+    "manufacturer": "Hershey’s",
+    "saleVolume": 33000,
+    "savings": 2475,
+    "logo": "/img/avatar-hersheys.png"
+  }
+]

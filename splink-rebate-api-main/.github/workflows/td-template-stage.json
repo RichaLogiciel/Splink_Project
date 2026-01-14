@@ -1,0 +1,49 @@
+{
+  "family": "<TASK_FAMILY>",
+  "containerDefinitions": [
+    {
+      "name": "<CONTAINER_NAME>",
+      "image": "<IMAGE_URI>",
+      "cpu": 4096,
+      "memory": 16384,
+      "portMappings": [
+        {
+          "containerPort": 3001,
+          "hostPort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "REDIS_URL",
+          "value": "${REDIS_URL}"
+        }
+      ],
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:3001/health || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/stage/stage-splink-api",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "mountPoints": [],
+      "volumesFrom": [],
+      "systemControls": []
+    }
+  ],
+  "networkMode": "bridge",
+  "requiresCompatibilities": ["EC2"],
+  "executionRoleArn": "<STAGE_EXECUTION_ROLE_ARN>"
+}

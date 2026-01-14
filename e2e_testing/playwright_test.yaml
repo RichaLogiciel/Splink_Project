@@ -1,0 +1,22 @@
+name: Run Playwright test on Dev Branch
+
+on:
+  repository_dispatch:
+    types: [run-playwright-tests]
+
+jobs:
+  run-playwright-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Playwright dependencies
+        run: |
+          npm ci
+          npx playwright install
+
+      - name: Run Playwright tests
+        run: |
+          npx playwright test

@@ -1,0 +1,50 @@
+# Node modules
+node_modules/
+
+# Compiled output
+dist/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Yarn integrity file
+.yarn-integrity
+
+# IDE specific files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Coverage folder created by testing tools
+coverage/
+
+# npm-debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Other files to ignore (if needed)
+*.tgz
+*.zip
+*.pdf
+
+# Cursor rules
+.cursorrules
+.qodo
+
+# Ignore all Markdown files except CLAUDE.md
+*.md
+*.mdx
+!CLAUDE.md
+*.mdc
+*.sh

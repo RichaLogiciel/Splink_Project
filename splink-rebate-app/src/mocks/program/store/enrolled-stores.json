@@ -1,0 +1,2975 @@
+[
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/27811066",
+        "name": "Bernard Mann"
+      },
+      "name": "Cummings Group",
+      "location": "Marvinview, CT"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 39893, "yoy": 4 },
+      "totalSavings": { "amount": 4584, "yoy": 16 },
+      "totalOppSavings": { "amount": 76 }
+    },
+    "programData": {
+      "totalProgram": 22,
+      "totalEnrolled": 1,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#2e7d15", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 7, "completed": 0 },
+          "purchaseVolume": { "amount": 7300 },
+          "totalSavings": { "amount": 1001 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle"
+          },
+          "programCompliance": { "total": 9, "completed": 5 },
+          "purchaseVolume": { "amount": 8208 },
+          "totalSavings": { "amount": 491 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store",
+            "additionalInfo": {
+              "note": "Temperantia laudantium communis tutamen.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2152/2404?lock=3838348834138911",
+                  "name": "Sleek Concrete Ball",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/2204/495?lock=339166360984940",
+                  "name": "Incredible Steel Soap",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/393/3657?lock=3200313571193697",
+                  "name": "Electronic Rubber Car",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/1726/1283?lock=6645360258153299",
+                  "name": "Electronic Concrete Gloves",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/698/777?lock=6055453389285599",
+                  "name": "Tasty Concrete Bacon",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/1757/1454?lock=6515037129164135",
+                  "name": "Fantastic Granite Pizza",
+                  "extraInfo": "Small"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 1, "completed": 1 },
+          "purchaseVolume": { "amount": 6709 },
+          "totalSavings": { "amount": 484 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren",
+            "additionalInfo": {
+              "note": "Curriculum deprimo coaegresco pauper cohibeo.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1595/2982?lock=490960232365272",
+                  "name": "Refined Metal Pizza",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/1084/664?lock=8938229137433144",
+                  "name": "Awesome Metal Shirt",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/2546/2521?lock=7115733171270327",
+                  "name": "Rustic Soft Table",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/1285/2792?lock=64961130422923",
+                  "name": "Practical Frozen Bacon",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/305/3739?lock=2660249390244745",
+                  "name": "Handcrafted Cotton Gloves",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/2261/1712?lock=2661577191690160",
+                  "name": "Ergonomic Cotton Gloves",
+                  "extraInfo": "Oriental"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 2, "completed": 2 },
+          "purchaseVolume": { "amount": 6936 },
+          "totalSavings": { "amount": 602 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum"
+          },
+          "programCompliance": { "total": 7, "completed": 4 },
+          "purchaseVolume": { "amount": 1941 },
+          "totalSavings": { "amount": 1499 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural",
+            "additionalInfo": {
+              "note": "Voco vobis accedo thymum utilis aptus virgo atqui acer carus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3926/1571?lock=7290740708474231",
+                  "name": "Modern Steel Computer",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/1663/961?lock=3411682096667648",
+                  "name": "Awesome Bronze Computer",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/2935/2112?lock=7618724750978419",
+                  "name": "Recycled Bronze Car",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/544/809?lock=4179615281007305",
+                  "name": "Refined Cotton Car",
+                  "extraInfo": "Licensed"
+                },
+                {
+                  "image": "https://loremflickr.com/3256/1948?lock=7084876342465140",
+                  "name": "Licensed Metal Salad",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/1418/2357?lock=4885385455598224",
+                  "name": "Ergonomic Soft Cheese",
+                  "extraInfo": "Handcrafted"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#560965", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 9, "completed": 1 },
+          "purchaseVolume": { "amount": 5811 },
+          "totalSavings": { "amount": 396 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "additionalInfo": {
+              "note": "Comedo possimus causa stips aspernatur brevis exercitationem.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1967/1970?lock=7228936508705190",
+                  "name": "Oriental Plastic Fish",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/3803/1175?lock=4711128878763807",
+                  "name": "Recycled Metal Bacon",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/1583/2859?lock=4721046929924440",
+                  "name": "Oriental Soft Car",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/718/2389?lock=7603289558345749",
+                  "name": "Unbranded Metal Bike",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/2879/2869?lock=7803995888036402",
+                  "name": "Oriental Metal Pants",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/2478/1762?lock=1042161522043834",
+                  "name": "Elegant Granite Computer",
+                  "extraInfo": "Modern"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#4a7e48", "completed": 2, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 2, "completed": 2 },
+          "purchaseVolume": { "amount": 9055 },
+          "totalSavings": { "amount": 825 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#081d4a", "completed": 3, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 9, "completed": 9 },
+          "purchaseVolume": { "amount": 3347 },
+          "totalSavings": { "amount": 232 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 4073 },
+          "totalSavings": { "amount": 93 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49e2",
+    "id": "70a72425-4736-472c-b197-a3cf4a4d5cc4",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/79910196",
+        "name": "Elsie Murphy"
+      },
+      "name": "Schulist LLC",
+      "location": "Port Jaedenboro, NC"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 17124, "yoy": -17 },
+      "totalSavings": { "amount": 4495, "yoy": -13 },
+      "totalOppSavings": { "amount": 174 }
+    },
+    "programData": {
+      "totalProgram": 33,
+      "totalEnrolled": 13,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "additionalInfo": {
+              "note": "Apto vallum voveo vester aperio dapifer solvo sophismata.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2048/1654?lock=407800328463185",
+                  "name": "Modern Wooden Chair",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/2713/2955?lock=7827256444771482",
+                  "name": "Ergonomic Granite Table",
+                  "extraInfo": "Awesome"
+                },
+                {
+                  "image": "https://loremflickr.com/2817/3760?lock=3801013343310058",
+                  "name": "Ergonomic Metal Sausages",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/3090/2042?lock=4154285978308396",
+                  "name": "Oriental Frozen Pants",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/1735/435?lock=1621021731062905",
+                  "name": "Licensed Wooden Table",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/2015/2731?lock=4590890460657059",
+                  "name": "Incredible Plastic Car",
+                  "extraInfo": "Modern"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#251249", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 7, "completed": 1 },
+          "purchaseVolume": { "amount": 1117 },
+          "totalSavings": { "amount": 238 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#17275a", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 3, "completed": 3 },
+          "purchaseVolume": { "amount": 9764 },
+          "totalSavings": { "amount": 237 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store"
+          },
+          "programCompliance": { "total": 3, "completed": 3 },
+          "purchaseVolume": { "amount": 9227 },
+          "totalSavings": { "amount": 948 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren"
+          },
+          "programCompliance": { "total": 4, "completed": 3 },
+          "purchaseVolume": { "amount": 2176 },
+          "totalSavings": { "amount": 656 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum",
+            "additionalInfo": {
+              "note": "Timidus anser virga adulescens tribuo enim quod supellex.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2771/3772?lock=1301954196782883",
+                  "name": "Oriental Granite Table",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/2172/2357?lock=4752361855135224",
+                  "name": "Ergonomic Fresh Shirt",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/3956/1837?lock=4500605286321181",
+                  "name": "Refined Plastic Car",
+                  "extraInfo": "Refined"
+                },
+                {
+                  "image": "https://loremflickr.com/530/555?lock=6097581627863189",
+                  "name": "Unbranded Steel Computer",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/1905/1164?lock=5569609881515908",
+                  "name": "Small Soft Fish",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/2233/2762?lock=5774542710047594",
+                  "name": "Sleek Plastic Shirt",
+                  "extraInfo": "Refined"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#004d1a", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 3, "completed": 1 },
+          "purchaseVolume": { "amount": 8249 },
+          "totalSavings": { "amount": 183 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural"
+          },
+          "programCompliance": { "total": 1, "completed": 1 },
+          "purchaseVolume": { "amount": 7136 },
+          "totalSavings": { "amount": 1050 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#392637", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 7188 },
+          "totalSavings": { "amount": 657 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer"
+          },
+          "programCompliance": { "total": 6, "completed": 1 },
+          "purchaseVolume": { "amount": 7268 },
+          "totalSavings": { "amount": 1388 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 3650 },
+          "totalSavings": { "amount": 82 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49e0",
+    "id": "0179fdfa-9903-4f39-abe1-2f0d523b48a3",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/92226813",
+        "name": "Alex Gibson"
+      },
+      "name": "Will Inc",
+      "location": "Orange, MI"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 72038, "yoy": -20 },
+      "totalSavings": { "amount": 3561, "yoy": -9 },
+      "totalOppSavings": { "amount": 20 }
+    },
+    "programData": {
+      "totalProgram": 15,
+      "totalEnrolled": 4,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios"
+          },
+          "programCompliance": { "total": 5, "completed": 2 },
+          "purchaseVolume": { "amount": 1141 },
+          "totalSavings": { "amount": 1218 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "additionalInfo": {
+              "note": "Comptus compono crinis voro.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2231/1844?lock=7056176499818930",
+                  "name": "Modern Steel Pizza",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/2796/914?lock=7656202780088525",
+                  "name": "Electronic Bronze Shoes",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/3146/3580?lock=8078871517803038",
+                  "name": "Handmade Fresh Cheese",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/2023/1792?lock=1960240990097482",
+                  "name": "Incredible Wooden Bacon",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/2105/2167?lock=6672908388651879",
+                  "name": "Electronic Plastic Gloves",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/3260/2908?lock=447755835140555",
+                  "name": "Recycled Bronze Gloves",
+                  "extraInfo": "Handmade"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#304c64", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 9, "completed": 4 },
+          "purchaseVolume": { "amount": 4469 },
+          "totalSavings": { "amount": 1444 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store",
+            "additionalInfo": {
+              "note": "Quos denique comitatus vel advenio audentia thesis ater supra.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3781/1367?lock=1468236988795094",
+                  "name": "Fantastic Granite Table",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/2817/1180?lock=7896462904903214",
+                  "name": "Ergonomic Frozen Salad",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/2117/3315?lock=7245202153525784",
+                  "name": "Luxurious Bronze Hat",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/3415/800?lock=1440717563073101",
+                  "name": "Bespoke Fresh Shoes",
+                  "extraInfo": "Intelligent"
+                },
+                {
+                  "image": "https://loremflickr.com/726/3405?lock=2117966758190867",
+                  "name": "Electronic Plastic Mouse",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/1576/3286?lock=3286026377506209",
+                  "name": "Incredible Frozen Shoes",
+                  "extraInfo": "Practical"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 7, "completed": 0 },
+          "purchaseVolume": { "amount": 9272 },
+          "totalSavings": { "amount": 1470 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren",
+            "additionalInfo": {
+              "note": "Terreo turbo repellat.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/510/27?lock=783912931325930",
+                  "name": "Unbranded Soft Fish",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/3367/119?lock=1807877738976380",
+                  "name": "Handmade Cotton Shirt",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/2043/2055?lock=8415072873999143",
+                  "name": "Sleek Soft Tuna",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/3503/146?lock=1960969571795708",
+                  "name": "Gorgeous Fresh Hat",
+                  "extraInfo": "Awesome"
+                },
+                {
+                  "image": "https://loremflickr.com/3585/1435?lock=2555393329923363",
+                  "name": "Luxurious Steel Gloves",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/681/1138?lock=8933640573669441",
+                  "name": "Handmade Bronze Mouse",
+                  "extraInfo": "Gorgeous"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 2, "completed": 2 },
+          "purchaseVolume": { "amount": 5351 },
+          "totalSavings": { "amount": 736 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum"
+          },
+          "programCompliance": { "total": 8, "completed": 4 },
+          "purchaseVolume": { "amount": 1456 },
+          "totalSavings": { "amount": 975 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural",
+            "additionalInfo": {
+              "note": "Depereo ciminatio benevolentia aptus abeo viridis quae.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1984/1348?lock=2314287847625287",
+                  "name": "Small Soft Fish",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/3036/1835?lock=2910827128915098",
+                  "name": "Small Frozen Table",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/2118/572?lock=7172555130070356",
+                  "name": "Awesome Bronze Table",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/558/3714?lock=913085569903709",
+                  "name": "Elegant Wooden Pants",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/3225/1885?lock=7205068641983256",
+                  "name": "Bespoke Fresh Computer",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/2121/295?lock=3722005344944121",
+                  "name": "Refined Bronze Chicken",
+                  "extraInfo": "Ergonomic"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#480058", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 4, "completed": 4 },
+          "purchaseVolume": { "amount": 4237 },
+          "totalSavings": { "amount": 607 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "additionalInfo": {
+              "note": "Chirographum corrumpo facilis vesco timidus depopulo accusator amicitia.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3832/2320?lock=2755698604530202",
+                  "name": "Tasty Soft Pants",
+                  "extraInfo": "Licensed"
+                },
+                {
+                  "image": "https://loremflickr.com/2180/1536?lock=2137802021837904",
+                  "name": "Unbranded Fresh Pants",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/812/2322?lock=20128483465926",
+                  "name": "Elegant Bronze Table",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/595/3327?lock=8995867030367108",
+                  "name": "Oriental Steel Table",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/349/3629?lock=2097998049519339",
+                  "name": "Intelligent Metal Chips",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/2858/2651?lock=4221497197735429",
+                  "name": "Rustic Plastic Gloves",
+                  "extraInfo": "Small"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#485363", "completed": 3, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 5, "completed": 5 },
+          "purchaseVolume": { "amount": 1530 },
+          "totalSavings": { "amount": 1141 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "additionalInfo": {
+              "note": "Saepe surgo dicta pax vulticulus comminor dedecor rem cornu.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2525/1336?lock=1720196165240105",
+                  "name": "Fantastic Soft Shoes",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/293/2355?lock=8124887433202490",
+                  "name": "Elegant Frozen Chicken",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/1475/1322?lock=7548405350278364",
+                  "name": "Handcrafted Granite Ball",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/1126/1980?lock=3923642393594940",
+                  "name": "Unbranded Soft Computer",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/1050/3940?lock=3215043318317285",
+                  "name": "Recycled Steel Table",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/1040/1412?lock=8560602074160337",
+                  "name": "Fantastic Wooden Keyboard",
+                  "extraInfo": "Luxurious"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 8, "completed": 4 },
+          "purchaseVolume": { "amount": 6349 },
+          "totalSavings": { "amount": 883 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 3751 },
+          "totalSavings": { "amount": 112 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49d9",
+    "id": "a38464c3-a6e8-4f19-993f-534531197ad6",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/83636144",
+        "name": "Gina Goldner-Gleason"
+      },
+      "name": "Lemke, Kling and Towne",
+      "location": "West Christiana, MD"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 46085, "yoy": -13 },
+      "totalSavings": { "amount": 4576, "yoy": -18 },
+      "totalOppSavings": { "amount": 99 }
+    },
+    "programData": {
+      "totalProgram": 50,
+      "totalEnrolled": 49,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios"
+          },
+          "programCompliance": { "total": 2, "completed": 0 },
+          "purchaseVolume": { "amount": 5399 },
+          "totalSavings": { "amount": 800 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "additionalInfo": {
+              "note": "Debitis derideo totus a stella acerbitas.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/264/1606?lock=2543156994511768",
+                  "name": "Generic Fresh Car",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/262/2158?lock=5914994253680943",
+                  "name": "Intelligent Concrete Keyboard",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/1986/3770?lock=1934503988691645",
+                  "name": "Modern Steel Table",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/103/1633?lock=7324825700567615",
+                  "name": "Small Granite Pants",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/3124/2138?lock=7378161823365620",
+                  "name": "Ergonomic Cotton Mouse",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/3672/3672?lock=856223587058037",
+                  "name": "Luxurious Concrete Table",
+                  "extraInfo": "Oriental"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#1d1939", "completed": 3, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 9, "completed": 8 },
+          "purchaseVolume": { "amount": 5164 },
+          "totalSavings": { "amount": 1148 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store"
+          },
+          "programCompliance": { "total": 8, "completed": 2 },
+          "purchaseVolume": { "amount": 6137 },
+          "totalSavings": { "amount": 424 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren"
+          },
+          "programCompliance": { "total": 6, "completed": 3 },
+          "purchaseVolume": { "amount": 2384 },
+          "totalSavings": { "amount": 506 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum",
+            "additionalInfo": {
+              "note": "Molestias annus absque spoliatio aeneus curatio.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3569/1662?lock=972241527497709",
+                  "name": "Licensed Cotton Table",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/1785/2979?lock=3008909310655163",
+                  "name": "Awesome Steel Chair",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/2231/349?lock=8890145930130220",
+                  "name": "Oriental Concrete Mouse",
+                  "extraInfo": "Refined"
+                },
+                {
+                  "image": "https://loremflickr.com/3932/1941?lock=3683491078406201",
+                  "name": "Incredible Soft Ball",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/2958/3144?lock=7026267315728397",
+                  "name": "Refined Plastic Soap",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/3692/3846?lock=7944759926506255",
+                  "name": "Gorgeous Granite Ball",
+                  "extraInfo": "Handmade"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#73487f", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 7, "completed": 3 },
+          "purchaseVolume": { "amount": 3925 },
+          "totalSavings": { "amount": 708 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural",
+            "additionalInfo": {
+              "note": "Comptus angulus optio.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1077/433?lock=3846268437813171",
+                  "name": "Incredible Concrete Salad",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/3145/1?lock=5925170487190803",
+                  "name": "Handcrafted Bronze Mouse",
+                  "extraInfo": "Licensed"
+                },
+                {
+                  "image": "https://loremflickr.com/3064/519?lock=7614741413696827",
+                  "name": "Refined Soft Ball",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/1704/1338?lock=8670765287449176",
+                  "name": "Oriental Wooden Salad",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/3319/1641?lock=6174383078308947",
+                  "name": "Fantastic Soft Salad",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/192/3038?lock=36369039452998",
+                  "name": "Modern Steel Hat",
+                  "extraInfo": "Bespoke"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 9, "completed": 5 },
+          "purchaseVolume": { "amount": 8170 },
+          "totalSavings": { "amount": 1294 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#414d7f", "completed": 3, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 4, "completed": 2 },
+          "purchaseVolume": { "amount": 1862 },
+          "totalSavings": { "amount": 1182 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "additionalInfo": {
+              "note": "Condico voluptatibus trado vir supra creta.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2932/2347?lock=6920281602208441",
+                  "name": "Recycled Granite Cheese",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/2184/903?lock=3339291376502726",
+                  "name": "Sleek Bronze Shoes",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/2016/449?lock=4658474022816481",
+                  "name": "Oriental Plastic Gloves",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/1712/3245?lock=209465735360126",
+                  "name": "Awesome Bronze Cheese",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/1833/2656?lock=1419936379274781",
+                  "name": "Sleek Bronze Pizza",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/2261/1472?lock=5693478917393331",
+                  "name": "Elegant Fresh Table",
+                  "extraInfo": "Tasty"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 6, "completed": 6 },
+          "purchaseVolume": { "amount": 3716 },
+          "totalSavings": { "amount": 64 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 4156 },
+          "totalSavings": { "amount": 70 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49de",
+    "id": "a49ab3d2-f852-4552-9ae9-a3dcf4d90879",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/50458674",
+        "name": "Mr. Arturo Ziemann-Johns"
+      },
+      "name": "Heaney, Macejkovic and Volkman",
+      "location": "Spring Valley, MN"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 39000, "yoy": 19 },
+      "totalSavings": { "amount": 4403, "yoy": -18 },
+      "totalOppSavings": { "amount": 199 }
+    },
+    "programData": {
+      "totalProgram": 50,
+      "totalEnrolled": 46,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "additionalInfo": {
+              "note": "Caveo demo victoria vestigium claudeo error nisi desolo earum cupressus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1092/1441?lock=5627735074530999",
+                  "name": "Handcrafted Steel Keyboard",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/3818/265?lock=3988039685825283",
+                  "name": "Gorgeous Wooden Ball",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/556/2764?lock=2299908921944127",
+                  "name": "Ergonomic Rubber Gloves",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/1750/2316?lock=8950414972224502",
+                  "name": "Tasty Fresh Tuna",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/2925/1440?lock=2557945569320000",
+                  "name": "Rustic Frozen Salad",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/2619/1513?lock=8024631537424228",
+                  "name": "Oriental Steel Table",
+                  "extraInfo": "Recycled"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#6b325e", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 7, "completed": 7 },
+          "purchaseVolume": { "amount": 4055 },
+          "totalSavings": { "amount": 239 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "additionalInfo": {
+              "note": "Deprecator tepidus acsi demulceo voluptas.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1607/3696?lock=2064826865900481",
+                  "name": "Incredible Fresh Pants",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/36/2007?lock=7071024479194428",
+                  "name": "Generic Fresh Salad",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/2588/3980?lock=3209459168399149",
+                  "name": "Unbranded Rubber Gloves",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/153/1179?lock=3397623441963197",
+                  "name": "Rustic Cotton Soap",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/2666/949?lock=3172403772233410",
+                  "name": "Oriental Rubber Hat",
+                  "extraInfo": "Licensed"
+                },
+                {
+                  "image": "https://loremflickr.com/1694/392?lock=3002351716627988",
+                  "name": "Bespoke Wooden Table",
+                  "extraInfo": "Practical"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 8, "completed": 4 },
+          "purchaseVolume": { "amount": 9764 },
+          "totalSavings": { "amount": 757 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store"
+          },
+          "programCompliance": { "total": 5, "completed": 2 },
+          "purchaseVolume": { "amount": 3702 },
+          "totalSavings": { "amount": 1086 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren",
+            "additionalInfo": {
+              "note": "Recusandae certe abutor pecus derideo validus audentia cursim vestrum quo.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/615/935?lock=1275601025904833",
+                  "name": "Electronic Plastic Salad",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/3009/3588?lock=1458818565363612",
+                  "name": "Generic Bronze Computer",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/1361/3514?lock=6355471197967533",
+                  "name": "Luxurious Concrete Salad",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/238/2852?lock=3932840754954010",
+                  "name": "Fantastic Plastic Table",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/146/1839?lock=4158952438142485",
+                  "name": "Practical Steel Hat",
+                  "extraInfo": "Oriental"
+                },
+                {
+                  "image": "https://loremflickr.com/1871/2901?lock=5028102236220417",
+                  "name": "Oriental Bronze Towels",
+                  "extraInfo": "Sleek"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#7d130d", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 4, "completed": 4 },
+          "purchaseVolume": { "amount": 7430 },
+          "totalSavings": { "amount": 867 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum"
+          },
+          "programCompliance": { "total": 3, "completed": 1 },
+          "purchaseVolume": { "amount": 5920 },
+          "totalSavings": { "amount": 501 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural"
+          },
+          "programCompliance": { "total": 2, "completed": 0 },
+          "purchaseVolume": { "amount": 1698 },
+          "totalSavings": { "amount": 427 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s"
+          },
+          "programCompliance": { "total": 1, "completed": 1 },
+          "purchaseVolume": { "amount": 9993 },
+          "totalSavings": { "amount": 494 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#7f4223", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 3, "completed": 1 },
+          "purchaseVolume": { "amount": 3047 },
+          "totalSavings": { "amount": 944 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 2430 },
+          "totalSavings": { "amount": 197 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49e1",
+    "id": "f22e5bd8-a694-431a-bf5f-d6d3446360b7",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/78621257",
+        "name": "Sylvester Hauck"
+      },
+      "name": "Champlin LLC",
+      "location": "Evertland, HI"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 21527, "yoy": -14 },
+      "totalSavings": { "amount": 4875, "yoy": -11 },
+      "totalOppSavings": { "amount": 155 }
+    },
+    "programData": {
+      "totalProgram": 44,
+      "totalEnrolled": 8,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "additionalInfo": {
+              "note": "Tergo caelestis celer.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3879/586?lock=8696236006144335",
+                  "name": "Luxurious Concrete Ball",
+                  "extraInfo": "Licensed"
+                },
+                {
+                  "image": "https://loremflickr.com/3348/3730?lock=834107008070364",
+                  "name": "Recycled Fresh Mouse",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/1374/278?lock=373986501595054",
+                  "name": "Recycled Rubber Pants",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/1005/1171?lock=7018365278345312",
+                  "name": "Electronic Bronze Soap",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/681/1284?lock=5102643264177735",
+                  "name": "Elegant Steel Towels",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/1791/1863?lock=8563603903527050",
+                  "name": "Intelligent Granite Gloves",
+                  "extraInfo": "Modern"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 8, "completed": 2 },
+          "purchaseVolume": { "amount": 7308 },
+          "totalSavings": { "amount": 292 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "additionalInfo": {
+              "note": "Tonsor arx conor vito cupiditate adhaero vivo celebrer cohors.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2854/1533?lock=7148378748829388",
+                  "name": "Modern Bronze Cheese",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/1966/1639?lock=5850079109239306",
+                  "name": "Rustic Fresh Gloves",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/1861/68?lock=8256404978117488",
+                  "name": "Ergonomic Wooden Cheese",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/2089/3732?lock=657963092002700",
+                  "name": "Incredible Rubber Chicken",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/1106/434?lock=87232446300814",
+                  "name": "Licensed Steel Tuna",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/1833/1817?lock=8346932868624694",
+                  "name": "Incredible Bronze Shirt",
+                  "extraInfo": "Ergonomic"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#3b4971", "completed": 2, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 9, "completed": 2 },
+          "purchaseVolume": { "amount": 7344 },
+          "totalSavings": { "amount": 1144 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store"
+          },
+          "programCompliance": { "total": 8, "completed": 5 },
+          "purchaseVolume": { "amount": 9848 },
+          "totalSavings": { "amount": 1050 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren",
+            "additionalInfo": {
+              "note": "Sollicito totam apto.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/736/2272?lock=8381436875896805",
+                  "name": "Small Soft Fish",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/677/2801?lock=2405321644584268",
+                  "name": "Incredible Cotton Shirt",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/122/1399?lock=6359813187480502",
+                  "name": "Oriental Fresh Chips",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/3634/3351?lock=1729443914679040",
+                  "name": "Refined Fresh Hat",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/3330/1156?lock=3884720702300266",
+                  "name": "Tasty Steel Tuna",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/235/1527?lock=2901842269882872",
+                  "name": "Unbranded Plastic Chair",
+                  "extraInfo": "Bespoke"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#446950", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 8, "completed": 7 },
+          "purchaseVolume": { "amount": 5297 },
+          "totalSavings": { "amount": 438 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum",
+            "additionalInfo": {
+              "note": "Desino sumo blanditiis casso capillus timidus custodia clibanus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2705/3348?lock=1407361239397206",
+                  "name": "Rustic Plastic Shirt",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/187/2992?lock=2164056710381513",
+                  "name": "Intelligent Frozen Sausages",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/640/2645?lock=259587128358237",
+                  "name": "Handcrafted Wooden Chicken",
+                  "extraInfo": "Awesome"
+                },
+                {
+                  "image": "https://loremflickr.com/431/1448?lock=6287905006190841",
+                  "name": "Intelligent Plastic Cheese",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/1095/2375?lock=6521641855924988",
+                  "name": "Electronic Metal Bacon",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/2712/2680?lock=3869901570710208",
+                  "name": "Modern Metal Shirt",
+                  "extraInfo": "Unbranded"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 4, "completed": 3 },
+          "purchaseVolume": { "amount": 5212 },
+          "totalSavings": { "amount": 1297 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural",
+            "additionalInfo": {
+              "note": "Degusto conqueror thesaurus tristis.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3851/805?lock=4355968920268768",
+                  "name": "Incredible Frozen Bacon",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/743/3235?lock=7629823298441418",
+                  "name": "Sleek Granite Keyboard",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/1994/3811?lock=6528838950260803",
+                  "name": "Sleek Soft Chips",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/3678/2940?lock=2356923373414245",
+                  "name": "Oriental Plastic Bacon",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/3653/1747?lock=7282018324118352",
+                  "name": "Small Soft Table",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/2088/2398?lock=7563622793458099",
+                  "name": "Small Concrete Bacon",
+                  "extraInfo": "Fantastic"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 4, "completed": 1 },
+          "purchaseVolume": { "amount": 8564 },
+          "totalSavings": { "amount": 697 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "additionalInfo": {
+              "note": "Molestias vomica ara amitto.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3720/2339?lock=3920836573225668",
+                  "name": "Luxurious Soft Chair",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/194/1498?lock=5922971967928813",
+                  "name": "Recycled Wooden Gloves",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/1083/882?lock=966589527273281",
+                  "name": "Tasty Wooden Pizza",
+                  "extraInfo": "Licensed"
+                },
+                {
+                  "image": "https://loremflickr.com/417/2190?lock=5634601153449770",
+                  "name": "Refined Granite Car",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/3696/2515?lock=7773172783710999",
+                  "name": "Refined Plastic Chips",
+                  "extraInfo": "Refined"
+                },
+                {
+                  "image": "https://loremflickr.com/1002/3072?lock=6065109064007680",
+                  "name": "Fantastic Cotton Chicken",
+                  "extraInfo": "Handmade"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#687d75", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 4, "completed": 0 },
+          "purchaseVolume": { "amount": 2427 },
+          "totalSavings": { "amount": 485 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "additionalInfo": {
+              "note": "Voluptatem curto in.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1470/2275?lock=2436011723460805",
+                  "name": "Ergonomic Steel Tuna",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/3811/1056?lock=829690810000089",
+                  "name": "Electronic Metal Chicken",
+                  "extraInfo": "Oriental"
+                },
+                {
+                  "image": "https://loremflickr.com/2140/3962?lock=2166302458854697",
+                  "name": "Modern Plastic Chips",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/3658/352?lock=7149121880181731",
+                  "name": "Gorgeous Granite Shoes",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/425/1551?lock=3839080208599332",
+                  "name": "Small Soft Chair",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/2800/1320?lock=4481655731524500",
+                  "name": "Awesome Granite Towels",
+                  "extraInfo": "Modern"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#461f6c", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 1, "completed": 1 },
+          "purchaseVolume": { "amount": 1136 },
+          "totalSavings": { "amount": 107 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 1924 },
+          "totalSavings": { "amount": 165 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49dc",
+    "id": "0f40f809-ff13-497d-ae38-89468497f44b",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/635259",
+        "name": "Minnie Bauch"
+      },
+      "name": "Adams Inc",
+      "location": "Hageneshaven, CO"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 41947, "yoy": -16 },
+      "totalSavings": { "amount": 3370, "yoy": 2 },
+      "totalOppSavings": { "amount": 122 }
+    },
+    "programData": {
+      "totalProgram": 35,
+      "totalEnrolled": 32,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "additionalInfo": {
+              "note": "Peccatus suadeo defungo ustulo caelestis carcer decretum qui.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/345/3057?lock=3426709540729841",
+                  "name": "Intelligent Bronze Tuna",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/1220/3800?lock=4467863613351728",
+                  "name": "Rustic Rubber Sausages",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/1130/2834?lock=5669268675738998",
+                  "name": "Bespoke Plastic Keyboard",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/1758/2456?lock=1795108221722526",
+                  "name": "Handmade Metal Salad",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/3468/1482?lock=2041276978035757",
+                  "name": "Tasty Concrete Chicken",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/3665/136?lock=8004146258264618",
+                  "name": "Luxurious Cotton Computer",
+                  "extraInfo": "Incredible"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 2, "completed": 2 },
+          "purchaseVolume": { "amount": 2047 },
+          "totalSavings": { "amount": 948 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle"
+          },
+          "programCompliance": { "total": 2, "completed": 0 },
+          "purchaseVolume": { "amount": 5773 },
+          "totalSavings": { "amount": 980 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store",
+            "additionalInfo": {
+              "note": "Utrum ullus ipsa callide commodo surgo facere tersus aggredior vilis.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3466/1116?lock=6528972426859408",
+                  "name": "Modern Plastic Ball",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/3768/3100?lock=6221657514744106",
+                  "name": "Small Steel Sausages",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/2820/2560?lock=6155765778633136",
+                  "name": "Gorgeous Frozen Towels",
+                  "extraInfo": "Refined"
+                },
+                {
+                  "image": "https://loremflickr.com/1812/1698?lock=3334663695705283",
+                  "name": "Electronic Frozen Hat",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/515/1106?lock=3717849849128919",
+                  "name": "Unbranded Fresh Tuna",
+                  "extraInfo": "Intelligent"
+                },
+                {
+                  "image": "https://loremflickr.com/660/190?lock=1871161902134010",
+                  "name": "Incredible Frozen Pizza",
+                  "extraInfo": "Luxurious"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 1, "completed": 1 },
+          "purchaseVolume": { "amount": 6392 },
+          "totalSavings": { "amount": 974 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren"
+          },
+          "programCompliance": { "total": 7, "completed": 4 },
+          "purchaseVolume": { "amount": 7984 },
+          "totalSavings": { "amount": 865 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum",
+            "additionalInfo": {
+              "note": "Molestias cetera terga arcus verecundia thesaurus decor conitor vilitas angelus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1790/1193?lock=5700005752529095",
+                  "name": "Rustic Wooden Table",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/213/3287?lock=4774091473578511",
+                  "name": "Gorgeous Bronze Soap",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/3530/1353?lock=7205932167787622",
+                  "name": "Refined Steel Soap",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/3127/2884?lock=8302495127842122",
+                  "name": "Rustic Fresh Soap",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/3740/638?lock=3335032190608495",
+                  "name": "Sleek Wooden Pants",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/1771/3351?lock=4453912551699341",
+                  "name": "Elegant Metal Tuna",
+                  "extraInfo": "Electronic"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 7, "completed": 5 },
+          "purchaseVolume": { "amount": 2508 },
+          "totalSavings": { "amount": 1173 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural",
+            "additionalInfo": {
+              "note": "Ullam tener caterva.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2008/1136?lock=7043417838388278",
+                  "name": "Incredible Soft Fish",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/1054/1527?lock=6014159940223186",
+                  "name": "Oriental Frozen Tuna",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/491/969?lock=307112334653014",
+                  "name": "Tasty Rubber Bike",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/3826/3868?lock=8414218553672566",
+                  "name": "Rustic Plastic Pizza",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/2530/3274?lock=4643456087055610",
+                  "name": "Unbranded Steel Soap",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/1107/1375?lock=7589376666334629",
+                  "name": "Incredible Plastic Mouse",
+                  "extraInfo": "Recycled"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 2, "completed": 2 },
+          "purchaseVolume": { "amount": 9922 },
+          "totalSavings": { "amount": 117 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "additionalInfo": {
+              "note": "Versus adfero admoveo auditor suasoria.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3444/3631?lock=6625887959586870",
+                  "name": "Modern Wooden Tuna",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/2015/1744?lock=7625765502897710",
+                  "name": "Oriental Fresh Bike",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/2441/2403?lock=60199188355029",
+                  "name": "Handmade Metal Pizza",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/3201/1328?lock=683856545612857",
+                  "name": "Sleek Granite Car",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/2295/9?lock=6141910706122895",
+                  "name": "Gorgeous Bronze Table",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/1180/2879?lock=2946737593091841",
+                  "name": "Bespoke Steel Keyboard",
+                  "extraInfo": "Rustic"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#7c181f", "completed": 3, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 5, "completed": 4 },
+          "purchaseVolume": { "amount": 6021 },
+          "totalSavings": { "amount": 692 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "additionalInfo": {
+              "note": "Magni cariosus ab cenaculum.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1135/2604?lock=1466739834830967",
+                  "name": "Bespoke Soft Car",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/1733/1346?lock=1574789074659161",
+                  "name": "Ergonomic Steel Sausages",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/3745/2881?lock=2200428839718100",
+                  "name": "Oriental Rubber Mouse",
+                  "extraInfo": "Refined"
+                },
+                {
+                  "image": "https://loremflickr.com/2498/3355?lock=3105386920504899",
+                  "name": "Oriental Metal Salad",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/1076/3347?lock=1975589394334554",
+                  "name": "Luxurious Wooden Table",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/1740/259?lock=7510928616062775",
+                  "name": "Elegant Bronze Chicken",
+                  "extraInfo": "Refined"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 8, "completed": 5 },
+          "purchaseVolume": { "amount": 7844 },
+          "totalSavings": { "amount": 730 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 2320 },
+          "totalSavings": { "amount": 85 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49df",
+    "id": "7d53017f-fd80-475a-b533-43801280a834",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/1501001",
+        "name": "Ollie Rippin"
+      },
+      "name": "Kovacek, Weimann and Labadie",
+      "location": "Lake Taurean, ID"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 57458, "yoy": 8 },
+      "totalSavings": { "amount": 2527, "yoy": -2 },
+      "totalOppSavings": { "amount": 70 }
+    },
+    "programData": {
+      "totalProgram": 43,
+      "totalEnrolled": 4,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "additionalInfo": {
+              "note": "Surculus quis alveus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2055/3941?lock=2237709455532959",
+                  "name": "Incredible Frozen Chair",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/3866/1456?lock=2275691033560201",
+                  "name": "Sleek Wooden Soap",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/1387/47?lock=6933888623862745",
+                  "name": "Elegant Rubber Shirt",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/2382/1380?lock=1723897970188696",
+                  "name": "Modern Steel Soap",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/2756/3687?lock=4050575961623148",
+                  "name": "Licensed Cotton Chicken",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/3121/1712?lock=7332967628493758",
+                  "name": "Sleek Wooden Hat",
+                  "extraInfo": "Intelligent"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#6c3d72", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 6, "completed": 4 },
+          "purchaseVolume": { "amount": 3759 },
+          "totalSavings": { "amount": 295 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "additionalInfo": {
+              "note": "Clarus denuo tyrannus vix expedita aetas.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/103/2380?lock=405204344981542",
+                  "name": "Electronic Rubber Pants",
+                  "extraInfo": "Licensed"
+                },
+                {
+                  "image": "https://loremflickr.com/2261/1654?lock=3917170718325706",
+                  "name": "Bespoke Granite Salad",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/3445/358?lock=7923539528440071",
+                  "name": "Licensed Wooden Chicken",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/3495/2946?lock=1136781761810560",
+                  "name": "Gorgeous Fresh Keyboard",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/2620/314?lock=7486011541075565",
+                  "name": "Fantastic Metal Keyboard",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/2607/951?lock=2300313967134105",
+                  "name": "Awesome Cotton Chair",
+                  "extraInfo": "Tasty"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 1, "completed": 0 },
+          "purchaseVolume": { "amount": 3193 },
+          "totalSavings": { "amount": 1317 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store",
+            "additionalInfo": {
+              "note": "Uterque ater vinculum id audentia deputo aestas capio.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/972/3381?lock=2153642878013381",
+                  "name": "Tasty Plastic Pants",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/2753/1229?lock=2111777026110045",
+                  "name": "Gorgeous Concrete Ball",
+                  "extraInfo": "Tasty"
+                },
+                {
+                  "image": "https://loremflickr.com/2643/899?lock=8268735755892219",
+                  "name": "Refined Wooden Salad",
+                  "extraInfo": "Intelligent"
+                },
+                {
+                  "image": "https://loremflickr.com/425/413?lock=6602548471345125",
+                  "name": "Gorgeous Steel Chips",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/868/2757?lock=4027899412895976",
+                  "name": "Modern Fresh Cheese",
+                  "extraInfo": "Oriental"
+                },
+                {
+                  "image": "https://loremflickr.com/2345/537?lock=3501529901564096",
+                  "name": "Generic Plastic Computer",
+                  "extraInfo": "Rustic"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 2, "completed": 1 },
+          "purchaseVolume": { "amount": 3309 },
+          "totalSavings": { "amount": 1326 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren",
+            "additionalInfo": {
+              "note": "Colo libero viscus venustas carbo depono arbustum despecto arto tantillus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/957/3305?lock=8381079714856352",
+                  "name": "Electronic Fresh Keyboard",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/975/2672?lock=536068684968953",
+                  "name": "Awesome Frozen Sausages",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/2182/1921?lock=962376862370708",
+                  "name": "Tasty Plastic Towels",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/2906/3481?lock=2829658225115245",
+                  "name": "Gorgeous Soft Towels",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/3315/1914?lock=352210186998841",
+                  "name": "Handcrafted Frozen Sausages",
+                  "extraInfo": "Awesome"
+                },
+                {
+                  "image": "https://loremflickr.com/3882/3104?lock=793124213722269",
+                  "name": "Recycled Steel Shirt",
+                  "extraInfo": "Luxurious"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#560533", "completed": 2, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 3, "completed": 3 },
+          "purchaseVolume": { "amount": 9143 },
+          "totalSavings": { "amount": 909 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum",
+            "additionalInfo": {
+              "note": "Quos curiositas utrimque commodo aureus acer vociferor crepusculum sonitus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/822/3790?lock=6316999443596787",
+                  "name": "Licensed Metal Hat",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/431/3191?lock=6059534557885867",
+                  "name": "Incredible Cotton Computer",
+                  "extraInfo": "Awesome"
+                },
+                {
+                  "image": "https://loremflickr.com/1018/2184?lock=8900218853112796",
+                  "name": "Rustic Cotton Keyboard",
+                  "extraInfo": "Electronic"
+                },
+                {
+                  "image": "https://loremflickr.com/173/3336?lock=6721162643237629",
+                  "name": "Intelligent Steel Salad",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/3461/2547?lock=1025908882325367",
+                  "name": "Refined Metal Pants",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/2129/3252?lock=8264339578943292",
+                  "name": "Ergonomic Fresh Table",
+                  "extraInfo": "Incredible"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 9, "completed": 9 },
+          "purchaseVolume": { "amount": 1831 },
+          "totalSavings": { "amount": 788 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural",
+            "additionalInfo": {
+              "note": "Articulus tyrannus vero vae acerbitas somnus curo traho desparatus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3926/2196?lock=1734991079431651",
+                  "name": "Ergonomic Fresh Computer",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/807/3662?lock=3425823713665978",
+                  "name": "Ergonomic Metal Computer",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/2729/2457?lock=1511200180321125",
+                  "name": "Practical Wooden Chips",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/2517/567?lock=7129713873919874",
+                  "name": "Elegant Steel Hat",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/487/1954?lock=1201372747188732",
+                  "name": "Generic Granite Keyboard",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/2967/3492?lock=6826055763465303",
+                  "name": "Generic Frozen Shirt",
+                  "extraInfo": "Recycled"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 7, "completed": 0 },
+          "purchaseVolume": { "amount": 3512 },
+          "totalSavings": { "amount": 998 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "additionalInfo": {
+              "note": "Arto consuasor talus combibo caterva temeritas.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2749/2894?lock=4885897463074050",
+                  "name": "Handmade Cotton Soap",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/1621/3636?lock=4252734719178614",
+                  "name": "Generic Bronze Towels",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/2429/763?lock=8372793150759776",
+                  "name": "Practical Bronze Shoes",
+                  "extraInfo": "Handcrafted"
+                },
+                {
+                  "image": "https://loremflickr.com/121/3370?lock=8922607412655439",
+                  "name": "Sleek Fresh Bacon",
+                  "extraInfo": "Awesome"
+                },
+                {
+                  "image": "https://loremflickr.com/1042/2159?lock=314370320676354",
+                  "name": "Luxurious Cotton Towels",
+                  "extraInfo": "Handmade"
+                },
+                {
+                  "image": "https://loremflickr.com/3153/700?lock=994884588719869",
+                  "name": "Handmade Metal Pants",
+                  "extraInfo": "Handcrafted"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#035e0f", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 2, "completed": 0 },
+          "purchaseVolume": { "amount": 6145 },
+          "totalSavings": { "amount": 121 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "additionalInfo": {
+              "note": "Apparatus patria inventore.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3731/742?lock=6451070070179711",
+                  "name": "Rustic Metal Shoes",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/278/702?lock=8477638623027319",
+                  "name": "Incredible Plastic Bacon",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/782/593?lock=6440941959104911",
+                  "name": "Awesome Soft Salad",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/1060/1979?lock=1493368650815183",
+                  "name": "Unbranded Fresh Gloves",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/3190/2683?lock=478589044422838",
+                  "name": "Refined Granite Sausages",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/2528/1275?lock=4550126118003433",
+                  "name": "Practical Frozen Keyboard",
+                  "extraInfo": "Awesome"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 1, "completed": 1 },
+          "purchaseVolume": { "amount": 6700 },
+          "totalSavings": { "amount": 219 }
+        }
+      ],
+      "remainingProgram": []
+    },
+    "_id": "670503e787d8b59486ed49da",
+    "id": "0aec8f3e-446a-4af4-ac2a-2e31d2268b61",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/42448294",
+        "name": "Debra Sauer"
+      },
+      "name": "Lockman and Sons",
+      "location": "West Cristopher, MN"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 88784, "yoy": -13 },
+      "totalSavings": { "amount": 1004, "yoy": -9 },
+      "totalOppSavings": { "amount": 159 }
+    },
+    "programData": {
+      "totalProgram": 44,
+      "totalEnrolled": 7,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "additionalInfo": {
+              "note": "Vetus molestias eveniet ago tabella cursus adversus bos arto theologus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3418/3838?lock=6610617390627855",
+                  "name": "Handcrafted Frozen Computer",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/1165/3871?lock=3799991393885949",
+                  "name": "Rustic Fresh Pants",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/1830/1922?lock=7582272872951019",
+                  "name": "Licensed Rubber Gloves",
+                  "extraInfo": "Bespoke"
+                },
+                {
+                  "image": "https://loremflickr.com/1078/1398?lock=4489695725274392",
+                  "name": "Rustic Cotton Tuna",
+                  "extraInfo": "Intelligent"
+                },
+                {
+                  "image": "https://loremflickr.com/1659/2167?lock=7947205324431693",
+                  "name": "Incredible Metal Shoes",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/1644/859?lock=8642402743612419",
+                  "name": "Small Concrete Gloves",
+                  "extraInfo": "Modern"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 7, "completed": 4 },
+          "purchaseVolume": { "amount": 5592 },
+          "totalSavings": { "amount": 529 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#491c19", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 9, "completed": 5 },
+          "purchaseVolume": { "amount": 5655 },
+          "totalSavings": { "amount": 674 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store",
+            "additionalInfo": {
+              "note": "Cum amicitia voluptatum amor.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1076/1488?lock=6034644470226131",
+                  "name": "Modern Frozen Chicken",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/1395/3417?lock=7702889169138349",
+                  "name": "Elegant Cotton Shirt",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/1954/2779?lock=6425064795596447",
+                  "name": "Oriental Frozen Towels",
+                  "extraInfo": "Fantastic"
+                },
+                {
+                  "image": "https://loremflickr.com/127/2723?lock=8670712019598910",
+                  "name": "Tasty Granite Car",
+                  "extraInfo": "Unbranded"
+                },
+                {
+                  "image": "https://loremflickr.com/3357/1421?lock=1959481144621974",
+                  "name": "Awesome Rubber Bacon",
+                  "extraInfo": "Ergonomic"
+                },
+                {
+                  "image": "https://loremflickr.com/2555/794?lock=6303846917793410",
+                  "name": "Licensed Rubber Car",
+                  "extraInfo": "Handcrafted"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 7, "completed": 1 },
+          "purchaseVolume": { "amount": 3138 },
+          "totalSavings": { "amount": 590 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren",
+            "additionalInfo": {
+              "note": "Texo vulnus vae cenaculum bestia basium adhaero audax accommodo corrigo.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/1479/1720?lock=7741013344548109",
+                  "name": "Refined Wooden Salad",
+                  "extraInfo": "Generic"
+                },
+                {
+                  "image": "https://loremflickr.com/2698/2172?lock=4862404231971004",
+                  "name": "Licensed Steel Salad",
+                  "extraInfo": "Awesome"
+                },
+                {
+                  "image": "https://loremflickr.com/1602/2367?lock=3018524078146157",
+                  "name": "Awesome Plastic Chair",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/2741/2469?lock=6351433434877570",
+                  "name": "Awesome Frozen Bike",
+                  "extraInfo": "Refined"
+                },
+                {
+                  "image": "https://loremflickr.com/2376/3565?lock=3446605066804423",
+                  "name": "Oriental Soft Hat",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/3716/1590?lock=1461420244682910",
+                  "name": "Licensed Plastic Towels",
+                  "extraInfo": "Generic"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 5, "completed": 2 },
+          "purchaseVolume": { "amount": 2347 },
+          "totalSavings": { "amount": 301 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum",
+            "additionalInfo": {
+              "note": "Via volo nesciunt.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/2487/2060?lock=8083845727286663",
+                  "name": "Unbranded Granite Sausages",
+                  "extraInfo": "Refined"
+                },
+                {
+                  "image": "https://loremflickr.com/682/2348?lock=5546512327891919",
+                  "name": "Oriental Rubber Table",
+                  "extraInfo": "Recycled"
+                },
+                {
+                  "image": "https://loremflickr.com/1439/148?lock=3417799078594570",
+                  "name": "Small Soft Pants",
+                  "extraInfo": "Gorgeous"
+                },
+                {
+                  "image": "https://loremflickr.com/759/1895?lock=6751697940170893",
+                  "name": "Bespoke Soft Chicken",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/671/2228?lock=6030692105068296",
+                  "name": "Generic Frozen Soap",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/3358/383?lock=1237183806972436",
+                  "name": "Awesome Plastic Bacon",
+                  "extraInfo": "Recycled"
+                }
+              ]
+            },
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#4a7144", "completed": 1, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 3, "completed": 3 },
+          "purchaseVolume": { "amount": 1044 },
+          "totalSavings": { "amount": 462 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural"
+          },
+          "programCompliance": { "total": 4, "completed": 3 },
+          "purchaseVolume": { "amount": 7283 },
+          "totalSavings": { "amount": 782 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s"
+          },
+          "programCompliance": { "total": 8, "completed": 3 },
+          "purchaseVolume": { "amount": 6980 },
+          "totalSavings": { "amount": 794 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#152114", "completed": 3, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 8, "completed": 1 },
+          "purchaseVolume": { "amount": 1029 },
+          "totalSavings": { "amount": 1291 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 2720 },
+          "totalSavings": { "amount": 50 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49db",
+    "id": "f3ae9ade-2f3c-4e5e-82a6-724490581c08",
+    "__v": 0
+  },
+  {
+    "storeInfo": {
+      "rep": {
+        "avatar": "https://avatars.githubusercontent.com/u/97477302",
+        "name": "Vivian Waelchi"
+      },
+      "name": "Padberg - Smitham",
+      "location": "Port Corbinbury, ME"
+    },
+    "salesData": {
+      "purchaseVolume": { "amount": 74586, "yoy": -20 },
+      "totalSavings": { "amount": 3612, "yoy": 0 },
+      "totalOppSavings": { "amount": 72 }
+    },
+    "programData": {
+      "totalProgram": 23,
+      "totalEnrolled": 14,
+      "enrolledProgram": [
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-wonderful-pistachios.png",
+            "name": "Wonderful Pistachios",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#575711", "completed": 2, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 1, "completed": 0 },
+          "purchaseVolume": { "amount": 6993 },
+          "totalSavings": { "amount": 866 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-perfetti-van-melle.png",
+            "name": "Perfetti Van Melle",
+            "additionalInfo": {
+              "note": "Spes cornu cimentarius ullam vis in eius tutamen ambulo tremo.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/590/2660?lock=5798187955122682",
+                  "name": "Refined Cotton Shirt",
+                  "extraInfo": "Rustic"
+                },
+                {
+                  "image": "https://loremflickr.com/2024/2999?lock=8918603080254535",
+                  "name": "Ergonomic Granite Salad",
+                  "extraInfo": "Modern"
+                },
+                {
+                  "image": "https://loremflickr.com/964/1898?lock=5767461463500361",
+                  "name": "Fantastic Frozen Bacon",
+                  "extraInfo": "Intelligent"
+                },
+                {
+                  "image": "https://loremflickr.com/1981/3802?lock=2788054248502719",
+                  "name": "Intelligent Concrete Computer",
+                  "extraInfo": "Small"
+                },
+                {
+                  "image": "https://loremflickr.com/804/780?lock=3892652932861955",
+                  "name": "Recycled Frozen Fish",
+                  "extraInfo": "Incredible"
+                },
+                {
+                  "image": "https://loremflickr.com/1467/865?lock=2655946497557361",
+                  "name": "Sleek Bronze Pants",
+                  "extraInfo": "Fantastic"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 4, "completed": 1 },
+          "purchaseVolume": { "amount": 6452 },
+          "totalSavings": { "amount": 610 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-lil-drug-store.png",
+            "name": "Lil Drug Store",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#4a4331", "completed": 2, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 7, "completed": 5 },
+          "purchaseVolume": { "amount": 9031 },
+          "totalSavings": { "amount": 1436 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-highline-warren.png",
+            "name": "Highline Warren",
+            "additionalInfo": {
+              "note": "Deprecator absorbeo sunt aspernatur utpote abscido cattus.",
+              "products": [
+                {
+                  "image": "https://loremflickr.com/3542/3171?lock=1936630650011400",
+                  "name": "Unbranded Soft Salad",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/3640/1586?lock=2494530677253405",
+                  "name": "Electronic Metal Pants",
+                  "extraInfo": "Elegant"
+                },
+                {
+                  "image": "https://loremflickr.com/2816/3588?lock=8369307369157295",
+                  "name": "Incredible Rubber Hat",
+                  "extraInfo": "Sleek"
+                },
+                {
+                  "image": "https://loremflickr.com/1783/3729?lock=7098365586853811",
+                  "name": "Licensed Frozen Table",
+                  "extraInfo": "Luxurious"
+                },
+                {
+                  "image": "https://loremflickr.com/870/2116?lock=3490820106866463",
+                  "name": "Recycled Fresh Gloves",
+                  "extraInfo": "Practical"
+                },
+                {
+                  "image": "https://loremflickr.com/3091/2106?lock=4478615941662879",
+                  "name": "Refined Frozen Bacon",
+                  "extraInfo": "Tasty"
+                }
+              ]
+            }
+          },
+          "programCompliance": { "total": 4, "completed": 0 },
+          "purchaseVolume": { "amount": 1586 },
+          "totalSavings": { "amount": 1014 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-ford-gum.png",
+            "name": "Ford Gum"
+          },
+          "programCompliance": { "total": 5, "completed": 0 },
+          "purchaseVolume": { "amount": 7208 },
+          "totalSavings": { "amount": 694 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-floridas-natural.png",
+            "name": "Floridas Natural",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 2, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#716672", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 3, "completed": 0 },
+          "purchaseVolume": { "amount": 8829 },
+          "totalSavings": { "amount": 1328 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-hersheys.png",
+            "name": "Hershey’s",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#4a766e", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 6, "completed": 2 },
+          "purchaseVolume": { "amount": 7935 },
+          "totalSavings": { "amount": 1461 }
+        },
+        {
+          "manufacturer": {
+            "avatar": "/img/avatar-energizer.png",
+            "name": "Energizer",
+            "tierDetails": [
+              {
+                "title": "Tier I - Core 2 Sku",
+                "SKU": { "completed": 1, "total": 2 }
+              },
+              {
+                "title": "Tier II - Core 4 Sku",
+                "SKU": { "chartColor": "#040435", "completed": 4, "total": 4 }
+              }
+            ]
+          },
+          "programCompliance": { "total": 7, "completed": 0 },
+          "purchaseVolume": { "amount": 4213 },
+          "totalSavings": { "amount": 1198 }
+        }
+      ],
+      "remainingProgram": [
+        {
+          "manufacturer": { "avatar": "/img/avatar-pg.png", "name": "P&G" },
+          "programCompliance": { "total": 3, "completed": 2 },
+          "purchaseVolume": { "amount": 4187 },
+          "totalSavings": { "amount": 177 }
+        }
+      ]
+    },
+    "_id": "670503e787d8b59486ed49dd",
+    "id": "904dab13-1c46-4a5b-a1b5-382bb8dbea8c",
+    "__v": 0
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "superAdmin": [
+    {
+      "value": "",
+      "label": "All"
+    },
+    {
+      "value": "MANUFACTURER",
+      "label": "Manufacturer"
+    },
+    {
+      "value": "MANUFACTURER_EXECUTIVE",
+      "label": "Manufacturer Executive"
+    },
+    {
+      "value": "MANUFACTURER_ACCOUNT_MANAGER",
+      "label": "Manufacturer Account Manager"
+    },
+    {
+      "value": "DISTRIBUTOR_ADMIN",
+      "label": "Distributor Admin"
+    },
+    {
+      "value": "DISTRIBUTOR_EXECUTIVE",
+      "label": "Distributor Executive"
+    },
+    {
+      "value": "DISTRIBUTOR_SALES_MANAGER",
+      "label": "Sales Rep Manager"
+    },
+    {
+      "value": "DISTRIBUTOR_SALES_REP",
+      "label": "Distributor Sales Rep"
+    },
+    {
+      "value": "DISTRIBUTOR_GENERAL_MANAGER",
+      "label": "Distributor General Manager"
+    },
+    {
+      "value": "CHAIN_ADMIN",
+      "label": "Chain Admin"
+    },
+    {
+      "value": "STORE",
+      "label": "Store"
+    }
+  ],
+  "manufacturer": [
+    {
+      "value": "",
+      "label": "All"
+    },
+    {
+      "value": "MANUFACTURER_EXECUTIVE",
+      "label": "Executive"
+    }
+  ],
+  "manufacturerWithAM": [
+    {
+      "value": "",
+      "label": "All"
+    },
+    {
+      "value": "MANUFACTURER_EXECUTIVE",
+      "label": "Executive"
+    },
+    {
+      "value": "MANUFACTURER_ACCOUNT_MANAGER",
+      "label": "Account Manager"
+    }
+  ],
+  "distributor": [
+    {
+      "value": "",
+      "label": "All"
+    },
+    {
+      "value": "DISTRIBUTOR_EXECUTIVE",
+      "label": "Distributor Executive"
+    },
+    {
+      "value": "DISTRIBUTOR_SALES_REP",
+      "label": "Distributor Sales Rep"
+    },
+    {
+      "value": "DISTRIBUTOR_SALES_MANAGER",
+      "label": "Sales Rep Manager"
+    }
+  ],
+  "distributorWithManagers": [
+    {
+      "value": "",
+      "label": "All"
+    },
+    {
+      "value": "DISTRIBUTOR_EXECUTIVE",
+      "label": "Distributor Executive"
+    },
+    {
+      "value": "DISTRIBUTOR_SALES_REP",
+      "label": "Distributor Sales Rep"
+    },
+    {
+      "value": "DISTRIBUTOR_SALES_MANAGER",
+      "label": "Sales Rep Manager"
+    },
+    {
+      "value": "DISTRIBUTOR_GENERAL_MANAGER",
+      "label": "Distributor General Manager"
+    }
+  ]
+}

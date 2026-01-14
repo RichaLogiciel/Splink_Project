@@ -1,0 +1,47 @@
+{
+  "name": "spilink-rebate-app-e2e",
+  "version": "1.0.0",
+  "description": "E2E tests using Playwright with Page Object Model",
+  "main": "index.js",
+  "scripts": {
+    "clear-cache": "npx playwright clear-cache",
+    "test": "playwright test",
+    "run-sample-test": "playwright test playwright-e2e-verification.js",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:safari": "playwright test --project=webkit",
+    "test:all-stores-pages": "playwright test sales-rep/store-breakdown-common.spec.ts distributor-admin/store-breakdown-common.spec.ts manufacturer-admin/store-breakdown-common.spec.ts",
+    "test:all-programs-page": "playwright test distributor-admin/distributor-program-detail.spec.js sales-rep/store-program-detail-common.spec.js distributor-admin/store-program-detail-common.spec.js",
+    "test:sandstrom": "playwright test -g \"sandstrom\"",
+    "test:merrill-distributing": "playwright test -g \"Merrill Distributing\"",
+    "test:pitco": "playwright test -g \"Pitco\"",
+    "test:corr-williams": "playwright test -g \"Corr Williams\"",
+    "test:bill-venema": "playwright test -g \"BILL VENEMA\"",
+    "test:rusty": "playwright test -g \"RUSTY JEWETT\"",
+    "test:tammy-grasley": "playwright test -g \"Tammy Grasley\"",
+    "test:paul": "playwright test -g \"Paul\"",
+    "test:manufacturer-store-breakdown": "playwright test manufacturer-admin/store-breakdown-common.spec.ts --retries=1",
+    "test:mobile-white-screen": "playwright test mobile-white-screen.spec.js"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "e2e",
+    "automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "dotenv": "^16.0.3",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0"
+  }
+}

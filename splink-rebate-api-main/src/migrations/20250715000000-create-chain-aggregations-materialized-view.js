@@ -1,0 +1,68 @@
+"use strict";
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    // Create materialized view for chain-level aggregations (idempotent)
+    await queryInterface.sequelize.query(`
+      CREATE MATERIALIZED VIEW IF NOT EXISTS chain_aggregations AS
+      SELECT
+        c.id as chain_id,
+        c.name as chain_name,
+        COUNT(DISTINCT cs.store_id) as total_stores,
+        COUNT(DISTINCT CASE WHEN pp.id IS NOT NULL THEN cs.store_id END) as enrolled_stores,
+        COUNT(DISTINCT CASE WHEN pc.is_qualified = true THEN cs.store_id END) as compliant_stores,
+        COALESCE(SUM(css.total_purchase), 0) as total_purchase_volume,
+        COALESCE(SUM(pc.earned_rebate), 0) as total_earned_rebate,
+        CASE
+          WHEN COUNT(DISTINCT cs.store_id) > 0
+          THEN (COUNT(DISTINCT CASE WHEN pc.is_qualified = true THEN cs.store_id END) * 100.0 / COUNT(DISTINCT cs.store_id))
+          ELSE 0
+        END as compliance_percentage,
+        NOW() as last_updated
+      FROM chains c
+      LEFT JOIN chain_stores cs ON cs.chain_id = c.id
+      LEFT JOIN user_roles ur ON ur.associated_user_id = cs.store_id
+        AND ur.associated_entity_type = 'STORE'
+      LEFT JOIN program_participants pp ON pp.entity_id = cs.store_id
+        AND pp.entity_type = 'STORE'
+        AND pp.deleted_at IS NULL
+      LEFT JOIN program_compliances pc ON pc.entity_id = cs.store_id
+        AND pc.entity_type = 'STORE'
+      LEFT JOIN combined_store_summary css ON css.store_id = cs.store_id
+      GROUP BY c.id, c.name
+    `);
+
+    // Create indexes idempotently
+    await queryInterface.sequelize.query(`
+      CREATE INDEX IF NOT EXISTS idx_chain_aggregations_chain_id ON chain_aggregations(chain_id)
+    `);
+    await queryInterface.sequelize.query(`
+      CREATE INDEX IF NOT EXISTS idx_chain_aggregations_chain_name ON chain_aggregations(chain_name)
+    `);
+    await queryInterface.sequelize.query(`
+      CREATE INDEX IF NOT EXISTS idx_chain_aggregations_purchase_volume ON chain_aggregations(total_purchase_volume)
+    `);
+    await queryInterface.sequelize.query(`
+      CREATE INDEX IF NOT EXISTS idx_chain_aggregations_earned_rebate ON chain_aggregations(total_earned_rebate)
+    `);
+    await queryInterface.sequelize.query(`
+      CREATE INDEX IF NOT EXISTS idx_chain_aggregations_compliance_percentage ON chain_aggregations(compliance_percentage)
+    `);
+    await queryInterface.sequelize.query(`
+      CREATE INDEX IF NOT EXISTS idx_chain_aggregations_total_stores ON chain_aggregations(total_stores)
+    `);
+  },
+
+  async down(queryInterface, Sequelize) {
+    // Drop the materialized view and all indexes if they exist
+    await queryInterface.sequelize.query(`
+      DROP INDEX IF EXISTS idx_chain_aggregations_chain_id;
+      DROP INDEX IF EXISTS idx_chain_aggregations_chain_name;
+      DROP INDEX IF EXISTS idx_chain_aggregations_purchase_volume;
+      DROP INDEX IF EXISTS idx_chain_aggregations_earned_rebate;
+      DROP INDEX IF EXISTS idx_chain_aggregations_compliance_percentage;
+      DROP INDEX IF EXISTS idx_chain_aggregations_total_stores;
+      DROP MATERIALIZED VIEW IF EXISTS chain_aggregations CASCADE;
+    `);
+  }
+};

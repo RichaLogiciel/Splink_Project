@@ -1,0 +1,202 @@
+{
+  "status": "success",
+  "data": {
+    "stores": [
+      {
+        "id": 2332,
+        "externalStoreId": "570203",
+        "userInfo": {
+          "id": 2466,
+          "status": "ACTIVE"
+        },
+        "storeInfo": {
+          "name": "7-CLANS RED LAKE COMP BEVERAGES",
+          "location": "NY, NY",
+          "rep": {
+            "name": "CARTER WENDLANDT"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 0
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 75,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 72,
+        "chainNames": "7-CLANS"
+      },
+      {
+        "id": 2333,
+        "externalStoreId": "570210",
+        "userInfo": {
+          "id": 2467,
+          "status": "ACTIVE"
+        },
+        "storeInfo": {
+          "name": "7-CLANS RED LAKE GIFT SHOP",
+          "location": "New York, New York",
+          "rep": {
+            "name": "CARTER WENDLANDT"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 0
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 75,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 72,
+        "chainNames": "7-CLANS"
+      },
+      {
+        "id": 2334,
+        "externalStoreId": "570245",
+        "userInfo": {
+          "id": 2468,
+          "status": "ACTIVE"
+        },
+        "storeInfo": {
+          "name": "7-CLANS TRF GIFT SHOP",
+          "location": "New York, New York",
+          "rep": {
+            "name": "CARTER WENDLANDT"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 0
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 75,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 72,
+        "chainNames": "7-CLANS"
+      },
+      {
+        "id": 2335,
+        "externalStoreId": "570273",
+        "userInfo": {
+          "id": 2469,
+          "status": "INVITATION_SENT"
+        },
+        "storeInfo": {
+          "name": "7-CLANS WARROAD COMP BEVERAGE",
+          "location": "New York, New York",
+          "rep": {
+            "name": "HOUSE ACCOUNTS"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 0
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 75,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 72,
+        "chainNames": "7-CLANS"
+      },
+      {
+        "id": 2337,
+        "externalStoreId": "570301",
+        "userInfo": {
+          "id": 2471,
+          "status": "CHAIN_ACTIVE"
+        },
+        "storeInfo": {
+          "name": "7-CLANS WARROAD SNACK BAR",
+          "location": "NY, NY",
+          "rep": {
+            "name": "HOUSE ACCOUNTS"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 0
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 75,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 72,
+        "chainNames": "7-CLANS"
+      },
+      {
+        "id": 2336,
+        "externalStoreId": "570280",
+        "userInfo": {
+          "id": 2470,
+          "status": "CHAIN_ACTIVE"
+        },
+        "storeInfo": {
+          "name": "7-CLANS WARROAD VENDING",
+          "location": "NY, NY",
+          "rep": {
+            "name": "CARTER WENDLANDT"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 0
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 75,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 72,
+        "chainNames": "7-CLANS"
+      }
+    ],
+    "totalStores": 6,
+    "currentPage": 1,
+    "totalPages": 1
+  }
+}

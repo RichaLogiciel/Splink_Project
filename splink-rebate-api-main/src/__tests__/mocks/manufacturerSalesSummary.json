@@ -1,0 +1,704 @@
+{
+  "status": "success",
+  "data": {
+    "totalSales": 319154.4099999749,
+    "activeStores": 4119,
+    "units": null,
+    "topProducts": [
+      {
+        "id": 1076,
+        "color": "",
+        "units": null,
+        "sales": 18750.75000000007
+      },
+      {
+        "id": 1075,
+        "color": "",
+        "units": null,
+        "sales": 11792.30999999996
+      },
+      {
+        "id": 1074,
+        "color": "",
+        "units": null,
+        "sales": 11594.179999999971
+      },
+      {
+        "id": 1329,
+        "color": "",
+        "units": null,
+        "sales": 11451.489999999985
+      },
+      {
+        "id": 1164,
+        "color": "",
+        "units": null,
+        "sales": 10580.929999999998
+      },
+      {
+        "id": 1073,
+        "color": "",
+        "units": null,
+        "sales": 9710.579999999985
+      },
+      {
+        "id": 1161,
+        "color": "",
+        "units": null,
+        "sales": 9305.189999999955
+      },
+      {
+        "id": 1116,
+        "color": "",
+        "units": null,
+        "sales": 8496.56999999988
+      },
+      {
+        "id": 1217,
+        "color": "",
+        "units": null,
+        "sales": 8325.18999999999
+      },
+      {
+        "id": 1258,
+        "color": "",
+        "units": null,
+        "sales": 8071.309999999988
+      }
+    ],
+    "chartData": [
+      {
+        "date": "Dec 31",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Jan 01",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Jan 02",
+        "sales": 9504.22999999997,
+        "units": 0
+      },
+      {
+        "date": "Jan 03",
+        "sales": 7528.829999999973,
+        "units": 0
+      },
+      {
+        "date": "Jan 04",
+        "sales": 2715.8799999999983,
+        "units": 0
+      },
+      {
+        "date": "Jan 05",
+        "sales": 800.6,
+        "units": 0
+      },
+      {
+        "date": "Jan 06",
+        "sales": 7556.419999999966,
+        "units": 0
+      },
+      {
+        "date": "Jan 07",
+        "sales": 8789.76999999997,
+        "units": 0
+      },
+      {
+        "date": "Jan 08",
+        "sales": 10078.99999999998,
+        "units": 0
+      },
+      {
+        "date": "Jan 09",
+        "sales": 8714.889999999968,
+        "units": 0
+      },
+      {
+        "date": "Jan 10",
+        "sales": 8942.519999999975,
+        "units": 0
+      },
+      {
+        "date": "Jan 11",
+        "sales": 2377.4599999999987,
+        "units": 0
+      },
+      {
+        "date": "Jan 12",
+        "sales": 1460.2300000000012,
+        "units": 0
+      },
+      {
+        "date": "Jan 13",
+        "sales": 6622.439999999974,
+        "units": 0
+      },
+      {
+        "date": "Jan 14",
+        "sales": 9333.589999999955,
+        "units": 0
+      },
+      {
+        "date": "Jan 15",
+        "sales": 7456.309999999965,
+        "units": 0
+      },
+      {
+        "date": "Jan 16",
+        "sales": 7527.109999999947,
+        "units": 0
+      },
+      {
+        "date": "Jan 17",
+        "sales": 8070.009999999945,
+        "units": 0
+      },
+      {
+        "date": "Jan 18",
+        "sales": 2584.559999999997,
+        "units": 0
+      },
+      {
+        "date": "Jan 19",
+        "sales": 601.9000000000001,
+        "units": 0
+      },
+      {
+        "date": "Jan 20",
+        "sales": 7182.889999999949,
+        "units": 0
+      },
+      {
+        "date": "Jan 21",
+        "sales": 8776.64999999997,
+        "units": 0
+      },
+      {
+        "date": "Jan 22",
+        "sales": 6686.019999999967,
+        "units": 0
+      },
+      {
+        "date": "Jan 23",
+        "sales": 7828.779999999953,
+        "units": 0
+      },
+      {
+        "date": "Jan 24",
+        "sales": 8540.06999999996,
+        "units": 0
+      },
+      {
+        "date": "Jan 25",
+        "sales": 2491.5499999999984,
+        "units": 0
+      },
+      {
+        "date": "Jan 26",
+        "sales": 892.8000000000004,
+        "units": 0
+      },
+      {
+        "date": "Jan 27",
+        "sales": 6745.319999999972,
+        "units": 0
+      },
+      {
+        "date": "Jan 28",
+        "sales": 7871.869999999959,
+        "units": 0
+      },
+      {
+        "date": "Jan 29",
+        "sales": 7146.349999999962,
+        "units": 0
+      },
+      {
+        "date": "Jan 30",
+        "sales": 7488.839999999961,
+        "units": 0
+      },
+      {
+        "date": "Jan 31",
+        "sales": 6431.439999999966,
+        "units": 0
+      },
+      {
+        "date": "Feb 01",
+        "sales": 2286.8700000000003,
+        "units": 0
+      },
+      {
+        "date": "Feb 02",
+        "sales": 690.7,
+        "units": 0
+      },
+      {
+        "date": "Feb 03",
+        "sales": 8148.419999999978,
+        "units": 0
+      },
+      {
+        "date": "Feb 04",
+        "sales": 9688.19999999997,
+        "units": 0
+      },
+      {
+        "date": "Feb 05",
+        "sales": 7434.799999999955,
+        "units": 0
+      },
+      {
+        "date": "Feb 06",
+        "sales": 8242.769999999959,
+        "units": 0
+      },
+      {
+        "date": "Feb 07",
+        "sales": 8771.719999999956,
+        "units": 0
+      },
+      {
+        "date": "Feb 08",
+        "sales": 2507.4899999999984,
+        "units": 0
+      },
+      {
+        "date": "Feb 09",
+        "sales": 668.47,
+        "units": 0
+      },
+      {
+        "date": "Feb 10",
+        "sales": 7436.929999999957,
+        "units": 0
+      },
+      {
+        "date": "Feb 11",
+        "sales": 7839.659999999959,
+        "units": 0
+      },
+      {
+        "date": "Feb 12",
+        "sales": 7311.019999999965,
+        "units": 0
+      },
+      {
+        "date": "Feb 13",
+        "sales": 7486.299999999952,
+        "units": 0
+      },
+      {
+        "date": "Feb 14",
+        "sales": 7380.049999999962,
+        "units": 0
+      },
+      {
+        "date": "Feb 15",
+        "sales": 2400.389999999998,
+        "units": 0
+      },
+      {
+        "date": "Feb 16",
+        "sales": 942.0300000000002,
+        "units": 0
+      },
+      {
+        "date": "Feb 17",
+        "sales": 7095.83999999996,
+        "units": 0
+      },
+      {
+        "date": "Feb 18",
+        "sales": 8255.56999999995,
+        "units": 0
+      },
+      {
+        "date": "Feb 19",
+        "sales": 7067.389999999935,
+        "units": 0
+      },
+      {
+        "date": "Feb 20",
+        "sales": 6724.1199999999635,
+        "units": 0
+      },
+      {
+        "date": "Feb 21",
+        "sales": 9024.869999999977,
+        "units": 0
+      },
+      {
+        "date": "Feb 22",
+        "sales": 3002.469999999992,
+        "units": 0
+      },
+      {
+        "date": "Feb 23",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Feb 24",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Feb 25",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Feb 26",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Feb 27",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Feb 28",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Mar 01",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Mar 02",
+        "sales": 0,
+        "units": 0
+      },
+      {
+        "date": "Mar 03",
+        "sales": 0,
+        "units": 0
+      }
+    ],
+    "storePenetrationChartData": [
+      {
+        "date": "Dec 31",
+        "storesCount": 0,
+        "value": 0
+      },
+      {
+        "date": "Jan 01",
+        "storesCount": 0,
+        "value": 0
+      },
+      {
+        "date": "Jan 02",
+        "storesCount": 236,
+        "value": 5.729546006312212
+      },
+      {
+        "date": "Jan 03",
+        "storesCount": 472,
+        "value": 11.459092012624424
+      },
+      {
+        "date": "Jan 04",
+        "storesCount": 553,
+        "value": 13.425588735129887
+      },
+      {
+        "date": "Jan 05",
+        "storesCount": 573,
+        "value": 13.911143481427532
+      },
+      {
+        "date": "Jan 06",
+        "storesCount": 766,
+        "value": 18.596746783199805
+      },
+      {
+        "date": "Jan 07",
+        "storesCount": 993,
+        "value": 24.107793153678077
+      },
+      {
+        "date": "Jan 08",
+        "storesCount": 1156,
+        "value": 28.065064336003886
+      },
+      {
+        "date": "Jan 09",
+        "storesCount": 1315,
+        "value": 31.925224569070163
+      },
+      {
+        "date": "Jan 10",
+        "storesCount": 1483,
+        "value": 36.003884437970385
+      },
+      {
+        "date": "Jan 11",
+        "storesCount": 1529,
+        "value": 37.12066035445497
+      },
+      {
+        "date": "Jan 12",
+        "storesCount": 1559,
+        "value": 37.84899247390144
+      },
+      {
+        "date": "Jan 13",
+        "storesCount": 1690,
+        "value": 41.029376062151016
+      },
+      {
+        "date": "Jan 14",
+        "storesCount": 1827,
+        "value": 44.35542607428989
+      },
+      {
+        "date": "Jan 15",
+        "storesCount": 1942,
+        "value": 47.14736586550135
+      },
+      {
+        "date": "Jan 16",
+        "storesCount": 2031,
+        "value": 49.30808448652587
+      },
+      {
+        "date": "Jan 17",
+        "storesCount": 2111,
+        "value": 51.25030347171645
+      },
+      {
+        "date": "Jan 18",
+        "storesCount": 2144,
+        "value": 52.05146880310756
+      },
+      {
+        "date": "Jan 19",
+        "storesCount": 2160,
+        "value": 52.439912600145675
+      },
+      {
+        "date": "Jan 20",
+        "storesCount": 2244,
+        "value": 54.479242534595784
+      },
+      {
+        "date": "Jan 21",
+        "storesCount": 2329,
+        "value": 56.542850206360775
+      },
+      {
+        "date": "Jan 22",
+        "storesCount": 2396,
+        "value": 58.16945860645789
+      },
+      {
+        "date": "Jan 23",
+        "storesCount": 2474,
+        "value": 60.0631221170187
+      },
+      {
+        "date": "Jan 24",
+        "storesCount": 2540,
+        "value": 61.66545277980093
+      },
+      {
+        "date": "Jan 25",
+        "storesCount": 2561,
+        "value": 62.17528526341346
+      },
+      {
+        "date": "Jan 26",
+        "storesCount": 2571,
+        "value": 62.41806263656228
+      },
+      {
+        "date": "Jan 27",
+        "storesCount": 2619,
+        "value": 63.58339402767663
+      },
+      {
+        "date": "Jan 28",
+        "storesCount": 2678,
+        "value": 65.01578052925468
+      },
+      {
+        "date": "Jan 29",
+        "storesCount": 2724,
+        "value": 66.13255644573927
+      },
+      {
+        "date": "Jan 30",
+        "storesCount": 2770,
+        "value": 67.24933236222385
+      },
+      {
+        "date": "Jan 31",
+        "storesCount": 2819,
+        "value": 68.43894149065308
+      },
+      {
+        "date": "Feb 01",
+        "storesCount": 2842,
+        "value": 68.99732944889537
+      },
+      {
+        "date": "Feb 02",
+        "storesCount": 2850,
+        "value": 69.19155134741443
+      },
+      {
+        "date": "Feb 03",
+        "storesCount": 2898,
+        "value": 70.35688273852878
+      },
+      {
+        "date": "Feb 04",
+        "storesCount": 2937,
+        "value": 71.3037144938092
+      },
+      {
+        "date": "Feb 05",
+        "storesCount": 2970,
+        "value": 72.10487982520031
+      },
+      {
+        "date": "Feb 06",
+        "storesCount": 2995,
+        "value": 72.71182325807237
+      },
+      {
+        "date": "Feb 07",
+        "storesCount": 3025,
+        "value": 73.44015537751883
+      },
+      {
+        "date": "Feb 08",
+        "storesCount": 3046,
+        "value": 73.94998786113136
+      },
+      {
+        "date": "Feb 09",
+        "storesCount": 3053,
+        "value": 74.11993202233553
+      },
+      {
+        "date": "Feb 10",
+        "storesCount": 3092,
+        "value": 75.06676377761595
+      },
+      {
+        "date": "Feb 11",
+        "storesCount": 3129,
+        "value": 75.9650400582666
+      },
+      {
+        "date": "Feb 12",
+        "storesCount": 3157,
+        "value": 76.6448167030833
+      },
+      {
+        "date": "Feb 13",
+        "storesCount": 3192,
+        "value": 77.49453750910418
+      },
+      {
+        "date": "Feb 14",
+        "storesCount": 3219,
+        "value": 78.150036416606
+      },
+      {
+        "date": "Feb 15",
+        "storesCount": 3236,
+        "value": 78.562757950959
+      },
+      {
+        "date": "Feb 16",
+        "storesCount": 3250,
+        "value": 78.90264627336735
+      },
+      {
+        "date": "Feb 17",
+        "storesCount": 3281,
+        "value": 79.6552561301287
+      },
+      {
+        "date": "Feb 18",
+        "storesCount": 3305,
+        "value": 80.23792182568587
+      },
+      {
+        "date": "Feb 19",
+        "storesCount": 3326,
+        "value": 80.7477543092984
+      },
+      {
+        "date": "Feb 20",
+        "storesCount": 3348,
+        "value": 81.2818645302258
+      },
+      {
+        "date": "Feb 21",
+        "storesCount": 3369,
+        "value": 81.79169701383833
+      },
+      {
+        "date": "Feb 22",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Feb 23",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Feb 24",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Feb 25",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Feb 26",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Feb 27",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Feb 28",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Mar 01",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Mar 02",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      },
+      {
+        "date": "Mar 03",
+        "storesCount": 3380,
+        "value": 82.05875212430203
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+# COMMENTED OUT: This workflow is currently commented out. Uncomment to enable it.
+# This workflow runs Playwright tests on the Dev branch when triggered manually or via repository dispatch.
+
+# name: Run Playwright test on Dev Branch
+
+# on:
+#   workflow_dispatch:
+#   repository_dispatch:
+#     types: [run-playwright-tests]
+
+# jobs:
+#   run-playwright-tests:
+#     environment: DEV
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '20'  # or '16', as per your project
+#       - name: Create ENV file
+#         run: |
+#           env_variables=$(echo '${{ toJson(vars) }}' | jq -r 'to_entries[] | "\(.key)=\"\(.value)\""' )
+#           touch .env
+#           echo "$env_variables" > .env
+#           echo "SUPER_ADMIN_PASSWORD=\"${{ secrets.SUPER_ADMIN_PASSWORD }}\"" >> .env
+#           cat .env
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Install Playwright dependencies
+#         run: |
+#           # npm ci
+#           npx playwright install --with-deps
+
+#       - name: Run Playwright tests
+#         run: |
+#           npx playwright test

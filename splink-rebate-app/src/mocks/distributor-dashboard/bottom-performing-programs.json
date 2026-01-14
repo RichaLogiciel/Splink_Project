@@ -1,0 +1,20 @@
+[
+  {
+    "manufacturer": "Form Gum",
+    "saleVolume": 4000,
+    "savings": 120,
+    "logo": "/img/avatar-ford-gum.png"
+  },
+  {
+    "manufacturer": "Floridas Natural",
+    "saleVolume": 7200,
+    "savings": 160,
+    "logo": "/img/avatar-floridas-natural.png"
+  },
+  {
+    "manufacturer": "P&G",
+    "saleVolume": 6000,
+    "savings": 225,
+    "logo": "/img/avatar-pg.png"
+  }
+]

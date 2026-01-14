@@ -1,0 +1,56 @@
+{
+  "family": "<TASK_FAMILY>",
+  "cpu": "512",
+  "memory": "1024",
+  "containerDefinitions": [
+    {
+      "name": "<CONTAINER_NAME>",
+      "image": "<IMAGE_URI>",
+      "cpu": 512,
+      "memory": 1024,
+      "portMappings": [
+        {
+          "containerPort": 3002,
+          "hostPort": 3002,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "ENV",
+          "value": "staging"
+        },
+        {
+          "name": "REDIS_URL",
+          "value": "${REDIS_URL}"
+        }
+      ],
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:3002/health || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/staging-splink-rebate-worker",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "mountPoints": [],
+      "volumesFrom": [],
+      "systemControls": []
+    }
+  ],
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "executionRoleArn": "<STAGE_EXECUTION_ROLE_ARN>",
+  "taskRoleArn": "<STAGE_TASK_ROLE_ARN>"
+}

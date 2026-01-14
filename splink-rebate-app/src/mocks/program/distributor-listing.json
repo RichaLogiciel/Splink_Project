@@ -1,0 +1,317 @@
+[
+  {
+    "id": "1",
+    "manufacturer": {
+      "avatar": "/img/avatar-wonderful-pistachios.png",
+      "name": "Wonderful Pistachios"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 580000,
+        "yoy": 6
+      },
+      "totalSavings": {
+        "amount": 17400,
+        "yoy": 7
+      },
+      "totalOppSavings": {
+        "amount": 34800
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1365
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "2%"
+      },
+      {
+        "type": "Point of Distribution",
+        "complianceStatus": false,
+        "rebate": "3%"
+      },
+      {
+        "type": "Innovation",
+        "complianceStatus": true,
+        "rebate": "1%"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "manufacturer": {
+      "avatar": "/img/avatar-lil-drug-store.png",
+      "name": "Lil’ Drug Store"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 2050600,
+        "yoy": 8
+      },
+      "totalSavings": {
+        "amount": 40600,
+        "yoy": 4
+      },
+      "totalOppSavings": {
+        "amount": 15000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 800
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "5%"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "manufacturer": {
+      "avatar": "/img/avatar-floridas-natural.png",
+      "name": "Floridas Natural"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 180000,
+        "yoy": 4
+      },
+      "totalSavings": {
+        "amount": 12600,
+        "yoy": 2
+      },
+      "totalOppSavings": {
+        "amount": 12000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 600
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "7%"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "manufacturer": {
+      "avatar": "/img/avatar-perfetti-van-melle.png",
+      "name": "Perfetti Van Melle"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 2830400,
+        "yoy": 5
+      },
+      "totalSavings": {
+        "amount": 50630,
+        "yoy": 6
+      },
+      "totalOppSavings": {
+        "amount": 28000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1150
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "2.5%"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "manufacturer": {
+      "avatar": "/img/avatar-ford-gum.png",
+      "name": "Ford Gum"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 198450,
+        "yoy": 10
+      },
+      "totalSavings": {
+        "amount": 16200,
+        "yoy": 9
+      },
+      "totalOppSavings": {
+        "amount": 35000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1300
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "3%"
+      },
+      {
+        "type": "Point of Distribution",
+        "complianceStatus": true,
+        "rebate": "3%"
+      },
+      {
+        "type": "Innovation",
+        "complianceStatus": true,
+        "rebate": "6%"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "manufacturer": {
+      "avatar": "/img/avatar-highline-warren.png",
+      "name": "Highline Warren"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 1980000,
+        "yoy": 3
+      },
+      "totalSavings": {
+        "amount": 43970,
+        "yoy": 5
+      },
+      "totalOppSavings": {
+        "amount": 22000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 950
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "2%"
+      },
+      {
+        "type": "Point of Distribution",
+        "complianceStatus": true,
+        "rebate": "4%"
+      },
+      {
+        "type": "Innovation",
+        "complianceStatus": true,
+        "rebate": "1%"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "manufacturer": {
+      "avatar": "/img/avatar-hersheys.png",
+      "name": "Hershey’s"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 3130000,
+        "yoy": 12
+      },
+      "totalSavings": {
+        "amount": 45250,
+        "yoy": 11
+      },
+      "totalOppSavings": {
+        "amount": 50000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1500
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "3%"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "manufacturer": {
+      "avatar": "/img/avatar-energizer.png",
+      "name": "Energizer"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 498450,
+        "yoy": 7
+      },
+      "totalSavings": {
+        "amount": 29000,
+        "yoy": 6
+      },
+      "totalOppSavings": {
+        "amount": 20000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 720
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "2%"
+      },
+      {
+        "type": "Point of Distribution",
+        "complianceStatus": true,
+        "rebate": "3%"
+      },
+      {
+        "type": "Innovation",
+        "complianceStatus": true,
+        "rebate": "2%"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "manufacturer": {
+      "avatar": "/img/avatar-pg.png",
+      "name": "P&G"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 980000,
+        "yoy": 9
+      },
+      "totalSavings": {
+        "amount": 43970,
+        "yoy": 8
+      },
+      "totalOppSavings": {
+        "amount": 29000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1000
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": true,
+        "rebate": "2%"
+      },
+      {
+        "type": "Point of Distribution",
+        "complianceStatus": true,
+        "rebate": "5%"
+      }
+    ]
+  }
+]

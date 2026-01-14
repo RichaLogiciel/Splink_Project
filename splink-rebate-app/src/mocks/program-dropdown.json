@@ -1,0 +1,22 @@
+[
+  {
+    "label": "All Programs",
+    "value": ""
+  },
+  {
+    "label": "Base",
+    "value": "base"
+  },
+  {
+    "label": "Point of Distribution",
+    "value": "point-of-distribution"
+  },
+  {
+    "label": "Innovation",
+    "value": "innovation"
+  },
+  {
+    "label": "Catchall",
+    "value": "catchall"
+  }
+]

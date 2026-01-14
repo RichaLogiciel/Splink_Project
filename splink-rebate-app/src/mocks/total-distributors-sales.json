@@ -1,0 +1,576 @@
+{
+  "1": {
+    "totalSale": 1200000,
+    "filtered": {
+      "all": 1200000,
+      "salty": 1000000,
+      "snack": 100000,
+      "confection": 100000
+    },
+    "barChartData": [
+      {
+        "date": "Aug 29",
+        "sales": 1270,
+        "filtered": {
+          "all": 1270,
+          "salty": 270,
+          "snack": 500,
+          "confection": 500
+        }
+      },
+      {
+        "date": "Aug 30",
+        "sales": 3566,
+        "filtered": {
+          "all": 3566,
+          "salty": 1000,
+          "snack": 1300,
+          "confection": 1266
+        }
+      },
+      {
+        "date": "Aug 31",
+        "sales": 1150,
+        "filtered": {
+          "all": 1150,
+          "salty": 400,
+          "snack": 450,
+          "confection": 300
+        }
+      },
+      {
+        "date": "Sep 01",
+        "sales": 3711,
+        "filtered": {
+          "all": 3711,
+          "salty": 1200,
+          "snack": 1300,
+          "confection": 1211
+        }
+      },
+      {
+        "date": "Sep 02",
+        "sales": 4744,
+        "filtered": {
+          "all": 4744,
+          "salty": 1500,
+          "snack": 1600,
+          "confection": 1644
+        }
+      },
+      {
+        "date": "Sep 03",
+        "sales": 3783,
+        "filtered": {
+          "all": 3783,
+          "salty": 1300,
+          "snack": 1200,
+          "confection": 1283
+        }
+      },
+      {
+        "date": "Sep 04",
+        "sales": 4945,
+        "filtered": {
+          "all": 4945,
+          "salty": 1600,
+          "snack": 1800,
+          "confection": 1545
+        }
+      },
+      {
+        "date": "Sep 05",
+        "sales": 2124,
+        "filtered": {
+          "all": 2124,
+          "salty": 700,
+          "snack": 800,
+          "confection": 624
+        }
+      },
+      {
+        "date": "Sep 06",
+        "sales": 2777,
+        "filtered": {
+          "all": 2777,
+          "salty": 1000,
+          "snack": 900,
+          "confection": 877
+        }
+      },
+      {
+        "date": "Sep 07",
+        "sales": 3802,
+        "filtered": {
+          "all": 3802,
+          "salty": 1300,
+          "snack": 1300,
+          "confection": 1202
+        }
+      },
+      {
+        "date": "Sep 08",
+        "sales": 2851,
+        "filtered": {
+          "all": 2851,
+          "salty": 900,
+          "snack": 1000,
+          "confection": 951
+        }
+      },
+      {
+        "date": "Sep 09",
+        "sales": 2386,
+        "filtered": {
+          "all": 2386,
+          "salty": 800,
+          "snack": 900,
+          "confection": 686
+        }
+      },
+      {
+        "date": "Sep 10",
+        "sales": 3259,
+        "filtered": {
+          "all": 3259,
+          "salty": 1100,
+          "snack": 1200,
+          "confection": 959
+        }
+      },
+      {
+        "date": "Sep 11",
+        "sales": 1006,
+        "filtered": {
+          "all": 1006,
+          "salty": 300,
+          "snack": 400,
+          "confection": 306
+        }
+      },
+      {
+        "date": "Sep 12",
+        "sales": 3692,
+        "filtered": {
+          "all": 3692,
+          "salty": 1200,
+          "snack": 1300,
+          "confection": 1192
+        }
+      },
+      {
+        "date": "Sep 13",
+        "sales": 821,
+        "filtered": {
+          "all": 821,
+          "salty": 300,
+          "snack": 300,
+          "confection": 221
+        }
+      },
+      {
+        "date": "Sep 14",
+        "sales": 590,
+        "filtered": {
+          "all": 590,
+          "salty": 200,
+          "snack": 200,
+          "confection": 190
+        }
+      },
+      {
+        "date": "Sep 15",
+        "sales": 1759,
+        "filtered": {
+          "all": 1759,
+          "salty": 600,
+          "snack": 600,
+          "confection": 559
+        }
+      },
+      {
+        "date": "Sep 16",
+        "sales": 2772,
+        "filtered": {
+          "all": 2772,
+          "salty": 900,
+          "snack": 1000,
+          "confection": 872
+        }
+      },
+      {
+        "date": "Sep 17",
+        "sales": 3620,
+        "filtered": {
+          "all": 3620,
+          "salty": 1200,
+          "snack": 1400,
+          "confection": 1020
+        }
+      },
+      {
+        "date": "Sep 18",
+        "sales": 3708,
+        "filtered": {
+          "all": 3708,
+          "salty": 1300,
+          "snack": 1200,
+          "confection": 1208
+        }
+      },
+      {
+        "date": "Sep 19",
+        "sales": 1129,
+        "filtered": {
+          "all": 1129,
+          "salty": 400,
+          "snack": 400,
+          "confection": 329
+        }
+      },
+      {
+        "date": "Sep 20",
+        "sales": 4352,
+        "filtered": {
+          "all": 4352,
+          "salty": 1500,
+          "snack": 1500,
+          "confection": 1352
+        }
+      },
+      {
+        "date": "Sep 21",
+        "sales": 3977,
+        "filtered": {
+          "all": 3977,
+          "salty": 1400,
+          "snack": 1300,
+          "confection": 1277
+        }
+      },
+      {
+        "date": "Sep 22",
+        "sales": 4525,
+        "filtered": {
+          "all": 4525,
+          "salty": 1600,
+          "snack": 1500,
+          "confection": 1425
+        }
+      },
+      {
+        "date": "Sep 23",
+        "sales": 637,
+        "filtered": {
+          "all": 637,
+          "salty": 200,
+          "snack": 200,
+          "confection": 237
+        }
+      },
+      {
+        "date": "Sep 24",
+        "sales": 3488,
+        "filtered": {
+          "all": 3488,
+          "salty": 1200,
+          "snack": 1200,
+          "confection": 1088
+        }
+      },
+      {
+        "date": "Sep 25",
+        "sales": 3652,
+        "filtered": {
+          "all": 3652,
+          "salty": 1300,
+          "snack": 1200,
+          "confection": 1152
+        }
+      },
+      {
+        "date": "Sep 26",
+        "sales": 3027,
+        "filtered": {
+          "all": 3027,
+          "salty": 1000,
+          "snack": 1100,
+          "confection": 927
+        }
+      },
+      {
+        "date": "Sep 27",
+        "sales": 1966,
+        "filtered": {
+          "all": 1966,
+          "salty": 600,
+          "snack": 700,
+          "confection": 666
+        }
+      },
+      {
+        "date": "Sep 28",
+        "sales": 4341,
+        "filtered": {
+          "all": 4341,
+          "salty": 1500,
+          "snack": 1400,
+          "confection": 1441
+        }
+      },
+      {
+        "date": "Sep 29",
+        "sales": 2305,
+        "filtered": {
+          "all": 2305,
+          "salty": 800,
+          "snack": 800,
+          "confection": 705
+        }
+      }
+    ]
+  },
+  "3": {
+    "totalSale": 2200000,
+    "filtered": {
+      "all": 2200000,
+      "salty": 1000000,
+      "snack": 1000000,
+      "confection": 200000
+    },
+    "barChartData": [
+      {
+        "date": "June",
+        "sales": 80000,
+        "filtered": {
+          "all": 80000,
+          "salty": 30000,
+          "snack": 25000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "July",
+        "sales": 70000,
+        "filtered": {
+          "all": 70000,
+          "salty": 25000,
+          "snack": 20000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "August",
+        "sales": 90000,
+        "filtered": {
+          "all": 90000,
+          "salty": 30000,
+          "snack": 30000,
+          "confection": 30000
+        }
+      }
+    ]
+  },
+  "6": {
+    "totalSale": 3200000,
+    "filtered": {
+      "all": 3200000,
+      "salty": 3000000,
+      "snack": 2000000,
+      "confection": 200000
+    },
+    "barChartData": [
+      {
+        "date": "March",
+        "sales": 80000,
+        "filtered": {
+          "all": 80000,
+          "salty": 30000,
+          "snack": 25000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "April",
+        "sales": 70000,
+        "filtered": {
+          "all": 70000,
+          "salty": 25000,
+          "snack": 22000,
+          "confection": 23000
+        }
+      },
+      {
+        "date": "May",
+        "sales": 90000,
+        "filtered": {
+          "all": 90000,
+          "salty": 30000,
+          "snack": 35000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "June",
+        "sales": 70000,
+        "filtered": {
+          "all": 70000,
+          "salty": 25000,
+          "snack": 22000,
+          "confection": 23000
+        }
+      },
+      {
+        "date": "July",
+        "sales": 60000,
+        "filtered": {
+          "all": 60000,
+          "salty": 20000,
+          "snack": 20000,
+          "confection": 20000
+        }
+      },
+      {
+        "date": "August",
+        "sales": 80000,
+        "filtered": {
+          "all": 80000,
+          "salty": 30000,
+          "snack": 25000,
+          "confection": 25000
+        }
+      }
+    ]
+  },
+  "12": {
+    "totalSale": 5200000,
+    "filtered": {
+      "all": 5200000,
+      "salty": 3000000,
+      "snack": 2000000,
+      "confection": 200000
+    },
+    "barChartData": [
+      {
+        "date": "January",
+        "sales": 80000,
+        "filtered": {
+          "all": 80000,
+          "salty": 30000,
+          "snack": 25000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "February",
+        "sales": 70000,
+        "filtered": {
+          "all": 70000,
+          "salty": 25000,
+          "snack": 22000,
+          "confection": 23000
+        }
+      },
+      {
+        "date": "March",
+        "sales": 90000,
+        "filtered": {
+          "all": 90000,
+          "salty": 30000,
+          "snack": 35000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "April",
+        "sales": 70000,
+        "filtered": {
+          "all": 70000,
+          "salty": 25000,
+          "snack": 22000,
+          "confection": 23000
+        }
+      },
+      {
+        "date": "May",
+        "sales": 60000,
+        "filtered": {
+          "all": 60000,
+          "salty": 20000,
+          "snack": 20000,
+          "confection": 20000
+        }
+      },
+      {
+        "date": "June",
+        "sales": 80000,
+        "filtered": {
+          "all": 80000,
+          "salty": 30000,
+          "snack": 25000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "July",
+        "sales": 90000,
+        "filtered": {
+          "all": 90000,
+          "salty": 30000,
+          "snack": 35000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "August",
+        "sales": 72000,
+        "filtered": {
+          "all": 72000,
+          "salty": 24000,
+          "snack": 24000,
+          "confection": 24000
+        }
+      },
+      {
+        "date": "September",
+        "sales": 60000,
+        "filtered": {
+          "all": 60000,
+          "salty": 20000,
+          "snack": 20000,
+          "confection": 20000
+        }
+      },
+      {
+        "date": "October",
+        "sales": 80000,
+        "filtered": {
+          "all": 80000,
+          "salty": 30000,
+          "snack": 25000,
+          "confection": 25000
+        }
+      },
+      {
+        "date": "November",
+        "sales": 60000,
+        "filtered": {
+          "all": 60000,
+          "salty": 20000,
+          "snack": 20000,
+          "confection": 20000
+        }
+      },
+      {
+        "date": "December",
+        "sales": 50000,
+        "filtered": {
+          "all": 50000,
+          "salty": 17000,
+          "snack": 16000,
+          "confection": 17000
+        }
+      }
+    ]
+  }
+}

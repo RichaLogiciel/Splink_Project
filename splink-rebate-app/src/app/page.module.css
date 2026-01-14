@@ -1,0 +1,11 @@
+@media (max-width: 469px) {
+  .metricItem {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .mySalesHeader {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,120 @@
+name: Deploy to Dev Amazon ECS
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types:
+      - closed
+
+jobs:
+  deploy:
+    name: Deploy to Dev ECS
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    env:
+      CLUSTER: ${{ vars.ECS_CLUSTER }}
+      SERVICE: ${{ vars.ECS_SERVICE }}
+      REGION: ${{ vars.AWS_REGION }}
+      ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
+      IMAGE_TAG: ${{ vars.IMAGE_TAG }}
+      TASK_FAMILY: ${{ vars.TASK_FAMILY }}
+      CONTAINER_NAME: ${{ vars.CONTAINER_NAME }}
+      EXECUTION_ROLE_ARN: ${{ vars.EXECUTION_ROLE_ARN }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, Tag, and Push Docker Image
+        id: build-image
+        run: |
+          set -euo pipefail
+          ECR_REGISTRY=$(aws ecr describe-repositories --repository-names "${{ env.ECR_REPOSITORY }}" --query 'repositories[0].repositoryUri' --output text)
+          IMAGE_TAG="${{ env.IMAGE_TAG }}"
+          BRANCH_NAME="${{ github.ref_name }}"
+
+          echo "Building image with tag: $ECR_REGISTRY:$IMAGE_TAG for branch: $BRANCH_NAME"
+
+          if [ "$BRANCH_NAME" = "develop" ]; then
+            ENV=develop
+          else
+            ENV=main
+          fi
+
+          docker build --build-arg ENV=$ENV -t "$ECR_REGISTRY:$IMAGE_TAG" .
+          docker push "$ECR_REGISTRY:$IMAGE_TAG"
+
+          echo "IMAGE_URI=$ECR_REGISTRY:$IMAGE_TAG" >> $GITHUB_ENV
+
+      - name: Generate ECS Task Definition
+        id: generate-td
+        run: |
+          set -euo pipefail
+          REDIS_URL="${{ secrets.DEV_REDIS_URL }}"
+          sed "s|<EXECUTION_ROLE_ARN>|${{ env.EXECUTION_ROLE_ARN }}|g; \
+              s|<TASK_FAMILY>|${{ env.TASK_FAMILY }}|g; \
+              s|<CONTAINER_NAME>|${{ env.CONTAINER_NAME }}|g; \
+              s|<IMAGE_URI>|${{ env.IMAGE_URI }}|g; \
+              s|\${REDIS_URL}|$REDIS_URL|g" \
+              .github/workflows/td-template-dev.json > td.json
+          # show a short preview for debugging
+          echo "=== task definition preview ==="
+          jq '.containerDefinitions[] | {name:image, memory, memoryReservation, portMappings}' td.json || true
+
+      - name: Render New ECS Task Definition (validate)
+        id: render-task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: td.json
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ env.IMAGE_URI }}
+
+      - name: Register Task Definition
+        id: register-task-def
+        run: |
+          set -euo pipefail
+          # Register the task definition and capture the ARN
+          TASK_DEF_ARN=$(aws ecs register-task-definition --cli-input-json file://td.json --query 'taskDefinition.taskDefinitionArn' --output text)
+          echo "Registered task definition: $TASK_DEF_ARN"
+          echo "TASK_DEF_ARN=$TASK_DEF_ARN" >> $GITHUB_ENV
+
+      - name: Deploy (force new deployment, allow immediate stop of old task)
+        id: update-service
+        run: |
+          set -euo pipefail
+          # Update the service with deployment configuration that allows ECS to stop old tasks immediately
+          echo "Updating ECS service $SERVICE on cluster $CLUSTER to use task definition $TASK_DEF_ARN"
+          aws ecs update-service \
+            --cluster "$CLUSTER" \
+            --service "$SERVICE" \
+            --task-definition "$TASK_DEF_ARN" \
+            --deployment-configuration "maximumPercent=100,minimumHealthyPercent=0" \
+            --force-new-deployment
+
+      - name: Wait for service to become stable
+        id: wait-stable
+        run: |
+          set -euo pipefail
+          echo "Waiting for service to reach stable state..."
+          aws ecs wait services-stable --cluster "$CLUSTER" --services "$SERVICE"
+          echo "Service is stable."
+
+      - name: Describe service (for logs / verification)
+        if: always()
+        run: |
+          aws ecs describe-services --cluster "$CLUSTER" --services "$SERVICE" --output json
+
+      - name: Done
+        run: echo "Deployment finished."

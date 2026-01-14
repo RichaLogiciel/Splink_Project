@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 79 70 229;
+    --color-dark: 31 41 55;
+    --color-danger: 200 30 30;
+    --color-success: 4 108 78;
+    --color-warning: 277 160 8;
+    --color-white: 255 255 255;
+    --color-black: 0 0 0;
+    --color-error: 253 52 52;
+  }
+
+  html {
+    font-size: 16px;
+  }
+}
+
+@layer utilities {
+  /* For WebKit Browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    appearance: none; /* This is implied but good for clarity */
+    width: 4px; /* Set the width for vertical scrollbar */
+    height: 4px; /* Set the height for horizontal scrollbar */
+    padding: 0 24px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #bfbfbf; /* Custom color for the scrollbar thumb */
+    border-radius: 25px; /* Rounded scrollbar thumb */
+    padding: 0 24px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a6a6a6; /* Hover effect for the thumb */
+    padding: 0 24px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Custom color for the track */
+    border-radius: 25px; /* Optional rounded track corners */
+    padding: 0 24px;
+  }
+
+  /* Hide Scrollbar Arrows */
+  ::-webkit-scrollbar-button {
+    display: none; /* Remove arrows */
+  }
+}
+
+/* RadioBox*/
+input[type="radio"]:focus {
+  box-shadow: none;
+}
+
+/* Checkboxes*/
+input[type="checkbox"]:focus {
+  box-shadow: none;
+}
+
+/* Custom Selectbox */
+.custom-dropdown {
+  @apply appearance-none;
+  @apply relative;
+  @apply bg-no-repeat;
+  background-image: url("../assets/icons/arrowDown.svg");
+  background-size: 11px;
+  background-position: calc(100% - 12px) calc(50% + 1px);
+}
+
+/* MultiSelect */
+.react-select__control {
+  cursor: pointer !important;
+}
+
+.react-select__option {
+  cursor: pointer !important;
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+
+  .react-datepicker__view-calendar-icon input {
+    padding: 8px 10px 8px 30px;
+  }
+}
+
+.login-bg {
+  background: linear-gradient(
+    158.45deg,
+    #106210 0.57%,
+    #189618 71.35%,
+    #21c821 100%
+  );
+}
+
+.profile-icon:hover .profile-dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+
+.space-y-4 .flex:not(:last-child) .flex-none.w-16.relative::before {
+  content: "";
+  width: 1px;
+  height: calc(100% - 45px);
+  position: absolute;
+  top: 60px;
+  border: 1px dashed;
+  left: 50%;
+}

@@ -1,0 +1,16 @@
+test-results
+playwright-report
+node_modules
+.qodo
+.env
+.cursor
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/docs/*
+/doc/*
+
+# Data Snapshots
+__data_snapshots__

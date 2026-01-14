@@ -1,0 +1,185 @@
+{
+  "status": "success",
+  "data": {
+    "skuCounts": [
+      {
+        "skuCount": 1,
+        "storeCount": 551
+      },
+      {
+        "skuCount": 2,
+        "storeCount": 459
+      },
+      {
+        "skuCount": 3,
+        "storeCount": 365
+      },
+      {
+        "skuCount": 4,
+        "storeCount": 338
+      },
+      {
+        "skuCount": 5,
+        "storeCount": 268
+      },
+      {
+        "skuCount": 6,
+        "storeCount": 274
+      },
+      {
+        "skuCount": 7,
+        "storeCount": 216
+      },
+      {
+        "skuCount": 8,
+        "storeCount": 176
+      },
+      {
+        "skuCount": 9,
+        "storeCount": 158
+      },
+      {
+        "skuCount": 10,
+        "storeCount": 128
+      },
+      {
+        "skuCount": 11,
+        "storeCount": 93
+      },
+      {
+        "skuCount": 12,
+        "storeCount": 70
+      },
+      {
+        "skuCount": 13,
+        "storeCount": 48
+      },
+      {
+        "skuCount": 14,
+        "storeCount": 48
+      },
+      {
+        "skuCount": 15,
+        "storeCount": 31
+      },
+      {
+        "skuCount": 16,
+        "storeCount": 28
+      },
+      {
+        "skuCount": 17,
+        "storeCount": 26
+      },
+      {
+        "skuCount": 18,
+        "storeCount": 24
+      },
+      {
+        "skuCount": 19,
+        "storeCount": 22
+      },
+      {
+        "skuCount": 20,
+        "storeCount": 11
+      },
+      {
+        "skuCount": 21,
+        "storeCount": 7
+      },
+      {
+        "skuCount": 22,
+        "storeCount": 6
+      },
+      {
+        "skuCount": 23,
+        "storeCount": 5
+      },
+      {
+        "skuCount": 24,
+        "storeCount": 6
+      },
+      {
+        "skuCount": 25,
+        "storeCount": 1
+      },
+      {
+        "skuCount": 26,
+        "storeCount": 5
+      },
+      {
+        "skuCount": 27,
+        "storeCount": 6
+      },
+      {
+        "skuCount": 28,
+        "storeCount": 1
+      },
+      {
+        "skuCount": 29,
+        "storeCount": 3
+      },
+      {
+        "skuCount": 30,
+        "storeCount": 2
+      },
+      {
+        "skuCount": 34,
+        "storeCount": 1
+      },
+      {
+        "skuCount": 36,
+        "storeCount": 1
+      },
+      {
+        "skuCount": 44,
+        "storeCount": 1
+      },
+      {
+        "skuCount": 50,
+        "storeCount": 1
+      }
+    ],
+    "categories": [
+      {
+        "id": 8,
+        "name": "Automotive Products"
+      },
+      {
+        "id": 7,
+        "name": "Packaged Sweet Snacks"
+      },
+      {
+        "id": 9,
+        "name": "Alternative Snacks"
+      },
+      {
+        "id": 10,
+        "name": "Candy"
+      },
+      {
+        "id": 1,
+        "name": "Salty Snacks/Candy"
+      },
+      {
+        "id": 5,
+        "name": "Salty Snacks"
+      },
+      {
+        "id": 2,
+        "name": "--"
+      },
+      {
+        "id": 4,
+        "name": "Health & Beauty Care"
+      },
+      {
+        "id": 6,
+        "name": "General Merchandise"
+      },
+      {
+        "id": 3,
+        "name": "Packaged Beverages (Non-Alcoholic)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,121 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test-and-build:
+    name: Test and Build
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: ${{ env.DB_NAME }}
+          POSTGRES_USER: ${{ env.DB_USER }}
+          POSTGRES_PASSWORD: ${{ env.DB_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      NODE_ENV: test
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_NAME: testdb
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+
+    # Add status check
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      # - name: Check branch name
+      #   run: |
+      #     BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+      #     echo "Branch name: $BRANCH_NAME"
+      #     if [[ ! "$BRANCH_NAME" =~ ^(feature|fix|hotfix)/.+ ]]; then
+      #       echo "Branch name does not follow the pattern: 'type/JIRA-ID-description'"
+      #       exit 1
+      #     fi
+
+      # - name: Check PR title
+      #   run: |
+      #     PR_TITLE="${{ github.event.pull_request.title }}"
+      #     echo "PR title: $PR_TITLE"
+      #     if [[ ! "$PR_TITLE" =~ ^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert)\([a-zA-Z0-9_-]+\):\ .+ ]]; then
+      #       echo "PR title does not follow the conventional commits format."
+      #       echo "Please ensure the title matches the pattern: 'type: description'."
+      #       exit 1
+      #     fi
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.14.0"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run eslint
+        run: yarn lint
+
+      - name: Setup test environment
+        run: |
+          cp .env.example .env
+          yarn db:migrate:test
+
+      - name: Run tests
+        id: test
+        run: yarn test
+
+      - name: Report Status
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const { sha } = context.payload.pull_request?.head || context;
+
+            const conclusion = '${{ steps.test.outcome }}' === 'success' ? 'success' : 'failure';
+
+            await github.rest.checks.create({
+              owner,
+              repo,
+              name: 'Tests',
+              head_sha: sha,
+              status: 'completed',
+              conclusion,
+              output: {
+                title: conclusion === 'success' ? 'All tests passed' : 'Tests failed',
+                summary: conclusion === 'success'
+                  ? '✅ All tests have passed successfully'
+                  : '❌ Some tests have failed. Please check the logs for details.'
+              }
+            });
+
+      - name: Make build
+        if: success()
+        run: yarn build

@@ -1,0 +1,285 @@
+{
+  "totalPurchasedVolume": null,
+  "totalSaving": null,
+  "totalSavingsOpp": 0,
+  "totalSalesRepSpiff": 0,
+  "salesRepProgramOverview": [
+    {
+      "compliances": [],
+      "id": 4,
+      "programType": "TIER",
+      "name": "Sales Rep SPIFF",
+      "programHeader": "SPIFF",
+      "programEntityType": "SALES_REP",
+      "programTerms": "SEMI-ANNUAL",
+      "programDetails": [
+        {
+          "id": 4,
+          "tier": 1,
+          "min_qty": "0.00",
+          "max_qty": null,
+          "rebate_amount": "3.00",
+          "rebate_percentage": null,
+          "rebate_type": "fixed",
+          "rebate_calculation": "Fixed $ amount Per Store Compliance",
+          "program_id": 4,
+          "overview": "Earn per store store that reaches Tier I program compliance ",
+          "description": null,
+          "products_tags": null,
+          "products_tags_qty": null,
+          "criteria": "Base - SPIFF",
+          "qualifiedComliances": 0
+        },
+        {
+          "id": 5,
+          "tier": 2,
+          "min_qty": "0.00",
+          "max_qty": null,
+          "rebate_amount": "6.00",
+          "rebate_percentage": null,
+          "rebate_type": "fixed",
+          "rebate_calculation": "Fixed $ amount Per Store Compliance",
+          "program_id": 4,
+          "overview": "Earn per store store that reaches Tier II program compliance ",
+          "description": null,
+          "products_tags": null,
+          "products_tags_qty": null,
+          "criteria": "Base - SPIFF",
+          "qualifiedComliances": 0
+        }
+      ],
+      "progressDetails": []
+    }
+  ],
+  "distributorProgramOverview": [
+    {
+      "compliances": [],
+      "id": 1,
+      "programType": "Base",
+      "name": "Wholesale Agreement",
+      "programHeader": "Base",
+      "programEntityType": "DISTRIBUTOR",
+      "programTerms": "QUARTERLY",
+      "programDetails": [
+        {
+          "id": 1,
+          "tier": 0,
+          "min_qty": "0.00",
+          "max_qty": null,
+          "rebate_amount": null,
+          "rebate_percentage": "2.00",
+          "rebate_type": "percentage",
+          "rebate_calculation": "% of Total Landed Value",
+          "program_id": 1,
+          "overview": "% of total distributor base purchase volume",
+          "description": null,
+          "products_tags": null,
+          "products_tags_qty": "0",
+          "criteria": "BASE",
+          "qualifiedComliances": 0
+        }
+      ],
+      "progressDetails": [
+        {
+          "progressText": ["NA"]
+        }
+      ]
+    },
+    {
+      "compliances": [],
+      "id": 2,
+      "programType": "Innovation",
+      "name": "Wholesale Agreement",
+      "programHeader": "Innovation",
+      "programEntityType": "DISTRIBUTOR",
+      "programTerms": "ANNUAL",
+      "programDetails": [
+        {
+          "id": 2,
+          "tier": 0,
+          "min_qty": "0.00",
+          "max_qty": null,
+          "rebate_amount": null,
+          "rebate_percentage": "1.00",
+          "rebate_type": "percentage",
+          "rebate_calculation": "% of Total Landed Value",
+          "program_id": 2,
+          "overview": "Carry specific innovation products",
+          "description": "Innovation products include:",
+          "products_tags": "Innovation",
+          "products_tags_qty": "1",
+          "criteria": "Category SKUs",
+          "qualifiedComliances": 0,
+          "categorizedProducts": {
+            "Innovation": {
+              "purchasedProducts": [],
+              "requiredProducts": []
+            }
+          }
+        }
+      ],
+      "progressDetails": [
+        {
+          "graph": {
+            "SKUs": {
+              "completed": 0,
+              "total": 1
+            }
+          },
+          "progressText": [["0/1", "Innovation"]]
+        }
+      ]
+    },
+    {
+      "compliances": [],
+      "id": 3,
+      "programType": "POD Goal",
+      "name": "Wholesale Agreement",
+      "programHeader": "POD Goal",
+      "programEntityType": "DISTRIBUTOR",
+      "programTerms": "SEMI-ANNUAL",
+      "programDetails": [
+        {
+          "id": 3,
+          "tier": 0,
+          "min_qty": "0.00",
+          "max_qty": null,
+          "rebate_amount": null,
+          "rebate_percentage": "3.00",
+          "rebate_type": "percentage",
+          "rebate_calculation": "% of Total Landed Value",
+          "program_id": 3,
+          "overview": "Deliver \"Core 10\" Distribution Point Goal",
+          "description": "POD progress:",
+          "products_tags": "Core_Retail",
+          "products_tags_qty": "0",
+          "criteria": "POD",
+          "qualifiedComliances": 0,
+          "categorizedProducts": {
+            "Core_Retail": {
+              "purchasedProducts": [],
+              "requiredProducts": [
+                {
+                  "id": 2351,
+                  "name": "WFL PISTACHIOS RSTD SALTED 3/8/5 OZ PILLOW FC CS",
+                  "size": "5OZ",
+                  "caseSkusId": "10014113910153"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "progressDetails": [
+        {
+          "graph": {
+            "POD": {
+              "completed": 0,
+              "total": 0
+            }
+          },
+          "progressText": []
+        }
+      ]
+    }
+  ],
+  "retailerProgramOverview": [
+    {
+      "compliances": [],
+      "id": 5,
+      "programType": "TIER",
+      "name": "Retail Agreement",
+      "programHeader": "Core Distribution",
+      "programEntityType": "STORE",
+      "programTerms": "SEMI-ANNUAL",
+      "programDetails": [
+        {
+          "id": 6,
+          "tier": 1,
+          "min_qty": "0.00",
+          "max_qty": null,
+          "rebate_amount": null,
+          "rebate_percentage": "3.00",
+          "rebate_type": "percentage",
+          "rebate_calculation": "% of Total Landed Value",
+          "program_id": 5,
+          "overview": "Carry 4 core products",
+          "description": "Core products:",
+          "products_tags": "Core_Retail",
+          "products_tags_qty": "4",
+          "criteria": "Category SKUs",
+          "qualifiedComliances": 0,
+          "categorizedProducts": {
+            "Core_Retail": {
+              "purchasedProducts": [],
+              "requiredProducts": [
+                {
+                  "id": 2351,
+                  "name": "WFL PISTACHIOS RSTD SALTED 3/8/5 OZ PILLOW FC CS",
+                  "size": "5OZ",
+                  "caseSkusId": "10014113910153"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 7,
+          "tier": 2,
+          "min_qty": "0.00",
+          "max_qty": null,
+          "rebate_amount": null,
+          "rebate_percentage": "5.00",
+          "rebate_type": "percentage",
+          "rebate_calculation": "% of Total Landed Value",
+          "program_id": 5,
+          "overview": "Carry 6 core products",
+          "description": "Core products:",
+          "products_tags": "Core_Retail",
+          "products_tags_qty": "6",
+          "criteria": "Category SKUs",
+          "qualifiedComliances": 0,
+          "categorizedProducts": {
+            "Core_Retail": {
+              "purchasedProducts": [],
+              "requiredProducts": [
+                {
+                  "id": 2351,
+                  "name": "WFL PISTACHIOS RSTD SALTED 3/8/5 OZ PILLOW FC CS",
+                  "size": "5OZ",
+                  "caseSkusId": "10014113910153"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "progressDetails": []
+    }
+  ],
+  "enrolledStores": [],
+  "unenrolledStores": [],
+  "totalPurchasedQuantity": 0,
+  "manufacturerDetails": {
+    "id": 1,
+    "name": "Wonderful Pistachios",
+    "logo": "https://dev-splink-s3.s3.us-east-2.amazonaws.com/eac8104d-ceff-47fa-95c7-89ad72936c05-image (9).png",
+    "authorized": false
+  },
+  "categorizedProducts": {
+    "Innovation": {
+      "purchasedProducts": [],
+      "requiredProducts": []
+    },
+    "Core_Retail": {
+      "purchasedProducts": [],
+      "requiredProducts": [
+        {
+          "id": 2351,
+          "name": "WFL PISTACHIOS RSTD SALTED 3/8/5 OZ PILLOW FC CS",
+          "size": "5OZ"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "id": "wjzceshtpvr",
+  "storeInfo": {
+    "name": "Middletown Market",
+    "location": "Minnewawa, MN",
+    "rep": {
+      "avatar": "/img/avatar-brooklyn-simmons.jpg",
+      "name": "Brooklyn Simmons"
+    }
+  },
+  "salesData": {
+    "purchaseVolume": {
+      "amount": 45000,
+      "yoy": 12
+    },
+    "totalSavings": {
+      "amount": 1100,
+      "yoy": 12
+    },
+    "totalOppSavings": {
+      "amount": 97
+    }
+  },
+  "programData": {
+    "totalProgram": 9,
+    "totalEnrolled": 8,
+    "enrolledProgram": [
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-wonderful-pistachios.png",
+          "name": "Wonderful Pistachios"
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 3100
+        },
+        "totalSavings": {
+          "amount": 1100
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-perfetti-van-melle.png",
+          "name": "Perfetti Van Melle"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 5000
+        },
+        "totalSavings": {
+          "amount": 75
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-lil-drug-store.png",
+          "name": "Lil’ Drug Store"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 2000
+        },
+        "totalSavings": {
+          "amount": 85
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-highline-warren.png",
+          "name": "Highline Warren"
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 6500
+        },
+        "totalSavings": {
+          "amount": 135
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-ford-gum.png",
+          "name": "Ford Gum",
+          "additionalInfo": {
+            "note": "Hannaford Market Could be Saving $75 If they Reach Tier II",
+            "products": [
+              {
+                "image": "/img/products/carousel-gumballs.png",
+                "name": "Carousel Gumballs",
+                "extraInfo": "5 Assorted - 24 ct"
+              },
+              {
+                "image": "/img/products/big-league-chew-sour-apple.png",
+                "name": "Big League Chew",
+                "extraInfo": "Sour Apple - 12ct"
+              },
+              {
+                "image": "/img/products/big-league-chew-strawberry.png",
+                "name": "Big League Chew",
+                "extraInfo": "Strawberry - 12ct"
+              },
+              {
+                "image": "/img/products/big-league-chew-grape.png",
+                "name": "Big League Chew",
+                "extraInfo": "Grape - 12ct"
+              },
+              {
+                "image": "/img/products/big-league-chew-cotton-candy.png",
+                "name": "Big League Chew",
+                "extraInfo": "Cotton Candy - 12ct"
+              },
+              {
+                "image": "/img/products/carousel-gumballs-2.png",
+                "name": "Carousel Gumballs",
+                "extraInfo": "5 Assorted - 24ct"
+              }
+            ]
+          },
+          "tierDetails": [
+            {
+              "title": "Tier I - Core 2 Sku",
+              "SKU": {
+                "completed": 2,
+                "total": 2
+              }
+            },
+            {
+              "title": "Tier II - Core 4 Sku",
+              "SKU": {
+                "chartColor": "#FF9900",
+                "completed": 3,
+                "total": 4
+              }
+            }
+          ]
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 2800
+        },
+        "totalSavings": {
+          "amount": 90
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-floridas-natural.png",
+          "name": "Floridas Natural"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 1
+        },
+        "purchaseVolume": {
+          "amount": 800
+        },
+        "totalSavings": {
+          "amount": 60
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-hersheys.png",
+          "name": "Hershey’s"
+        },
+        "programCompliance": {
+          "total": 2,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 3100
+        },
+        "totalSavings": {
+          "amount": 100
+        }
+      },
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-energizer.png",
+          "name": "Energizer"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 5000
+        },
+        "totalSavings": {
+          "amount": 75
+        }
+      }
+    ],
+    "remainingProgram": [
+      {
+        "manufacturer": {
+          "avatar": "/img/avatar-pg.png",
+          "name": "P&G"
+        },
+        "programCompliance": {
+          "total": 3,
+          "completed": 2
+        },
+        "purchaseVolume": {
+          "amount": 2500
+        },
+        "totalSavings": {
+          "amount": 85
+        }
+      }
+    ]
+  }
+}

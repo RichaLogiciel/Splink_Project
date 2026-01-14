@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 6,
+      "product_name": "WFL PISTACHIOS RSTD SALTED 96/1 OZ PILLOW",
+      "product_id": 754,
+      "manufacturer_name": "Wonderful Pistachios",
+      "manufacturer_logo": "/img/avatar-wonderful-pistachios.png",
+      "updated_at": "2025-03-17T08:30:14.756Z"
+    },
+    {
+      "id": 7,
+      "product_name": "WFL PISTACHIOS RSTD LT SALT 12/16 OZ POUCH - NST",
+      "product_id": 769,
+      "manufacturer_name": "Wonderful Pistachios",
+      "manufacturer_logo": "/img/avatar-wonderful-pistachios.png",
+      "updated_at": "2025-03-17T08:30:19.344Z"
+    }
+  ]
+}

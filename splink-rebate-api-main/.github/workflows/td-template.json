@@ -1,0 +1,55 @@
+{
+  "family": "<TASK_FAMILY>",
+  "cpu": "1024",
+  "memory": "2048",
+  
+  "containerDefinitions": [
+    {
+      "name": "<CONTAINER_NAME>",
+      "image": "<IMAGE_URI>",
+      "cpu": 1024,
+      "memory": 2048,
+      "portMappings": [
+        {
+          "containerPort": 3001,
+          "hostPort": 3001,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/live-splink-backend",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:3001/health || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      },
+
+      "mountPoints": [],
+      "volumesFrom": [],
+      "systemControls": [],
+      "environment": [
+        {
+          "name": "REDIS_URL",
+          "value": "${REDIS_URL}"
+        }
+      ]
+    }
+  ],
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "executionRoleArn": "<EXECUTION_ROLE_ARN>",
+  "taskRoleArn": "<ECS_TASK_ROLE_ARN>"
+}

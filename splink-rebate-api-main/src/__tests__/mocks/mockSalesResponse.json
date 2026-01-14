@@ -1,0 +1,73 @@
+{
+  "status": "success",
+  "data": {
+    "result": {
+      "1": {
+        "totalSale": 182488.87,
+        "barChartData": [
+          {
+            "date": "Jan 28",
+            "sales": 8829.67
+          },
+          {
+            "date": "Jan 29",
+            "sales": 8289.12
+          }
+        ]
+      },
+      "3": {
+        "totalSale": 547466.61,
+        "barChartData": [
+          {
+            "date": "Dec",
+            "sales": 182488.87
+          },
+          {
+            "date": "Jan",
+            "sales": 182488.87
+          },
+          {
+            "date": "Feb",
+            "sales": 182488.87
+          }
+        ]
+      },
+      "6": {
+        "totalSale": 1094933.22,
+        "barChartData": [
+          {
+            "date": "Sep",
+            "sales": 182488.87
+          },
+          {
+            "date": "Oct",
+            "sales": 182488.87
+          }
+        ]
+      },
+      "12": {
+        "totalSale": 2189866.44,
+        "barChartData": [
+          {
+            "date": "Mar",
+            "sales": 182488.87
+          },
+          {
+            "date": "Apr",
+            "sales": 182488.87
+          }
+        ]
+      }
+    },
+    "categories": [
+      {
+        "id": 8,
+        "name": "Automotive Products"
+      },
+      {
+        "id": 7,
+        "name": "Packaged Sweet Snacks"
+      }
+    ]
+  }
+}

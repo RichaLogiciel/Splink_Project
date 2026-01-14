@@ -1,0 +1,330 @@
+{
+  "status": "success",
+  "data": {
+    "stores": [
+      {
+        "id": 16189,
+        "externalStoreId": "33488",
+        "userInfo": {
+          "id": 17257,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "$1.00 PLUS SUPER STORE",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 19.99
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12199,
+        "externalStoreId": "26764",
+        "userInfo": {
+          "id": 13666,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "00 LIQUOR MART",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 81.43
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12200,
+        "externalStoreId": "106418",
+        "userInfo": {
+          "id": 13306,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "00 LIQUORS(BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 424.2
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12209,
+        "externalStoreId": "30560",
+        "userInfo": {
+          "id": 13922,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1 STOP SHOP (BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 121.24
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12201,
+        "externalStoreId": "47563",
+        "userInfo": {
+          "id": 16652,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1000 RICHMOND PETROLUEM",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 347.37
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12202,
+        "externalStoreId": "62330",
+        "userInfo": {
+          "id": 16912,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1001 CASTRO",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 66.42
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12203,
+        "externalStoreId": "34927",
+        "userInfo": {
+          "id": 14513,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "10TH ST LIQUORS (EFT)(BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 14.29
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12204,
+        "externalStoreId": "38426",
+        "userInfo": {
+          "id": 15766,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1201 GAS STORE (EFT) (BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 71.84
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12205,
+        "externalStoreId": "38503",
+        "userInfo": {
+          "id": 15783,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1240 GAS STORE (EFT) (BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 69.86
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      },
+      {
+        "id": 12206,
+        "externalStoreId": "30187",
+        "userInfo": {
+          "id": 13897,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "127 MARKET (BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 36.27
+          },
+          "totalSavings": {
+            "amount": 0
+          }
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 31,
+          "enrolledProgram": [],
+          "remainingProgram": [],
+          "enrolledProgramIds": [null]
+        },
+        "chainId": 0,
+        "chainNames": ""
+      }
+    ],
+    "totalStores": 4119,
+    "currentPage": 1,
+    "totalPages": 412
+  }
+}

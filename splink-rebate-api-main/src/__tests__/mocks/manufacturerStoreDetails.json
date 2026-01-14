@@ -1,0 +1,218 @@
+{
+  "status": "success",
+  "data": {
+    "tierDetails": [
+      {
+        "title": "Core Distribution - Tier 1",
+        "overview": "Carry 4 core products",
+        "rebate_percentage": "3.00",
+        "rebate_amount": null,
+        "rebate_type": "percentage",
+        "graph": {
+          "SKUs": {
+            "completed": 0,
+            "total": 4
+          }
+        },
+        "progressAchieved": [["0/4", "Core_Retail"]],
+        "isProgramComplianceQualified": false,
+        "categorizedProducts": {
+          "Core_Retail": {
+            "purchasedProducts": [],
+            "requiredProducts": [
+              {
+                "id": 2356,
+                "name": "WFL NO SHELLS PISTACHIOS RSTD SALTED 10/6 OZ POUCH - NST",
+                "size": "6OZ"
+              },
+              {
+                "id": 2365,
+                "name": "WFL NO SHELLS PISTACHIOS RSTD SALTED 3/8/2.5 OZ PILLOW FC CS",
+                "size": "2.5OZ"
+              },
+              {
+                "id": 2366,
+                "name": "WFL NO SHELLS PISTACHIOS SEA SALT & PEPPER 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2367,
+                "name": "WFL NO SHELLS PISTACHIOS SALT VINEGAR 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2368,
+                "name": "WFL NO SHELLS PISTACHIOS JALAPENO LIME 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2369,
+                "name": "WFL NO SHELLS PISTACHIOS BBQ 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2370,
+                "name": "WFL NO SHELLS PISTACHIOS CHILI RSTD 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2371,
+                "name": "WFL NO SHELLS PISTACHIOS HONEY RSTD 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2393,
+                "name": "WFL PISTACHIOS RSTD SALTED 3/8/5 OZ PILLOW FC CS",
+                "size": "5OZ"
+              },
+              {
+                "id": 2398,
+                "name": "WFL PISTACHIOS RSTD SALTED 12/12/1.25 OZ PILLOW FC CS",
+                "size": "1.25OZ"
+              }
+            ]
+          }
+        },
+        "programDetailId": 6
+      },
+      {
+        "title": "Core Distribution - Tier 2",
+        "overview": "Carry 6 core products",
+        "rebate_percentage": "5.00",
+        "rebate_amount": null,
+        "rebate_type": "percentage",
+        "graph": {
+          "SKUs": {
+            "completed": 0,
+            "total": 6
+          }
+        },
+        "progressAchieved": [["0/6", "Core_Retail"]],
+        "isProgramComplianceQualified": false,
+        "categorizedProducts": {
+          "Core_Retail": {
+            "purchasedProducts": [],
+            "requiredProducts": [
+              {
+                "id": 2356,
+                "name": "WFL NO SHELLS PISTACHIOS RSTD SALTED 10/6 OZ POUCH - NST",
+                "size": "6OZ"
+              },
+              {
+                "id": 2365,
+                "name": "WFL NO SHELLS PISTACHIOS RSTD SALTED 3/8/2.5 OZ PILLOW FC CS",
+                "size": "2.5OZ"
+              },
+              {
+                "id": 2366,
+                "name": "WFL NO SHELLS PISTACHIOS SEA SALT & PEPPER 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2367,
+                "name": "WFL NO SHELLS PISTACHIOS SALT VINEGAR 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2368,
+                "name": "WFL NO SHELLS PISTACHIOS JALAPENO LIME 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2369,
+                "name": "WFL NO SHELLS PISTACHIOS BBQ 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2370,
+                "name": "WFL NO SHELLS PISTACHIOS CHILI RSTD 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2371,
+                "name": "WFL NO SHELLS PISTACHIOS HONEY RSTD 3/8/2.25 OZ PILLOW FC CS",
+                "size": "2.25OZ"
+              },
+              {
+                "id": 2393,
+                "name": "WFL PISTACHIOS RSTD SALTED 3/8/5 OZ PILLOW FC CS",
+                "size": "5OZ"
+              },
+              {
+                "id": 2398,
+                "name": "WFL PISTACHIOS RSTD SALTED 12/12/1.25 OZ PILLOW FC CS",
+                "size": "1.25OZ"
+              }
+            ]
+          }
+        },
+        "programDetailId": 7
+      }
+    ],
+    "additionalInfo": {
+      "recommendedProducts": [
+        {
+          "name": "WFL NO SHELLS PISTACHIOS RSTD SALTED 10/6 OZ POUCH - NST",
+          "size": "6OZ",
+          "id": 2356,
+          "wishlist": false
+        },
+        {
+          "name": "WFL NO SHELLS PISTACHIOS RSTD SALTED 3/8/2.5 OZ PILLOW FC CS",
+          "size": "2.5OZ",
+          "id": 2365,
+          "wishlist": false
+        },
+        {
+          "name": "WFL NO SHELLS PISTACHIOS SEA SALT & PEPPER 3/8/2.25 OZ PILLOW FC CS",
+          "size": "2.25OZ",
+          "id": 2366,
+          "wishlist": false
+        },
+        {
+          "name": "WFL NO SHELLS PISTACHIOS SALT VINEGAR 3/8/2.25 OZ PILLOW FC CS",
+          "size": "2.25OZ",
+          "id": 2367,
+          "wishlist": false
+        },
+        {
+          "name": "WFL NO SHELLS PISTACHIOS JALAPENO LIME 3/8/2.25 OZ PILLOW FC CS",
+          "size": "2.25OZ",
+          "id": 2368,
+          "wishlist": false
+        },
+        {
+          "name": "WFL NO SHELLS PISTACHIOS BBQ 3/8/2.25 OZ PILLOW FC CS",
+          "size": "2.25OZ",
+          "id": 2369,
+          "wishlist": false
+        },
+        {
+          "name": "WFL NO SHELLS PISTACHIOS CHILI RSTD 3/8/2.25 OZ PILLOW FC CS",
+          "size": "2.25OZ",
+          "id": 2370,
+          "wishlist": false
+        },
+        {
+          "name": "WFL NO SHELLS PISTACHIOS HONEY RSTD 3/8/2.25 OZ PILLOW FC CS",
+          "size": "2.25OZ",
+          "id": 2371,
+          "wishlist": false
+        },
+        {
+          "name": "WFL PISTACHIOS RSTD SALTED 3/8/5 OZ PILLOW FC CS",
+          "size": "5OZ",
+          "id": 2393,
+          "wishlist": false
+        },
+        {
+          "name": "WFL PISTACHIOS RSTD SALTED 12/12/1.25 OZ PILLOW FC CS",
+          "size": "1.25OZ",
+          "id": 2398,
+          "wishlist": false
+        }
+      ],
+      "purchasedProducts": []
+    }
+  }
+}

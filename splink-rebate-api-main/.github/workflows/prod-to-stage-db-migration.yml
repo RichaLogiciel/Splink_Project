@@ -1,0 +1,125 @@
+name: PROD to STAGE DB Migration
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install required tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y openssh-client python3-pip python3-venv
+
+    - name: Setup virtual environment and install AWS CLI
+      run: |
+        python3 -m venv ~/.venv
+        source ~/.venv/bin/activate
+        pip install awscli
+
+    #- name: Add Temporary Security Group
+    #  env:
+    #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #    AWS_REGION: ${{ secrets.AWS_REGION }}
+    #    INSTANCE_ID: ${{ secrets.INSTANCE_ID }}
+    #    TEMP_SECURITY_GROUP_ID: ${{ secrets.TEMP_SECURITY_GROUP_ID }}
+    #  run: |
+    #    # Get the current security groups attached to the instance
+    #    CURRENT_SECURITY_GROUPS=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[*].Instances[*].SecurityGroups[*].GroupId' --output text)
+    #    
+    #    # Attach the temporary security group
+    #    aws ec2 modify-instance-attribute --instance-id $INSTANCE_ID --groups $CURRENT_SECURITY_GROUPS $TEMP_SECURITY_GROUP_ID
+
+    #- name: Retrieve .env from AWS Secrets Manager
+    #  id: getenv
+    #  env:
+    #    AWS_ACCESS_KEY_ID:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #    AWS_REGION:            ${{ secrets.AWS_REGION }}
+    #  run: |
+    #    # install jq
+    #    sudo apt-get update && sudo apt-get install -y jq
+
+        # pull the raw JSON secret
+    #    SECRET_JSON=$(aws secretsmanager get-secret-value \
+    #      --secret-id ${{ secrets.SECRET_NAME }} \
+    #      --query SecretString --output text)
+
+    #    # convert JSON keys → KEY=VALUE lines
+    #    echo "$SECRET_JSON" | jq -r 'to_entries|map("\(.key)=\(.value)")|.[]' > .env
+
+    - name: Write PEM & copy .env via scp
+      run: |
+        # 1) Ensure the SSH dir exists
+        mkdir -p ~/.ssh
+
+        # 2) Write the private key and secure it
+        echo "${{ secrets.PEM_FILE }}" > ~/.ssh/aws_ec2.pem
+        chmod 600 ~/.ssh/aws_ec2.pem
+
+    #    # 3) Copy the .env file to your EC2
+    #    scp -o StrictHostKeyChecking=no \
+    #        -i ~/.ssh/aws_ec2.pem \
+    #        .env \
+    #        ec2-user@${{ secrets.HOST_IP }}:/var/sellcx/backend/.env
+
+    #- name: Remove local .env
+    #  run: rm .env
+
+    - name: Starting Migration
+      env:
+        PEM_FILE: ${{ secrets.PEM_FILE }}
+        HOST_IP: ${{ secrets.HOST_IP }}
+      run: |
+        source ~/.venv/bin/activate
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
+        echo "${PEM_FILE}" > ~/.ssh/aws_ec2.pem
+        chmod 600 ~/.ssh/aws_ec2.pem
+
+        echo "🚀 Starting SSH migration..."
+        set +e
+        ssh -o StrictHostKeyChecking=no \
+            -o ServerAliveInterval=60 \
+            -o ServerAliveCountMax=10 \
+            -o TCPKeepAlive=yes \
+            -i ~/.ssh/aws_ec2.pem ubuntu@${HOST_IP} << 'EOF'
+          set -e
+          echo "📦 Refresh started at: $(date)"
+          stdbuf -oL -eL bash ~/refresh_staging.sh 2>&1 | tee -a ~/refresh_staging.log
+          echo "✅ Refresh completed at: $(date)"
+        EOF
+        SSH_EXIT_CODE=$?
+        set -e
+
+        if [ $SSH_EXIT_CODE -eq 0 ]; then
+          echo "✅ Migration completed successfully!"
+        elif [ $SSH_EXIT_CODE -eq 255 ]; then
+          echo "⚠️ SSH returned 255 (broken pipe) — assuming success since remote script finished cleanly."
+        else
+          echo "❌ Migration failed with SSH exit code $SSH_EXIT_CODE"
+          exit 1
+        fi
+
+    #- name: Remove Temporary Security Group
+    #  if: always()
+    #  env:
+    #    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #    AWS_REGION: ${{ secrets.AWS_REGION }}
+    #    INSTANCE_ID: ${{ secrets.INSTANCE_ID }}
+    #    TEMP_SECURITY_GROUP_ID: ${{ secrets.TEMP_SECURITY_GROUP_ID }}
+    #  run: |
+    #    # Get the current security groups attached to the instance
+    #    CURRENT_SECURITY_GROUPS=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[*].Instances[*].SecurityGroups[*].GroupId' --output text)
+    #    
+    #    # Remove the temporary security group and reattach the original security groups
+    #    NEW_SECURITY_GROUPS=$(echo "$CURRENT_SECURITY_GROUPS" | sed "s/$TEMP_SECURITY_GROUP_ID//")
+    #    aws ec2 modify-instance-attribute --instance-id $INSTANCE_ID --groups $NEW_SECURITY_GROUPS

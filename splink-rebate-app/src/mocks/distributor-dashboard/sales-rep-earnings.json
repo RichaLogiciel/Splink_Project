@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Alex Thompson",
+    "stores": 90,
+    "earning": 5640
+  },
+  {
+    "name": "Morgan Reeves",
+    "stores": 85,
+    "earning": 3381
+  },
+  {
+    "name": "Jordan Parker",
+    "stores": 72,
+    "earning": 3767
+  },
+  {
+    "name": "Lance Parker",
+    "stores": 68,
+    "earning": 1202
+  },
+  {
+    "name": "Taylor Nguyen",
+    "stores": 55,
+    "earning": 2936
+  }
+]

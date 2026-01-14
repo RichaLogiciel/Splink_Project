@@ -1,0 +1,63 @@
+{
+  "financeSummaryCard": {
+    "title": "Annual Rebate Summary",
+    "options": [
+      { "title": "Distributors Rebates", "amount": 35000 },
+      { "title": "Store Rebates", "amount": 13000 }
+    ],
+    "total": 48000
+  },
+  "financePaymentCard": {
+    "options": [
+      {
+        "date": "July 1st 2024",
+        "amount": 12000
+      }
+    ],
+    "buttonTitle": "Pay Now"
+  },
+  "financePaymentHistoryCard": {
+    "history": [
+      { "date": "July 1st 2024", "amount": 15000 },
+      { "date": "April 1st 2024", "amount": 19000 }
+    ]
+  },
+  "accordionItems": [
+    {
+      "title": {
+        "date": "October 1st 2024",
+        "amount": 12000,
+        "action": "Download Invoice"
+      },
+      "content": {
+        "totalReimbursementAmount": 12000,
+        "distributorsRebates": 8000,
+        "storeRebates": 4000
+      }
+    },
+    {
+      "title": {
+        "date": "July 1st 2024",
+        "amount": 15000,
+        "action": "Download Invoice"
+      },
+      "content": {
+        "totalReimbursementAmount": 15000,
+        "distributorsRebates": 10000,
+        "storeRebates": 5000
+      }
+    },
+    {
+      "title": {
+        "date": "April 1st 2024",
+        "amount": 19000,
+        "action": "Download Invoice"
+      },
+      "content": {
+        "totalReimbursementAmount": 19000,
+        "distributorsRebates": 10000,
+        "storeRebates": 9000
+      }
+    }
+  ]
+}

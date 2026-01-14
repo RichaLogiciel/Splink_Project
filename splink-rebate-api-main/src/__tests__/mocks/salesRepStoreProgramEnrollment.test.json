@@ -1,0 +1,101 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "ManufacturerId": 1,
+      "ManufacturerName": "Wonderful Pistachios",
+      "ManufacturerLogo": "https://dev-splink-s3.s3.us-east-2.amazonaws.com/eac8104d-ceff-47fa-95c7-89ad72936c05-image (9).png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 2,
+      "ManufacturerName": "Florida's Natural",
+      "ManufacturerLogo": "/img/avatar-florida's-natural.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 3,
+      "ManufacturerName": "Perfetti van Melle",
+      "ManufacturerLogo": "https://dev-splink-s3.s3.us-east-2.amazonaws.com/80adb2bf-2166-4198-ac1d-0e76f3b10a44-avatar-perfetti-van-melle.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 4,
+      "ManufacturerName": "Highline Warren",
+      "ManufacturerLogo": "/img/avatar-highline-warren.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 5,
+      "ManufacturerName": "Ford Gum",
+      "ManufacturerLogo": "/img/avatar-ford-gum.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 6,
+      "ManufacturerName": "Energizer Auto",
+      "ManufacturerLogo": "/img/avatar-energizer-auto-sales.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 7,
+      "ManufacturerName": "Energizer Battery",
+      "ManufacturerLogo": "/img/avatar-energizer-battery.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 11,
+      "ManufacturerName": "Quest",
+      "ManufacturerLogo": "/img/avatar-simply-good-foods.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 12,
+      "ManufacturerName": "Ferrero",
+      "ManufacturerLogo": "/img/avatar-ferrero.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 13,
+      "ManufacturerName": "Just Born",
+      "ManufacturerLogo": "/img/avatar-just-born.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 14,
+      "ManufacturerName": "Old Trapper",
+      "ManufacturerLogo": "/img/avatar-old-trapper.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 15,
+      "ManufacturerName": "HERSHEY",
+      "ManufacturerLogo": "/img/avatar-hershey.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 16,
+      "ManufacturerName": "Jack Links",
+      "ManufacturerLogo": "/img/avatar-jack-links.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 185,
+      "ManufacturerName": "Bazooka",
+      "ManufacturerLogo": "/img/bazooka.png",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 186,
+      "ManufacturerName": "Albanese",
+      "ManufacturerLogo": "/img/albanese.jpg",
+      "ProgramEnrollment": "0"
+    },
+    {
+      "ManufacturerId": 187,
+      "ManufacturerName": "Edgewell",
+      "ManufacturerLogo": "/img/edgewell.png",
+      "ProgramEnrollment": "0"
+    }
+  ]
+}

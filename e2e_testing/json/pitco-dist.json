@@ -1,0 +1,1314 @@
+{
+  "run_id": "etl_run_sandstroms_20250528",
+  "distributor": "sandstroms",
+  "distributor_id": 1,
+  "week_end": "2025-05-24",
+  "file_name": "20250524_sandstroms_exact_matches.parquet",
+  "generated_at": "2025-05-28T02:30:43.299803",
+  "buyer_volume": {
+    "manufacturer": {
+      "week": [
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 15.96
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 1915.92
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren",
+          "amount": 2955.4
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 2852.16
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 9997.92
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 469.8
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "amount": 4776.8
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti van Melle",
+          "amount": 1495.08
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 44.64
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 720.0
+        }
+      ],
+      "month": [
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 3815.4
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 199.14
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 982.5600000000001
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 13860.18
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 16185.289999999999
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 10283.15
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 27108.28
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 2265.84
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 10287.56
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "amount": 4776.8
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 6427.68
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 3020.64
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 803.88
+        }
+      ],
+      "ytd": [
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 3815.4
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 199.14
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 1211.52
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 14240.98
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 54514.840000000004
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 11742.24
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 27178.839999999997
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 2265.84
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 10287.56
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "amount": 4776.8
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 6970.8
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 3645.6
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 803.88
+        }
+      ]
+    },
+    "distributor": {
+      "week": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "amount": 25243.679999999997
+        }
+      ],
+      "month": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "amount": 110490.43999999999
+        }
+      ],
+      "ytd": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "amount": 336230.32
+        }
+      ]
+    }
+  },
+  "buyer_units": {
+    "manufacturer": {
+      "week": [
+        { "manufacturer_id": 5, "manufacturer_name": "Ford Gum", "units": 12 },
+        { "manufacturer_id": 15, "manufacturer_name": "HERSHEY", "units": 0 },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren",
+          "units": 6
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "units": 2125
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "units": 0
+        },
+        { "manufacturer_id": 13, "manufacturer_name": "Just Born", "units": 0 },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "units": 0
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti van Melle",
+          "units": 1734
+        },
+        { "manufacturer_id": 11, "manufacturer_name": "Quest", "units": 0 },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 288
+        }
+      ],
+      "month": [
+        { "manufacturer_name": "Edgewell", "units": 0, "manufacturer_id": 411 },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 55,
+          "manufacturer_id": 6
+        },
+        {
+          "manufacturer_name": "Ford Gum",
+          "units": 840.0,
+          "manufacturer_id": 5
+        },
+        { "manufacturer_name": "HERSHEY", "units": 0.0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 19.0,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 8149.0,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0.0,
+          "manufacturer_id": 16
+        },
+        {
+          "manufacturer_name": "Just Born",
+          "units": 0.0,
+          "manufacturer_id": 13
+        },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "units": 0
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 9048.0,
+          "manufacturer_id": 3
+        },
+        { "manufacturer_name": "Quest", "units": 0.0, "manufacturer_id": 11 },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 294.0,
+          "manufacturer_id": 1
+        }
+      ],
+      "ytd": [
+        { "manufacturer_name": "Edgewell", "units": 0, "manufacturer_id": 411 },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 233,
+          "manufacturer_id": 6
+        },
+        {
+          "manufacturer_name": "Ford Gum",
+          "units": 1812.0,
+          "manufacturer_id": 5
+        },
+        { "manufacturer_name": "HERSHEY", "units": 0.0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 71.0,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 25260.0,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0.0,
+          "manufacturer_id": 16
+        },
+        {
+          "manufacturer_name": "Just Born",
+          "units": 0.0,
+          "manufacturer_id": 13
+        },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "units": 0
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 25638.0,
+          "manufacturer_id": 3
+        },
+        { "manufacturer_name": "Quest", "units": 0.0, "manufacturer_id": 11 },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 4768.0,
+          "manufacturer_id": 1
+        }
+      ]
+    },
+    "distributor": {
+      "week": [
+        { "distributor_id": 1, "distributor_name": "sandstroms", "units": 4165 }
+      ],
+      "month": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "units": 18392.0
+        }
+      ],
+      "ytd": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "units": 20490.0
+        }
+      ]
+    }
+  },
+  "sales_volume": {
+    "manufacturer": {
+      "week": [
+        {
+          "manufacturer_id": 408,
+          "manufacturer_name": "Bazooka",
+          "amount": 989.54
+        },
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 1068.03
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 23.13
+        },
+        {
+          "manufacturer_id": 12,
+          "manufacturer_name": "Ferrero",
+          "amount": 2667.29
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 176.95
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 13225.38
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren",
+          "amount": 4547.7
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 1870.16
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 5316.28
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 303.31
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "amount": 3434.47
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti van Melle",
+          "amount": 1440.86
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 1144.75
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 304.04
+        }
+      ],
+      "month": [
+        {
+          "manufacturer_id": 408,
+          "manufacturer_name": "Bazooka",
+          "amount": 5736.41
+        },
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 4200.83
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 295.38
+        },
+        {
+          "manufacturer_id": 12,
+          "manufacturer_name": "Ferrero",
+          "amount": 11081.64
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 1461.22
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 78313.02
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 22219.62
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 10535.91
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 30717.05
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 2230.65
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 22497.35
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "amount": 3434.47
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 6697.32
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 4942.62
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 2496.96
+        }
+      ],
+      "ytd": [
+        {
+          "manufacturer_id": 408,
+          "manufacturer_name": "Bazooka",
+          "amount": 13127.779999999999
+        },
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 4955.75
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 1228.8500000000001
+        },
+        {
+          "manufacturer_id": 12,
+          "manufacturer_name": "Ferrero",
+          "amount": 36567.18
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 2273.72
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 262729.36
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 92072.31
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 31196.07
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 84971.93
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 7706.400000000001
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 73254.77
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "amount": 3434.47
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 22733.57
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 9860.27
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 7433.4
+        }
+      ]
+    },
+    "distributor": {
+      "week": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "amount": 36511.89
+        }
+      ],
+      "month": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "amount": 206860.45
+        }
+      ],
+      "ytd": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "amount": 653545.83
+        }
+      ]
+    }
+  },
+  "sales_units": {
+    "manufacturer": {
+      "week": [
+        { "manufacturer_id": 408, "manufacturer_name": "Bazooka", "units": 0 },
+        { "manufacturer_id": 411, "manufacturer_name": "Edgewell", "units": 0 },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "units": 6
+        },
+        { "manufacturer_id": 12, "manufacturer_name": "Ferrero", "units": 0 },
+        { "manufacturer_id": 5, "manufacturer_name": "Ford Gum", "units": 102 },
+        { "manufacturer_id": 15, "manufacturer_name": "HERSHEY", "units": 0 },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren",
+          "units": 30
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "units": 1092
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "units": 0
+        },
+        { "manufacturer_id": 13, "manufacturer_name": "Just Born", "units": 0 },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "units": 0
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti van Melle",
+          "units": 1658
+        },
+        { "manufacturer_id": 11, "manufacturer_name": "Quest", "units": 407 },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 124
+        }
+      ],
+      "month": [
+        {
+          "manufacturer_name": "Bazooka",
+          "units": 0.0,
+          "manufacturer_id": 408
+        },
+        {
+          "manufacturer_name": "Edgewell",
+          "units": 0.0,
+          "manufacturer_id": 411
+        },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 86.0,
+          "manufacturer_id": 6
+        },
+        { "manufacturer_name": "Ferrero", "units": 0.0, "manufacturer_id": 12 },
+        {
+          "manufacturer_name": "Ford Gum",
+          "units": 811.0,
+          "manufacturer_id": 5
+        },
+        { "manufacturer_name": "HERSHEY", "units": 0.0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 101.0,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 6975.0,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0.0,
+          "manufacturer_id": 16
+        },
+        {
+          "manufacturer_name": "Just Born",
+          "units": 0.0,
+          "manufacturer_id": 13
+        },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "units": 0
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 7702.0,
+          "manufacturer_id": 3
+        },
+        {
+          "manufacturer_name": "Quest",
+          "units": 1803.0,
+          "manufacturer_id": 11
+        },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 922.0,
+          "manufacturer_id": 1
+        }
+      ],
+      "ytd": [
+        {
+          "manufacturer_name": "Bazooka",
+          "units": 0.0,
+          "manufacturer_id": 408
+        },
+        {
+          "manufacturer_name": "Edgewell",
+          "units": 0.0,
+          "manufacturer_id": 411
+        },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 351.0,
+          "manufacturer_id": 6
+        },
+        {
+          "manufacturer_name": "Ferrero",
+          "units": -12.0,
+          "manufacturer_id": 12
+        },
+        {
+          "manufacturer_name": "Ford Gum",
+          "units": 1261.0,
+          "manufacturer_id": 5
+        },
+        { "manufacturer_name": "HERSHEY", "units": 0.0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 366.0,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 21910.0,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0.0,
+          "manufacturer_id": 16
+        },
+        {
+          "manufacturer_name": "Just Born",
+          "units": 0.0,
+          "manufacturer_id": 13
+        },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_id": 475,
+          "manufacturer_name": "Old Trapper MDI",
+          "units": 0
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 23986.0,
+          "manufacturer_id": 3
+        },
+        {
+          "manufacturer_name": "Quest",
+          "units": 3515.0,
+          "manufacturer_id": 11
+        },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 2678.0,
+          "manufacturer_id": 1
+        }
+      ]
+    },
+    "distributor": {
+      "week": [
+        { "distributor_id": 1, "distributor_name": "sandstroms", "units": 3419 }
+      ],
+      "month": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "units": 18400.0
+        }
+      ],
+      "ytd": [
+        {
+          "distributor_id": 1,
+          "distributor_name": "sandstroms",
+          "units": 54055.0
+        }
+      ]
+    }
+  },
+  "debug": {
+    "original_month": {
+      "month_sales_volume_by_manufacturer": [
+        {
+          "manufacturer_id": 408,
+          "manufacturer_name": "Bazooka",
+          "amount": 4746.87
+        },
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 3132.8
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 272.25
+        },
+        {
+          "manufacturer_id": 12,
+          "manufacturer_name": "Ferrero",
+          "amount": 8414.35
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 1284.27
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 65087.64
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 17671.92
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 8665.75
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 25400.77
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 1927.34
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 22497.35
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 5256.46
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 3797.87
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 2192.92
+        }
+      ],
+      "month_purchase_volume_by_manufacturer": [
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 83.88
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 4932.6
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 13229.89
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 966.6
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 199.14
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 2976.0
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 1796.04
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 10287.56
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 11944.26
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 17110.36
+        },
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 3815.4
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 7430.99
+        }
+      ],
+      "month_unit_sales_by_manufacturer": [
+        { "manufacturer_name": "Bazooka", "units": 0, "manufacturer_id": 408 },
+        { "manufacturer_name": "Edgewell", "units": 0, "manufacturer_id": 411 },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 80,
+          "manufacturer_id": 6
+        },
+        { "manufacturer_name": "Ferrero", "units": 0, "manufacturer_id": 12 },
+        { "manufacturer_name": "Ford Gum", "units": 709, "manufacturer_id": 5 },
+        { "manufacturer_name": "HERSHEY", "units": 0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 71,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 5883,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0,
+          "manufacturer_id": 16
+        },
+        { "manufacturer_name": "Just Born", "units": 0, "manufacturer_id": 13 },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 6044,
+          "manufacturer_id": 3
+        },
+        { "manufacturer_name": "Quest", "units": 1396, "manufacturer_id": 11 },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 798,
+          "manufacturer_id": 1
+        }
+      ],
+      "month_unit_purchase_by_manufacturer": [
+        { "manufacturer_name": "Edgewell", "units": 0, "manufacturer_id": 411 },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 55,
+          "manufacturer_id": 6
+        },
+        { "manufacturer_name": "Ford Gum", "units": 828, "manufacturer_id": 5 },
+        { "manufacturer_name": "HERSHEY", "units": 0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 13,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 6024,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0,
+          "manufacturer_id": 16
+        },
+        { "manufacturer_name": "Just Born", "units": 0, "manufacturer_id": 13 },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 7314,
+          "manufacturer_id": 3
+        },
+        { "manufacturer_name": "Quest", "units": 0, "manufacturer_id": 11 },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 6,
+          "manufacturer_id": 1
+        }
+      ],
+      "month_buyer_volume_distributor": 85246.76,
+      "month_buyer_units_distributor": 14227,
+      "month_distributor_sales_volume": 170348.56,
+      "month_distributor_sales_units": 14981
+    },
+    "original_ytd": {
+      "sales_volume_by_manufacturer": [
+        {
+          "manufacturer_id": 408,
+          "manufacturer_name": "Bazooka",
+          "amount": 12138.24
+        },
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 3887.72
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 1205.72
+        },
+        {
+          "manufacturer_id": 12,
+          "manufacturer_name": "Ferrero",
+          "amount": 33899.89
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 2096.77
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 249503.98
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 87524.61
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 29325.91
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 79655.65
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 7403.09
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 73254.77
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 21292.71
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 8715.52
+        },
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 7129.36
+        }
+      ],
+      "purchase_volume_by_manufacturer": [
+        {
+          "manufacturer_id": 1,
+          "manufacturer_name": "Wonderful Pistachios",
+          "amount": 83.88
+        },
+        {
+          "manufacturer_id": 3,
+          "manufacturer_name": "Perfetti Van Melle",
+          "amount": 5475.72
+        },
+        {
+          "manufacturer_id": 4,
+          "manufacturer_name": "Highline Warren ",
+          "amount": 51559.44
+        },
+        {
+          "manufacturer_id": 5,
+          "manufacturer_name": "Ford Gum",
+          "amount": 1195.56
+        },
+        {
+          "manufacturer_id": 6,
+          "manufacturer_name": "Energizer Auto",
+          "amount": 199.14
+        },
+        {
+          "manufacturer_id": 11,
+          "manufacturer_name": "Quest",
+          "amount": 3600.96
+        },
+        {
+          "manufacturer_id": 13,
+          "manufacturer_name": "Just Born",
+          "amount": 1796.04
+        },
+        {
+          "manufacturer_id": 14,
+          "manufacturer_name": "Old Trapper",
+          "amount": 10287.56
+        },
+        {
+          "manufacturer_id": 15,
+          "manufacturer_name": "HERSHEY",
+          "amount": 12325.06
+        },
+        {
+          "manufacturer_id": 16,
+          "manufacturer_name": "Jack Links",
+          "amount": 17180.92
+        },
+        {
+          "manufacturer_id": 411,
+          "manufacturer_name": "Edgewell",
+          "amount": 3815.4
+        },
+        {
+          "manufacturer_id": 476,
+          "manufacturer_name": "Hormel",
+          "amount": 8890.08
+        }
+      ],
+      "ytd_unit_sales_by_manufacturer": [
+        { "manufacturer_name": "Bazooka", "units": 0, "manufacturer_id": 408 },
+        { "manufacturer_name": "Edgewell", "units": 0, "manufacturer_id": 411 },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 345,
+          "manufacturer_id": 6
+        },
+        { "manufacturer_name": "Ferrero", "units": -12, "manufacturer_id": 12 },
+        {
+          "manufacturer_name": "Ford Gum",
+          "units": 1159,
+          "manufacturer_id": 5
+        },
+        { "manufacturer_name": "HERSHEY", "units": 0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 336,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 20818,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0,
+          "manufacturer_id": 16
+        },
+        { "manufacturer_name": "Just Born", "units": 0, "manufacturer_id": 13 },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 22328,
+          "manufacturer_id": 3
+        },
+        { "manufacturer_name": "Quest", "units": 3108, "manufacturer_id": 11 },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 2554,
+          "manufacturer_id": 1
+        }
+      ],
+      "ytd_unit_purchase_by_manufacturer": [
+        { "manufacturer_name": "Edgewell", "units": 0, "manufacturer_id": 411 },
+        {
+          "manufacturer_name": "Energizer Auto",
+          "units": 233,
+          "manufacturer_id": 6
+        },
+        {
+          "manufacturer_name": "Ford Gum",
+          "units": 1800,
+          "manufacturer_id": 5
+        },
+        { "manufacturer_name": "HERSHEY", "units": 0, "manufacturer_id": 15 },
+        {
+          "manufacturer_name": "Highline Warren ",
+          "units": 65,
+          "manufacturer_id": 4
+        },
+        {
+          "manufacturer_name": "Hormel",
+          "units": 23135,
+          "manufacturer_id": 476
+        },
+        {
+          "manufacturer_name": "Jack Links",
+          "units": 0,
+          "manufacturer_id": 16
+        },
+        { "manufacturer_name": "Just Born", "units": 0, "manufacturer_id": 13 },
+        {
+          "manufacturer_name": "Old Trapper",
+          "units": 0,
+          "manufacturer_id": 14
+        },
+        {
+          "manufacturer_name": "Perfetti Van Melle",
+          "units": 23904,
+          "manufacturer_id": 3
+        },
+        { "manufacturer_name": "Quest", "units": 0, "manufacturer_id": 11 },
+        {
+          "manufacturer_name": "Wonderful Pistachios",
+          "units": 4480,
+          "manufacturer_id": 1
+        }
+      ],
+      "ytd_buyer_volume_distributor": 310986.64,
+      "ytd_buyer_units_distributor": 16325,
+      "ytd_distributor_sales_volume": 617033.94,
+      "ytd_distributor_sales_units": 50636
+    }
+  }
+}

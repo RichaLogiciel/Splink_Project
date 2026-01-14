@@ -1,0 +1,322 @@
+[
+  {
+    "id": "1",
+    "manufacturer": {
+      "avatar": "/img/avatar-wonderful-pistachios.png",
+      "name": "Wonderful Pistachios"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 612500,
+        "yoy": 5
+      },
+      "totalSavings": {
+        "amount": 18300,
+        "yoy": 8
+      },
+      "totalOppSavings": {
+        "amount": 37000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1450
+      }
+    },
+    "programs": [
+      {
+        "type": "Tier I - Carry Core 4 SKUs",
+        "complianceStatus": true,
+        "rebate": "2%"
+      },
+      {
+        "type": "Tier II - Carry Core 8 SKUs",
+        "complianceStatus": false,
+        "rebate": "3%"
+      },
+      {
+        "type": "Tier III - Product Innovation",
+        "complianceStatus": false,
+        "rebate": "3%"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "manufacturer": {
+      "avatar": "/img/avatar-lil-drug-store.png",
+      "name": "Lil’ Drug Store"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 2100000,
+        "yoy": 9
+      },
+      "totalSavings": {
+        "amount": 42000,
+        "yoy": 5
+      },
+      "totalOppSavings": {
+        "amount": 15500
+      },
+      "totalSalesRepSpiff": {
+        "amount": 850
+      }
+    },
+    "programs": [
+      {
+        "type": "Program I",
+        "complianceStatus": true,
+        "rebate": "View Details"
+      },
+      {
+        "type": "Program II",
+        "complianceStatus": false,
+        "rebate": "View Details "
+      },
+      {
+        "type": "Program III",
+        "complianceStatus": false,
+        "rebate": "View Details "
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "manufacturer": {
+      "avatar": "/img/avatar-floridas-natural.png",
+      "name": "Floridas Natural"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 275000,
+        "yoy": 5
+      },
+      "totalSavings": {
+        "amount": 5200,
+        "yoy": 3
+      },
+      "totalOppSavings": {
+        "amount": 13000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 650
+      }
+    },
+    "programs": [
+      {
+        "type": "Tier 1 - 250 to 500 Cases",
+        "complianceStatus": false,
+        "rebate": "$0.25/cs"
+      },
+      {
+        "type": "Tier 2 - 501 to 1000 Cases",
+        "complianceStatus": false,
+        "rebate": "$1.00/cs"
+      },
+      {
+        "type": "Tier 3 - 1000+ Cases",
+        "complianceStatus": false,
+        "rebate": "$1.50/cs"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "manufacturer": {
+      "avatar": "/img/avatar-perfetti-van-melle.png",
+      "name": "Perfetti Van Melle"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 520000,
+        "yoy": 6
+      },
+      "totalSavings": {
+        "amount": 12500,
+        "yoy": 7
+      },
+      "totalOppSavings": {
+        "amount": 29000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1180
+      }
+    },
+    "programs": [
+      {
+        "type": "Core 15 Skus",
+        "complianceStatus": false,
+        "rebate": "4%"
+      },
+      {
+        "type": "Core 25 Skus",
+        "complianceStatus": false,
+        "rebate": "3%"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "manufacturer": {
+      "avatar": "/img/avatar-ford-gum.png",
+      "name": "Ford Gum"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 625000,
+        "yoy": 11
+      },
+      "totalSavings": {
+        "amount": 21000,
+        "yoy": 10
+      },
+      "totalOppSavings": {
+        "amount": 36000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1350
+      }
+    },
+    "programs": [
+      {
+        "type": "Tier I - 2 Unqiue Skus",
+        "complianceStatus": false,
+        "rebate": "2%"
+      },
+      {
+        "type": "Tier II - 4 Unique Skus",
+        "complianceStatus": false,
+        "rebate": "3%"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "manufacturer": {
+      "avatar": "/img/avatar-highline-warren.png",
+      "name": "Highline Warren"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 465000,
+        "yoy": 4
+      },
+      "totalSavings": {
+        "amount": 15500,
+        "yoy": 6
+      },
+      "totalOppSavings": {
+        "amount": 23000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1000
+      }
+    },
+    "programs": [
+      {
+        "type": "Tier I - 18 Skus",
+        "complianceStatus": false,
+        "rebate": "2%"
+      },
+      {
+        "type": "Tier II - 23 Skus",
+        "complianceStatus": false,
+        "rebate": "3%"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "manufacturer": {
+      "avatar": "/img/avatar-hersheys.png",
+      "name": "Hershey’s"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 715000,
+        "yoy": 13
+      },
+      "totalSavings": {
+        "amount": 26000,
+        "yoy": 12
+      },
+      "totalOppSavings": {
+        "amount": 52000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1550
+      }
+    },
+    "programs": [
+      {
+        "type": "Point Program",
+        "complianceStatus": false,
+        "rebate": "2-4%"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "manufacturer": {
+      "avatar": "/img/avatar-energizer.png",
+      "name": "Energizer"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 335000,
+        "yoy": 8
+      },
+      "totalSavings": {
+        "amount": 8800,
+        "yoy": 7
+      },
+      "totalOppSavings": {
+        "amount": 21000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 750
+      }
+    },
+    "programs": [
+      {
+        "type": "Tier I - 7 Skus",
+        "complianceStatus": false,
+        "rebate": "7%"
+      },
+      {
+        "type": "Tier II - 10 Skus",
+        "complianceStatus": false,
+        "rebate": "10%"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "manufacturer": {
+      "avatar": "/img/avatar-pg.png",
+      "name": "P&G"
+    },
+    "salesData": {
+      "purchaseVolume": {
+        "amount": 490000,
+        "yoy": 10
+      },
+      "totalSavings": {
+        "amount": 16500,
+        "yoy": 9
+      },
+      "totalOppSavings": {
+        "amount": 30000
+      },
+      "totalSalesRepSpiff": {
+        "amount": 1050
+      }
+    },
+    "programs": [
+      {
+        "type": "Base Volume",
+        "complianceStatus": false,
+        "rebate": "5%"
+      }
+    ]
+  }
+]

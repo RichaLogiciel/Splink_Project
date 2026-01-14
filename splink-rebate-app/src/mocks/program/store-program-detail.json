@@ -1,0 +1,101 @@
+{
+  "id": "hvgvhgffcvjg",
+  "manufacturer": {
+    "avatar": "/img/avatar-wonderful-pistachios.png",
+    "name": "Store Program Detail - Wonderful Pistachios"
+  },
+  "salesData": {
+    "purchaseVolume": {
+      "amount": 537500,
+      "yoy": 8
+    },
+    "totalSavings": {
+      "amount": 16650,
+      "yoy": 10
+    },
+    "totalStoreEnrolled": {
+      "total": 450,
+      "enrolled": 400
+    }
+  },
+  "programs": {
+    "retailer": [
+      {
+        "type": "Tier 1",
+        "rebate": 3,
+        "overview": "Carry 4 of the core 10 Skus",
+        "storeCompliance": {
+          "total": 400,
+          "completed": 280
+        },
+        "totalSaving": {
+          "amount": 9500
+        }
+      },
+      {
+        "type": "Tier 2",
+        "rebate": 5,
+        "overview": "Carry 6 of  the core 10 Skus",
+        "storeCompliance": {
+          "total": 400,
+          "completed": 106
+        },
+        "totalSaving": {
+          "amount": 7150
+        }
+      }
+    ]
+  },
+  "products": [
+    {
+      "image": "/img/products/ProgramProducts/lightly-salted-no-shell.jpg",
+      "name": "Lightly Salted No Shell",
+      "extraInfo": "6.0 OZ"
+    },
+    {
+      "image": "/img/products/ProgramProducts/salted-shell-6_0oz.jpg",
+      "name": "Salted Shell",
+      "extraInfo": "6.0 OZ"
+    },
+    {
+      "image": "/img/products/ProgramProducts/jalapeno-lime-no-shell.jpg",
+      "name": "Jalapeno Lime No Shell",
+      "extraInfo": "6.0 0Z"
+    },
+    {
+      "image": "/img/products/ProgramProducts/chili-no-shell.jpg",
+      "name": "Chili No Shell",
+      "extraInfo": "6.0 OZ"
+    },
+    {
+      "image": "/img/products/ProgramProducts/honey-roasted-no-shell-6_0oz.jpg",
+      "name": "Honey Roasted No Shell",
+      "extraInfo": "6.0 OZ"
+    },
+    {
+      "image": "/img/products/ProgramProducts/salt--vinegar-no-shell.jpg",
+      "name": "Salt & Vinegar No Shell",
+      "extraInfo": "6.0 OZ"
+    },
+    {
+      "image": "/img/products/ProgramProducts/salted-shell-4_8oz.jpg",
+      "name": "Salted Shell",
+      "extraInfo": "4.8 OZ"
+    },
+    {
+      "image": "/img/products/ProgramProducts/buffalo-no-shell.jpg",
+      "name": "Buffalo No Shell",
+      "extraInfo": "2.4 0Z"
+    },
+    {
+      "image": "/img/products/ProgramProducts/sweet-chili-no-shell.png",
+      "name": "Sweet Chili No Shell",
+      "extraInfo": "2.4 OZ"
+    },
+    {
+      "image": "/img/products/ProgramProducts/sweet-chili-shell.jpg",
+      "name": "Sweet Chili Shell",
+      "extraInfo": "6.0 OZ"
+    }
+  ]
+}

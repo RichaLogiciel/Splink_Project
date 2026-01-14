@@ -1,0 +1,18 @@
+[
+  {
+    "label": "All",
+    "value": ""
+  },
+  {
+    "label": "Active",
+    "value": "ACTIVE"
+  },
+  {
+    "label": "Invitation Not Sent",
+    "value": "INVITATION_PENDING"
+  },
+  {
+    "label": "Invitation Pending",
+    "value": "INVITATION_SENT"
+  }
+]

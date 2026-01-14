@@ -1,0 +1,1532 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "storeId": 72,
+      "manufacturerId": 1,
+      "manufacturer": {
+        "id": 1,
+        "name": "Wonderful Pistachios",
+        "logo": "https://dev-splink-s3.s3.us-east-2.amazonaws.com/eac8104d-ceff-47fa-95c7-89ad72936c05-image (9).png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 5,
+          "programId": 5,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Core Distribution - Tier 1",
+            "title": "Core Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 6
+        },
+        {
+          "id": 5,
+          "programId": 5,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Core Distribution - Tier 2",
+            "title": "Core Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 7
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "storeId": 72,
+      "manufacturerId": 2,
+      "manufacturer": {
+        "id": 2,
+        "name": "Florida's Natural",
+        "logo": "/img/avatar-florida's-natural.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 8,
+          "programId": 8,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "0.25",
+          "rebateType": "fixed",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 10
+        },
+        {
+          "id": 8,
+          "programId": 8,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "1.00",
+          "rebateType": "fixed",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 11
+        },
+        {
+          "id": 8,
+          "programId": 8,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "1.50",
+          "rebateType": "fixed",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 3",
+            "title": "Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 12
+        },
+        {
+          "id": 8,
+          "programId": 8,
+          "programTier": 4,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "2.00",
+          "rebateType": "fixed",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 4",
+            "title": "Distribution - Tier 4"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 13
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "storeId": 72,
+      "manufacturerId": 3,
+      "manufacturer": {
+        "id": 3,
+        "name": "Perfetti van Melle",
+        "logo": "https://dev-splink-s3.s3.us-east-2.amazonaws.com/80adb2bf-2166-4198-ac1d-0e76f3b10a44-avatar-perfetti-van-melle.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 10,
+          "programId": 10,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 15
+        },
+        {
+          "id": 10,
+          "programId": 10,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 16
+        },
+        {
+          "id": 10,
+          "programId": 10,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 3",
+            "title": "Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 17
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "storeId": 72,
+      "manufacturerId": 4,
+      "manufacturer": {
+        "id": 4,
+        "name": "Highline Warren",
+        "logo": "/img/avatar-highline-warren.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 13,
+          "programId": 13,
+          "programTier": 0,
+          "type": "Core Distribution",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Core Distribution"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 20
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "storeId": 72,
+      "manufacturerId": 5,
+      "manufacturer": {
+        "id": 5,
+        "name": "Ford Gum",
+        "logo": "/img/avatar-ford-gum.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 17,
+          "programId": 17,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 24
+        },
+        {
+          "id": 17,
+          "programId": 17,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 25
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "storeId": 72,
+      "manufacturerId": 6,
+      "manufacturer": {
+        "id": 6,
+        "name": "Energizer Auto",
+        "logo": "/img/avatar-energizer-auto-sales.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 20,
+          "programId": 20,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "QUARTERLY",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 29
+        },
+        {
+          "id": 20,
+          "programId": 20,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "QUARTERLY",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 30
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "storeId": 72,
+      "manufacturerId": 7,
+      "manufacturer": {
+        "id": 7,
+        "name": "Energizer Battery",
+        "logo": "/img/avatar-energizer-battery.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 24,
+          "programId": 24,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 35
+        },
+        {
+          "id": 24,
+          "programId": 24,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 36
+        },
+        {
+          "id": 24,
+          "programId": 24,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 3",
+            "title": "Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 37
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "storeId": 72,
+      "manufacturerId": 8,
+      "manufacturer": {
+        "id": 8,
+        "name": "Lil' Drug Store",
+        "logo": "/img/avatar-lil'-drug-store.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 26,
+          "programId": 26,
+          "programTier": 0,
+          "type": "Core Distribution",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Core Distribution"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 39
+        },
+        {
+          "id": 27,
+          "programId": 27,
+          "programTier": 0,
+          "type": "Distribution",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Distribution"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 40
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "storeId": 72,
+      "manufacturerId": 9,
+      "manufacturer": {
+        "id": 9,
+        "name": "Lil' Drug Store - P&G",
+        "logo": "/img/avatar-lil'-drug-store---p&g-.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 28,
+          "programId": 28,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 41
+        },
+        {
+          "id": 28,
+          "programId": 28,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 42
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "storeId": 72,
+      "manufacturerId": 11,
+      "manufacturer": {
+        "id": 11,
+        "name": "Quest",
+        "logo": "/img/avatar-simply-good-foods.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 31,
+          "programId": 31,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Beverage - Tier 1",
+            "title": "Beverage - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 45
+        },
+        {
+          "id": 31,
+          "programId": 31,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Beverage - Tier 2",
+            "title": "Beverage - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 46
+        },
+        {
+          "id": 31,
+          "programId": 31,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Beverage - Tier 3",
+            "title": "Beverage - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 47
+        },
+        {
+          "id": 32,
+          "programId": 32,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Core Distribution - Tier 1",
+            "title": "Core Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 48
+        },
+        {
+          "id": 32,
+          "programId": 32,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Core Distribution - Tier 2",
+            "title": "Core Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 49
+        },
+        {
+          "id": 32,
+          "programId": 32,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Core Distribution - Tier 3",
+            "title": "Core Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 50
+        },
+        {
+          "id": 33,
+          "programId": 33,
+          "programTier": 0,
+          "type": "Innovation",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Innovation"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 51
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "storeId": 72,
+      "manufacturerId": 12,
+      "manufacturer": {
+        "id": 12,
+        "name": "Ferrero",
+        "logo": "/img/avatar-ferrero.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 35,
+          "programId": 35,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "50.00",
+          "rebateType": "fixed",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Display - Tier 1",
+            "title": "Display - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 53
+        },
+        {
+          "id": 35,
+          "programId": 35,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "100.00",
+          "rebateType": "fixed",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Display - Tier 2",
+            "title": "Display - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 54
+        },
+        {
+          "id": 36,
+          "programId": 36,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "75.00",
+          "rebateType": "fixed",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 55
+        },
+        {
+          "id": 36,
+          "programId": 36,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "150.00",
+          "rebateType": "fixed",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 56
+        },
+        {
+          "id": 36,
+          "programId": 36,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebate": "225.00",
+          "rebateType": "fixed",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 3",
+            "title": "Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 57
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "storeId": 72,
+      "manufacturerId": 13,
+      "manufacturer": {
+        "id": 13,
+        "name": "Just Born",
+        "logo": "/img/avatar-just-born.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 37,
+          "programId": 37,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 58
+        },
+        {
+          "id": 37,
+          "programId": 37,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 59
+        },
+        {
+          "id": 37,
+          "programId": 37,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 3",
+            "title": "Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 60
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "storeId": 72,
+      "manufacturerId": 14,
+      "manufacturer": {
+        "id": 14,
+        "name": "Old Trapper",
+        "logo": "/img/avatar-old-trapper.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 38,
+          "programId": 38,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 61
+        },
+        {
+          "id": 38,
+          "programId": 38,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 62
+        },
+        {
+          "id": 38,
+          "programId": 38,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 3",
+            "title": "Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 63
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "storeId": 72,
+      "manufacturerId": 15,
+      "manufacturer": {
+        "id": 15,
+        "name": "HERSHEY",
+        "logo": "/img/avatar-hershey.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 39,
+          "programId": 39,
+          "programTier": 0,
+          "type": "Additional Incentives - 100+ Total Items",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Additional Incentives - 100+ Total Items"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 64
+        },
+        {
+          "id": 40,
+          "programId": 40,
+          "programTier": 0,
+          "type": "Additional Incentives - Top 75 Items",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Additional Incentives - Top 75 Items"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 65
+        },
+        {
+          "id": 41,
+          "programId": 41,
+          "programTier": 0,
+          "type": "Display",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "Retail Agreement", "title": "Display" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 66
+        },
+        {
+          "id": 42,
+          "programId": 42,
+          "programTier": 0,
+          "type": "Item Distribution - Other Items",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Item Distribution - Other Items"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 67
+        },
+        {
+          "id": 43,
+          "programId": 43,
+          "programTier": 0,
+          "type": "Item Distribution - Top 75 Items",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Item Distribution - Top 75 Items"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 68
+        },
+        {
+          "id": 44,
+          "programId": 44,
+          "programTier": 0,
+          "type": "Item Growth",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Item Growth"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 69
+        },
+        {
+          "id": 45,
+          "programId": 45,
+          "programTier": 0,
+          "type": "Salty - 20+ Items",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Salty - 20+ Items"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 70
+        },
+        {
+          "id": 46,
+          "programId": 46,
+          "programTier": 0,
+          "type": "Salty - ALL",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Salty - ALL"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 71
+        },
+        {
+          "id": 47,
+          "programId": 47,
+          "programTier": 0,
+          "type": "Salty - Take Home",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Salty - Take Home"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 72
+        },
+        {
+          "id": 48,
+          "programId": 48,
+          "programTier": 0,
+          "type": "Salty - Top 10",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Salty - Top 10"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 73
+        },
+        {
+          "id": 49,
+          "programId": 49,
+          "programTier": 0,
+          "type": "Seasonal Growth",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Seasonal Growth"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 74
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "storeId": 72,
+      "manufacturerId": 16,
+      "manufacturer": {
+        "id": 16,
+        "name": "Jack Links",
+        "logo": "/img/avatar-jack-links.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 50,
+          "programId": 50,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Ambient Distribution Element - Tier 1",
+            "title": "Ambient Distribution Element - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 75
+        },
+        {
+          "id": 50,
+          "programId": 50,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Ambient Distribution Element - Tier 2",
+            "title": "Ambient Distribution Element - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 76
+        },
+        {
+          "id": 50,
+          "programId": 50,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Ambient Distribution Element - Tier 3",
+            "title": "Ambient Distribution Element - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 77
+        },
+        {
+          "id": 51,
+          "programId": 51,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Cold Crafted Distribution - Tier 1",
+            "title": "Cold Crafted Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 78
+        },
+        {
+          "id": 51,
+          "programId": 51,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Cold Crafted Distribution - Tier 2",
+            "title": "Cold Crafted Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 79
+        },
+        {
+          "id": 52,
+          "programId": 52,
+          "programTier": 0,
+          "type": "Innovation",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Innovation"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 80
+        },
+        {
+          "id": 53,
+          "programId": 53,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Merchandising Display Element - Tier 1",
+            "title": "Merchandising Display Element - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 81
+        },
+        {
+          "id": 53,
+          "programId": 53,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Merchandising Display Element - Tier 2",
+            "title": "Merchandising Display Element - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 82
+        },
+        {
+          "id": 53,
+          "programId": 53,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Merchandising Display Element - Tier 3",
+            "title": "Merchandising Display Element - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 83
+        }
+      ]
+    },
+    {
+      "id": 185,
+      "storeId": 72,
+      "manufacturerId": 185,
+      "manufacturer": {
+        "id": 185,
+        "name": "Bazooka",
+        "logo": "/img/bazooka.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 54,
+          "programId": 54,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 1",
+            "title": "Distribution - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 84
+        },
+        {
+          "id": 54,
+          "programId": 54,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 2",
+            "title": "Distribution - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 85
+        },
+        {
+          "id": 54,
+          "programId": 54,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Distribution - Tier 3",
+            "title": "Distribution - Tier 3"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 86
+        },
+        {
+          "id": 55,
+          "programId": 55,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Innovation - Tier 1",
+            "title": "Innovation - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 87
+        },
+        {
+          "id": 55,
+          "programId": 55,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Innovation - Tier 2",
+            "title": "Innovation - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 88
+        },
+        {
+          "id": 56,
+          "programId": 56,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Merchandising Display Element - Tier 1",
+            "title": "Merchandising Display Element - Tier 1"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 89
+        },
+        {
+          "id": 56,
+          "programId": 56,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Merchandising Display Element - Tier 2",
+            "title": "Merchandising Display Element - Tier 2"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 90
+        }
+      ]
+    },
+    {
+      "id": 186,
+      "storeId": 72,
+      "manufacturerId": 186,
+      "manufacturer": {
+        "id": 186,
+        "name": "Albanese",
+        "logo": "/img/albanese.jpg"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 57,
+          "programId": 57,
+          "programTier": 0,
+          "type": "Base Rebate",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Base Rebate"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 91
+        },
+        {
+          "id": 58,
+          "programId": 58,
+          "programTier": 0,
+          "type": "POG",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "Retail Agreement", "title": "POG" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 93
+        },
+        {
+          "id": 58,
+          "programId": 58,
+          "programTier": 0,
+          "type": "POG",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "Retail Agreement", "title": "POG" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 94
+        },
+        {
+          "id": 58,
+          "programId": 58,
+          "programTier": 0,
+          "type": "POG",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "Retail Agreement", "title": "POG" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 92
+        }
+      ]
+    },
+    {
+      "id": 187,
+      "storeId": 72,
+      "manufacturerId": 187,
+      "manufacturer": {
+        "id": 187,
+        "name": "Edgewell",
+        "logo": "/img/edgewell.png"
+      },
+      "isEnrolled": false,
+      "salesData": {
+        "purchaseVolume": { "amount": 0, "yoy": 0 },
+        "totalSavings": { "amount": 0, "yoy": 0 },
+        "totalOppSavings": { "amount": 0 },
+        "totalSalesRepSpiff": { "amount": 0 }
+      },
+      "programs": [
+        {
+          "id": 59,
+          "programId": 59,
+          "programTier": 1,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "POG - Tier 1", "title": "POG - Tier 1" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 95
+        },
+        {
+          "id": 59,
+          "programId": 59,
+          "programTier": 2,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "POG - Tier 2", "title": "POG - Tier 2" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 96
+        },
+        {
+          "id": 59,
+          "programId": 59,
+          "programTier": 3,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "POG - Tier 3", "title": "POG - Tier 3" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 97
+        },
+        {
+          "id": 59,
+          "programId": 59,
+          "programTier": 4,
+          "type": "TIER",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": { "info": "POG - Tier 4", "title": "POG - Tier 4" },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 98
+        },
+        {
+          "id": 60,
+          "programId": 60,
+          "programTier": 0,
+          "type": "Distribution",
+          "programEntityType": "STORE",
+          "rebateType": "percentage",
+          "paymentTerms": "SEMI-ANNUAL",
+          "complianceStatus": false,
+          "additionalInfo": {
+            "info": "Retail Agreement",
+            "title": "Distribution"
+          },
+          "completedComplianceEntityIds": [],
+          "programdetailId": 99
+        }
+      ]
+    }
+  ]
+}

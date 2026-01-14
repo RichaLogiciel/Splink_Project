@@ -1,0 +1,393 @@
+{
+  "status": "success",
+  "data": {
+    "stores": [
+      {
+        "id": 12199,
+        "userInfo": {
+          "id": 13666,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "00 LIQUOR MART",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 81.43
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": [
+            "73390005948",
+            "73390020958",
+            "73390020965",
+            "73390023324",
+            "73390050054",
+            "73390051099",
+            "73390051112"
+          ]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12200,
+        "userInfo": {
+          "id": 13306,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "00 LIQUORS(BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 277.07
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": [
+            "73390005771",
+            "73390011727",
+            "73390011796",
+            "73390011949",
+            "73390050054",
+            "73390050177",
+            "73390050207",
+            "73390050214",
+            "73390050221",
+            "73390050290",
+            "73390050368",
+            "73390050375",
+            "73390050382",
+            "73390051099",
+            "73390051112",
+            "73390051259",
+            "73390051266"
+          ]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12209,
+        "userInfo": {
+          "id": 13922,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1 STOP SHOP (BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 28.58
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": ["73390011789", "73390050177"]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12201,
+        "userInfo": {
+          "id": 16652,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1000 RICHMOND PETROLUEM",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 123.79
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": [
+            "73390005764",
+            "73390005788",
+            "73390005801",
+            "73390005948",
+            "73390050368",
+            "73390051112",
+            "73390051143",
+            "73390051198",
+            "73390051242",
+            "73390051259",
+            "73390051266"
+          ]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12202,
+        "userInfo": {
+          "id": 16912,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1001 CASTRO",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 37.47
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": ["73390005764", "73390005771", "73390005795"]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12203,
+        "userInfo": {
+          "id": 14513,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "10TH ST LIQUORS (EFT)(BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 14.29
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": ["73390020958"]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12204,
+        "userInfo": {
+          "id": 15766,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "1201 GAS STORE (EFT) (BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 63.35
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": [
+            "73390050177",
+            "73390050207",
+            "73390050221",
+            "73390050368",
+            "73390051266"
+          ]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12206,
+        "userInfo": {
+          "id": 13897,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "127 MARKET (BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 19.68
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": ["73390011789", "73390051143"]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12207,
+        "userInfo": {
+          "id": 14139,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "13TH ST MARKET (EFT)(BD)",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 15.29
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": ["73390011949"]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      },
+      {
+        "id": 12208,
+        "userInfo": {
+          "id": 13397,
+          "status": "INVITATION_PENDING"
+        },
+        "storeInfo": {
+          "name": "17TH AND NOE MARKET",
+          "location": "",
+          "rep": {
+            "name": "PI Sales Rep"
+          },
+          "distributor": {
+            "id": 129,
+            "name": "Pitco"
+          }
+        },
+        "salesData": {
+          "purchaseVolume": {
+            "amount": 92.8
+          },
+          "totalSavings": {
+            "amount": 0
+          },
+          "purchasedSkus": [
+            "73390050054",
+            "73390050177",
+            "73390051020",
+            "73390051099",
+            "73390051112",
+            "73390051143",
+            "73390051242",
+            "73390051266"
+          ]
+        },
+        "programData": {
+          "completedPrograms": 0,
+          "totalEnrolled": 3,
+          "isEnrolled": false
+        },
+        "chainNames": null
+      }
+    ],
+    "totalStores": 3428,
+    "currentPage": 1,
+    "totalPages": 343
+  }
+}

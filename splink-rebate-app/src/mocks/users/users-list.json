@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "email": "david@example.com",
+      "firstName": "David",
+      "lastName": "",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "DISTRIBUTOR_ADMIN"
+      }
+    },
+    {
+      "id": 3,
+      "email": "jane@example.com",
+      "firstName": "Jane",
+      "lastName": "",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "DISTRIBUTOR_SALES_REP"
+      }
+    },
+    {
+      "id": 4,
+      "email": "alice@example.com",
+      "firstName": "Alice",
+      "lastName": "",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "STORE"
+      }
+    },
+    {
+      "id": 5,
+      "email": "danghoang@gmail.com",
+      "firstName": "Robert",
+      "lastName": "Fox",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "STORE"
+      }
+    },
+    {
+      "id": 6,
+      "email": "jeromebell@gmail.com",
+      "firstName": "Jerome",
+      "lastName": "Bell",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "STORE"
+      }
+    },
+    {
+      "id": 7,
+      "email": "codefisher@gmail.com",
+      "firstName": "COdy",
+      "lastName": "fisher",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "STORE"
+      }
+    },
+    {
+      "id": 12,
+      "email": "thuhangnute@gmail.com",
+      "firstName": "Thuhang",
+      "lastName": "nute",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "STORE"
+      }
+    },
+    {
+      "id": 14,
+      "email": "marvinmckiney@gmail.com",
+      "firstName": "Marvin",
+      "lastName": "Mckinney",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "DISTRIBUTOR_SALES_REP"
+      }
+    },
+    {
+      "id": 15,
+      "email": "jannifer@gmail.com",
+      "firstName": "Jannifer",
+      "lastName": "Robert",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "DISTRIBUTOR_SALES_REP"
+      }
+    },
+    {
+      "id": 16,
+      "email": "michael.smith@gmail.com",
+      "firstName": "Michael",
+      "lastName": "Smith",
+      "phone": null,
+      "status": null,
+      "createdAt": "2024-11-12T12:07:59.267Z",
+      "UserRole": {
+        "role": "STORE"
+      }
+    }
+  ],
+  "currentPage": 1,
+  "totalPages": 2,
+  "totalRes": 14
+}
