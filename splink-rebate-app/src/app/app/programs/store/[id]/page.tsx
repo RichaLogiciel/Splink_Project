@@ -43,23 +43,24 @@ const StoreProgramDetailPage = async ({
   const programTimeline = getProgramTimelineQueryParam(
     searchParams?.programTimeline
   );
-  let pdfUrl: string | null = null;
-  if (
-    searchParams?.programTimeline === "Current" ||
-    searchParams?.programTimeline === "Upcoming"
-  ) {
-    try {
-      const pdfResult = await getProgramPdfUrl(
-        Number(params.id),
-        programTimeline as "Current" | "Upcoming",
-        "STORE"
-      );
-      pdfUrl = pdfResult.program_pdf;
-    } catch (error) {
-      console.error("Error fetching program PDF URL:", error);
-      pdfUrl = null;
-    }
-  }
+  let pdfUrl: string | null = "http://localhost:3001/sample.pdf";
+
+  // if (
+  //   searchParams?.programTimeline === "Current" ||
+  //   searchParams?.programTimeline === "Upcoming"
+  // ) {
+  //   try {
+  //     const pdfResult = await getProgramPdfUrl(
+  //       Number(params.id),
+  //       programTimeline as "Current" | "Upcoming",
+  //       "STORE"
+  //     );
+  //     pdfUrl = pdfResult.program_pdf;
+  //   } catch (error) {
+  //     console.error("Error fetching program PDF URL:", error);
+  //     pdfUrl = null;
+  //   }
+  // }
 
   switch (user?.role) {
     case USER_ROLES.DISTRIBUTOR_ADMIN:
