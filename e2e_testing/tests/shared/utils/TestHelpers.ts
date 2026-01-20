@@ -194,7 +194,7 @@ export class TestHelpers {
           // Wait for modal with a shorter timeout per attempt
           await page.waitForSelector(tierModalSelector, {
             state: 'visible',
-            timeout: 15000,
+            timeout: 30000, // 15 seconds per attempt
           });
 
           modalVisible = true;

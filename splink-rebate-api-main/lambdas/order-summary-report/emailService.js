@@ -1,30 +1,11 @@
 const nodemailer = require("nodemailer");
 const secretsService = require("./secretsService");
 
-// Get email configuration from secrets (with fallback to env vars)
-// Note: In Lambda handler, secrets should be loaded first to cache them
-const getEmailConfig = () => {
-  return {
-    host: secretsService.getSecretSync("MAIL_HOST"),
-    port: parseInt(secretsService.getSecretSync("MAIL_PORT") || "587"),
-    username: secretsService.getSecretSync("MAIL_USERNAME"),
-    password: secretsService.getSecretSync("MAIL_PASSWORD"),
-    fromEmail: secretsService.getSecretSync(
-      "MAIL_FROM_EMAIL",
-      "no-reply@splinktechnologies.com"
-    ),
-    fromName: secretsService.getSecretSync("MAIL_FROM_NAME", "Splink")
-  };
-};
+// Default from email/name (used as fallback)
+const DEFAULT_FROM_EMAIL = "no-reply@splinktechnologies.com";
+const DEFAULT_FROM_NAME = "Splink";
 
-// Initialize email config (sync for module load, will use env vars if secrets not cached)
-const emailConfig = getEmailConfig();
-
-const fromEmail = emailConfig.fromEmail;
-const fromName = emailConfig.fromName;
-
-// Create transporter (reuse across Lambda invocations)
-// Will be reinitialized with secrets in handler if needed
+// Transporter instance (lazy initialization)
 let transporter = null;
 
 /**
@@ -64,40 +45,31 @@ async function getTransporter() {
   return transporter;
 }
 
-// Initialize transporter with sync config for backward compatibility
-transporter = nodemailer.createTransport({
-  host: emailConfig.host || "",
-  port: emailConfig.port,
-  secure: false,
-  auth: {
-    user: emailConfig.username,
-    pass: emailConfig.password
-  }
-});
-
 /**
  * Send warehouse report email with attachment
  * @param {Buffer} fileBuffer - File buffer (CSV or text)
  * @param {string} filename - Filename for attachment
- * @param {Date} targetDate - Target date for the report
  * @param {boolean} hasData - Whether report has data
  * @param {number} warehouseId - Warehouse ID
  * @param {string} warehouseName - Warehouse name
  * @param {string[]} emailRecipients - Array of email addresses
  * @param {string} reportType - Report type (e.g., "HLA", "JPOLEP")
  * @param {string} contentType - Content type for attachment (default: "text/csv")
+ * @param {string|null} dateString - Optional date string (YYYY-MM-DD) for date-only display
+ * @param {boolean} isInitialRun - Whether this is the initial run (shows note about today/yesterday)
  * @returns {Promise<void>}
  */
 async function sendWarehouseReportEmail(
   fileBuffer,
   filename,
-  targetDate,
   hasData,
   warehouseId,
   warehouseName,
   emailRecipients,
   reportType = "",
-  contentType = "text/csv"
+  contentType = "text/csv",
+  dateString = null,
+  isInitialRun = false
 ) {
   try {
     // Ensure transporter is initialized with secrets
@@ -106,33 +78,59 @@ async function sendWarehouseReportEmail(
     // Get from email/name from secrets
     const mailFromEmail = await secretsService.getSecret(
       "MAIL_FROM_EMAIL",
-      fromEmail
+      DEFAULT_FROM_EMAIL
     );
     const mailFromName = await secretsService.getSecret(
       "MAIL_FROM_NAME",
-      fromName
+      DEFAULT_FROM_NAME
     );
-    // Format date as MM/DD/YYYY for email
-    const month = String(targetDate.getMonth() + 1).padStart(2, "0");
-    const day = String(targetDate.getDate()).padStart(2, "0");
-    const year = targetDate.getFullYear();
-    const formattedDate = `${month}/${day}/${year}`;
+
+    // Format date for email
+    let dateDisplayStr;
+
+    if (dateString) {
+      // Format dateString as MM/DD/YYYY
+      const [year, month, day] = dateString.split("-");
+      dateDisplayStr = `${month}/${day}/${year}`;
+    } else {
+      // Use current date (MM/DD/YYYY)
+      const today = new Date();
+      const month = String(today.getMonth() + 1).padStart(2, "0");
+      const day = String(today.getDate()).padStart(2, "0");
+      const year = today.getFullYear();
+      dateDisplayStr = `${month}/${day}/${year}`;
+    }
 
     // Validate email recipients are configured
     if (!emailRecipients || emailRecipients.length === 0) {
       throw new Error("Email recipients not configured for warehouse report");
     }
 
-    // Email subject - include warehouse name and optional report type
+    // Email subject and body formatting
     const warehouseDisplayName = warehouseName || `Warehouse ${warehouseId}`;
     const reportTypePrefix = reportType ? `${reportType} ` : "";
-    const subject = `${reportTypePrefix}Order Report - ${warehouseDisplayName} - ${formattedDate}`;
 
-    // Email body
-    let body = `This report contains orders for warehouse "${warehouseDisplayName}" (ID: ${warehouseId}) for ${formattedDate}.`;
-    if (!hasData) {
-      body = `No data exists for warehouse "${warehouseDisplayName}" (ID: ${warehouseId}) for ${formattedDate}.`;
+    let body;
+    if (hasData) {
+      body = `This report contains orders for warehouse "${warehouseDisplayName}" (ID: ${warehouseId})`;
+      if (dateString) {
+        body += ` for ${dateDisplayStr}.`;
+      } else {
+        body += ` for ${dateDisplayStr}.`;
+      }
+      if (isInitialRun) {
+        body += ` Note: This is the initial report run. Orders from today and yesterday are included to capture maximum orders.`;
+      }
+    } else {
+      body = `No data exists for warehouse "${warehouseDisplayName}" (ID: ${warehouseId})`;
+      if (dateString) {
+        body += ` for ${dateDisplayStr}.`;
+      } else {
+        body += ` for ${dateDisplayStr}.`;
+      }
     }
+
+    const subject = `${reportTypePrefix}Order Report - ${warehouseDisplayName} - ${dateDisplayStr}`;
 
     const mailOptions = {
       from: {

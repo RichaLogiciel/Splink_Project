@@ -1,0 +1,22 @@
+version = 0.1
+[dev.deploy.parameters]
+stack_name = "warehouse-report-lambda"
+resolve_s3 = true
+s3_prefix = "warehouse-report-lambda"
+region = "us-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = "SecretArn=\"arn:aws:secretsmanager:us-west-2:920373008286:secret:main-stage-cron-lambda-vuGSMG\" S3BucketName=\"sftp-splink-bucket\" LambdaRuntime=\"nodejs18.x\" VpcSubnetIds=\"subnet-0b22bed39bf5ecc37,subnet-0d99d49aa51d56f30\" VpcSecurityGroupIds=\"sg-0196f146a9215cb55\""
+image_repositories = []
+
+[prod.deploy.parameters]
+stack_name = "live-warehouse-report-lambda"
+resolve_s3 = true
+s3_prefix = "live-warehouse-report-lambda"
+region = "us-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM"
+parameter_overrides = "SecretArn=\"arn:aws:secretsmanager:us-west-2:920373008286:secret:prod-cron-lambda-xa1Hua\" S3BucketName=\"sftp-splink-bucket\" LambdaRuntime=\"nodejs18.x\" VpcSubnetIds=\"subnet-078ef4f847f164b48,subnet-02f8849407ac860f7\" VpcSecurityGroupIds=\"sg-0d6d41f8c08b2631e\""
+image_repositories = []
+disable_rollback = true

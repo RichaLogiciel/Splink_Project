@@ -100,6 +100,11 @@ export const salesRepMap = new Map(
       name: 'Ahmad Ali',
       jsonPath: 'corr-williams-dist.json',
     },
+    '5M LLC': {
+      email: 'plainfieldnorthbound_111@splinktodigital.com',
+      name: '5M LLC',
+      jsonPath: 'corr-williams-dist.json',
+    },
   })
 );
 

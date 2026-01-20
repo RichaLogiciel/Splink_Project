@@ -11,6 +11,11 @@
  * node test-local.js jpolep
  * node test-local.js allenbrother
  * node test-local.js hla 2025-01-20
+ *
+ * Note: The Lambda uses rolling window date ranges:
+ * - 11 AM EST run (16:00 UTC): Previous day 4:00 PM EST → Today 11:00 AM EST
+ * - 4 PM EST run (21:00 UTC): Today 11:00 AM EST → Today 4:00 PM EST
+ * When testing locally, the date range is calculated based on the current execution time.
  */
 
 require("dotenv").config({ path: require("path").join(__dirname, ".env") });
@@ -110,6 +115,10 @@ handler(testEvent)
       console.log(`   Warehouse ID: ${body.warehouseId}`);
       console.log(`   Warehouse Name: ${body.warehouseName}`);
       console.log(`   Date: ${body.date}`);
+      console.log(`   Window Type: ${body.windowType || "N/A"}`);
+      if (body.startDate && body.endDate) {
+        console.log(`   Date Range: ${body.startDate} to ${body.endDate}`);
+      }
       console.log(`   Records: ${body.recordCount}`);
       console.log(`   Has Data: ${body.hasData}`);
       if (body.emailRecipientsCount !== undefined) {

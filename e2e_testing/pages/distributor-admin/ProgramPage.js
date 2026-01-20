@@ -207,8 +207,12 @@ class ProgramPage extends ProgramPageBase {
     const cardSaleInfo = await cards[index].$('.saleinfo');
     console.log('Card Sale Info: ', await cardSaleInfo.textContent());
 
-    cardSaleInfo.click();
-    await this.page.waitForLoadState('networkidle');
+    await cardSaleInfo.click();
+    // await this.page.waitForLoadState('networkidle');
+      await this.page.waitForURL(/store|distributor/, {
+      timeout: timeOut,
+    });
+
 
     // Determine which details panel to wait for based on current URL
     const currentUrl = this.page.url();
@@ -217,12 +221,15 @@ class ProgramPage extends ProgramPageBase {
       ? this.selectors.storeProgramDetails
       : this.selectors.distributorProgramDetails;
 
-    await this.page.waitForSelector(detailsSelector, {
-      state: 'visible',
-      timeout: timeOut,
-    });
-    await this.page.waitForLoadState('networkidle');
-    await this.page.waitForTimeout(1500); // Wait for any animations or transitions
+    // await this.page.waitForSelector(detailsSelector, {
+    //   state: 'visible',
+    //   timeout: timeOut,
+    // });
+    const detailsPanel = this.page.locator(detailsSelector);
+    await detailsPanel.waitFor({ state: 'visible', timeout: timeOut });
+
+    // await this.page.waitForLoadState('networkidle');
+    // await this.page.waitForTimeout(1500); // Wait for any animations or transitions
   }
 
   /**
@@ -241,8 +248,8 @@ class ProgramPage extends ProgramPageBase {
       // Wait for either: at least one card OR the empty-state message.
       // If neither appears, we'll fall through to the catch and return [].
       await Promise.race([
-        programCards.first().waitFor({ state: 'attached', timeout: 15000 }),
-        noProgramsMessage.waitFor({ state: 'visible', timeout: 15000 }),
+        programCards.first().waitFor({ state: 'attached', timeout: 20000 }), // 20 seconds
+        noProgramsMessage.waitFor({ state: 'visible', timeout: 20000 }), // 20 seconds
       ]);
 
       const cardCount = await programCards.count();

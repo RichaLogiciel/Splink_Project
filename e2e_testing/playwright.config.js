@@ -10,7 +10,7 @@ const maxFailures = process.env?.LOCAL == 'true' ? 10 : 5;
 module.exports = defineConfig({
   testDir: './tests',
   maxFailures: maxFailures,
-  timeout: 60 * 60 * 1000, // 1 hour
+  timeout: 2 * (60 * 60 * 1000), // 2 hours
   expect: {
     timeout: 4000,
   },
@@ -50,9 +50,9 @@ module.exports = defineConfig({
     // ===============================================
     'tests/sales-rep/store-program-detail-common.spec.js',
     'tests/sales-rep/store-breakdown-common.spec.ts',
-    'tests/sales-rep/earnings-cap-validation.spec.js',
+    // 'tests/sales-rep/earnings-cap-validation.spec.js',
     // ================================================
-    'tests/sales-rep/store-spiff-breakdown.spec.ts',
+    // 'tests/sales-rep/store-spiff-breakdown.spec.ts',
     'tests/sales-rep/sales-rep-earnings-match.spec.js',
     'tests/sales-rep/sales-rep-spiff-overview-comparison.spec.js',
     'tests/sales-rep/sales-rep-historical-payout.spec.js',

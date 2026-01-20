@@ -18,8 +18,8 @@ const {
   USE_SSH_TUNNEL,
   DB_SSH_LOCAL_PORT,
   // Pool configuration with defaults
-  DB_POOL_MAX = "20",
-  DB_POOL_MIN = "5",
+   DB_POOL_MAX = "10",
+  DB_POOL_MIN = "1",
   DB_POOL_ACQUIRE_TIMEOUT = "60000",
   DB_POOL_IDLE_TIMEOUT = "20000",
   DB_POOL_EVICT_INTERVAL = "1000"

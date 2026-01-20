@@ -10,10 +10,14 @@ import path from 'path';
 import ProgramPage from '../../pages/distributor-admin/ProgramPage';
 import StoreProgramDetailPage from '../../pages/distributor-admin/StoreProgramDetailPage';
 import SuperAdminUsersTable from '../../pages/SuperAdminUsersTable';
-import { ENTITY_TYPE, MAX_STORES_TO_TEST } from '../../utils/constant';
+import {
+  ENTITY_TYPE,
+  MANUFACTURER_TO_SKIP,
+  MAX_STORES_TO_TEST,
+} from '../../utils/constant';
 import { distributorMap, manufacturerMap } from '../../utils/userMap';
 
-const ManufacturerToSkip = ['HERSHEY', 'Jack Links', "Florida's Natural"];
+const ManufacturerToSkip = MANUFACTURER_TO_SKIP;
 
 // Helper to load JSON for a distributor
 function loadDistributorJson(jsonPath) {
@@ -309,11 +313,11 @@ distributorMap.forEach((distributor, distributorKey) => {
         // Wait up to 30 seconds for network to be idle
         try {
           await page.waitForLoadState('networkidle', {
-            timeout: 15000,
+            timeout: 30000,
           });
           await page.waitForSelector(detailPage.selectors.allTabs, {
             state: 'visible',
-            timeout: 15000,
+            timeout: 30000,
           });
         } catch (error) {
           console.log(

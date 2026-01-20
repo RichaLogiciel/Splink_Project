@@ -142,7 +142,13 @@ class DistributorRepository {
     }
     const result = await ManagerSalesRepMapping.findAll({
       where: {
-        sales_manager_id: salesRepManagerId
+        sales_manager_id: salesRepManagerId,
+        // Include both PRIMARY and SECONDARY assignments for visibility
+        [Op.or]: [
+          { assignment_type: "PRIMARY" },
+          { assignment_type: "SECONDARY" },
+          { assignment_type: { [Op.is]: null } } // Handle legacy records without assignment_type
+        ]
       },
       attributes: ["sales_rep_id"],
       raw: true
@@ -888,7 +894,7 @@ class DistributorRepository {
         "storesCount"
       ],
       [
-        Sequelize.fn("ARRAY_AGG", Sequelize.col("store_sales_reps.store_id")),
+        Sequelize.literal(`ARRAY_AGG(DISTINCT "store_sales_reps"."store_id")`),
         "storeIds"
       ],
       [
@@ -980,7 +986,13 @@ class DistributorRepository {
           where: {
             sales_rep_id: {
               [Op.in]: salesRepIds
-            }
+            },
+            // Only count PRIMARY assignments (or NULL for legacy records) to avoid double counting
+            // Secondary assignments are for visibility only, not for earnings or store counts
+            [Op.or]: [
+              { assignment_type: "PRIMARY" },
+              { assignment_type: { [Op.is]: null } } // Handle legacy records without assignment_type
+            ]
           }
         }
       ],
@@ -1204,6 +1216,7 @@ class DistributorRepository {
                 AND msrm.sales_manager_id = $1
                 AND ssr.deleted_at IS NULL
                 AND msrm.deleted_at IS NULL
+                AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
             )
             ${timelineFilter}
             ${manufacturerFilter}
@@ -2790,6 +2803,7 @@ class DistributorRepository {
         INNER JOIN manager_sales_rep_mapping msrm
           ON ssr.sales_rep_id = msrm.sales_rep_id
           AND msrm.deleted_at IS NULL
+          AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
         WHERE pp.entity_type = 'STORE'
           AND pp.deleted_at IS NULL
           AND NOT EXISTS (

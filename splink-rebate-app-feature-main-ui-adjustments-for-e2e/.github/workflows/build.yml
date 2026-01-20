@@ -1,0 +1,54 @@
+name: ci
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  install-and-build:
+    name: install-and-build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # - name: Check branch name
+      #   run: |
+      #     BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+      #     echo "Branch name: $BRANCH_NAME"
+      #     if [[ ! "$BRANCH_NAME" =~ ^(feature|fix|hotfix)/.+ ]]; then
+      #       echo "Branch name does not follow the pattern: 'type/JIRA-ID-description'"
+      #       exit 1
+      #     fi
+
+      # - name: Check PR title
+      #   run: |
+      #     PR_TITLE="${{ github.event.pull_request.title }}"
+      #     echo "PR title: $PR_TITLE"
+      #     if [[ ! "$PR_TITLE" =~ ^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert)\([a-zA-Z0-9_-]+\):\ .+ ]]; then
+      #       echo "PR title does not follow the conventional commits format."
+      #       echo "Please ensure the title matches the pattern: 'type: description'."
+      #       exit 1
+      #     fi
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.14.0"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run eslint
+        run: yarn lint
+
+      # - name: Run tests
+      #   run: yarn test
+
+      - name: Make build
+        run: yarn build

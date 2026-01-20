@@ -1,0 +1,247 @@
+name: Playwright E2E Tests - Production
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - main
+
+# Minimal permissions for security
+permissions:
+  contents: read
+  pull-requests: read
+
+env:
+  # Configuration - update these as needed
+  E2E_REPO: Splink-Technologies/e2e_testing  # Organization E2E testing repo
+  E2E_PATH: ./e2e
+  APP_PORT: 3000
+  FE_BUILD_DIR: .next  # Next.js builds to .next directory
+  BASE_URL: http://localhost:3000
+  # Test credentials and configuration (based on e2e_testing repo)
+  SUPER_ADMIN_EMAIL: "superadmin@example.com"
+  SUPER_ADMIN_PASSWORD: "Sup3r@dM!n#1"
+
+jobs:
+  # Single job that builds frontend and runs E2E tests on the same runner
+  e2e-tests:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Frontend build steps
+      - name: Checkout splink-rebate-app (main_stage branch)
+        uses: actions/checkout@v4
+        with:
+          ref: main_stage  # Always test main_stage branch code
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Cache frontend dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            ~/.cache/yarn
+          key: ${{ runner.os }}-fe-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-fe-
+
+      - name: Cache Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-next-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-next-
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Fetch Secrets from AWS Secrets Manager
+        id: fetch-secrets
+        run: |
+          # Retrieve secrets from AWS Secrets Manager
+          SECRET_NAME=${{ secrets.SECRET_NAME }}
+          REGION=${{ vars.AWS_REGION }}
+          SECRETS=$(aws secretsmanager get-secret-value --secret-id $SECRET_NAME --region $REGION | jq -r '.SecretString' | jq -r "to_entries|map(\"\(.key)=\\\"\(.value|tostring)\\\"\")|.[]")
+          echo "$SECRETS" > .env
+          echo "✅ .env file created with secrets from AWS Secrets Manager"
+
+      - name: Install frontend dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build frontend application
+        run: yarn build
+        env:
+          CI: true
+
+      - name: Install serve package (fallback)
+        run: npm install -g serve
+
+      - name: Start frontend server in background
+        run: |
+          # Try yarn start first, fallback to serve if needed
+          if yarn run | grep -q "start"; then
+            echo "Starting with: yarn start -p ${{ env.APP_PORT }}"
+            yarn start -p ${{ env.APP_PORT }} &
+            FE_PID=$!
+            echo "FE_PID=$FE_PID" >> $GITHUB_ENV
+          else
+            echo "Starting with: npx serve -s ${{ env.FE_BUILD_DIR }} -l ${{ env.APP_PORT }}"
+            npx serve -s ${{ env.FE_BUILD_DIR }} -l ${{ env.APP_PORT }} &
+            FE_PID=$!
+            echo "FE_PID=$FE_PID" >> $GITHUB_ENV
+          fi
+          
+          # Store PID for cleanup
+          echo "Frontend server started with PID: $FE_PID"
+
+      - name: Wait for frontend server to be ready
+        run: |
+          echo "Waiting for frontend server at ${{ env.BASE_URL }}..."
+          
+          # Reduced timeout for faster fail-fast behavior
+          timeout=30
+          counter=0
+          
+          while [ $counter -lt $timeout ]; do
+            if curl -f -s ${{ env.BASE_URL }} > /dev/null 2>&1; then
+              echo "✅ Frontend server is ready at ${{ env.BASE_URL }}"
+              break
+            fi
+            
+            echo "⏳ Waiting for server... ($counter/$timeout seconds)"
+            sleep 1  # Reduced interval for faster detection
+            counter=$((counter + 1))
+          done
+          
+          if [ $counter -ge $timeout ]; then
+            echo "❌ Frontend server failed to start within $timeout seconds"
+            exit 1
+          fi
+
+      # E2E test steps
+      - name: Generate GitHub App Token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
+      - name: Checkout E2E tests from external repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.E2E_REPO }}
+          path: ${{ env.E2E_PATH }}
+          token: ${{ steps.generate-token.outputs.token }}
+
+      - name: Cache E2E dependencies
+        id: cache-e2e
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ env.E2E_PATH }}/node_modules
+            ~/.cache/yarn
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-e2e-${{ hashFiles('e2e/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-e2e-
+
+      - name: Install Playwright dependencies
+        working-directory: ${{ env.E2E_PATH }}
+        if: steps.cache-e2e.outputs.cache-hit != 'true'
+        run: |
+          echo "Installing Playwright dependencies..."
+          yarn install --frozen-lockfile
+          # Install Playwright browsers (cached)
+          npx playwright install --with-deps
+
+      - name: Run Playwright E2E tests
+        working-directory: ${{ env.E2E_PATH }}
+        timeout-minutes: 15
+        run: |
+          echo "Running Playwright tests from: $(pwd)"
+          echo "Target URL: ${{ env.BASE_URL }}"
+          echo "Testing main_stage branch code"
+          
+          # Verify frontend is accessible before running tests
+          echo "Verifying frontend accessibility..."
+          curl -f -s ${{ env.BASE_URL }} || (echo "❌ Frontend not accessible" && exit 1)
+          echo "✅ Frontend is accessible"
+          
+          # Run all tests with proper backend connectivity
+          echo "🚀 Running Playwright tests with backend connectivity"
+          echo "✅ .env file created from AWS Secrets Manager"
+          echo "🔗 Backend API configuration loaded from AWS Secrets Manager"
+          echo "📋 Tests to run:"
+          echo "   - tests/login.spec.js (direct login tests)"
+          echo "   - tests/super-admin-dashboard.spec.js (uses impersonateUser)"
+          echo "   - tests/distributor-admin/dashboard.spec.js (uses impersonateUser)"
+          echo ""
+          
+          # if yarn run | grep -q "test"; then
+          #   echo "Running: yarn test"
+          #   yarn test
+          # elif yarn run | grep -q "playwright"; then
+          #   echo "Running: yarn playwright test"
+          #   yarn playwright test
+          # else
+          #   echo "Running: npx playwright test"
+          #   npx playwright test
+          # fi
+          
+          echo "Running: yarn run-sample-test"
+          yarn run-sample-test
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
+          CI: true
+          SUPER_ADMIN_EMAIL: ${{ env.SUPER_ADMIN_EMAIL }}
+          SUPER_ADMIN_PASSWORD: ${{ env.SUPER_ADMIN_PASSWORD }}
+
+      - name: Upload Playwright artifacts (on failure only)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts-${{ github.run_id }}
+          path: |
+            ${{ env.E2E_PATH }}/test-results
+            ${{ env.E2E_PATH }}/playwright-report
+          if-no-files-found: ignore
+          retention-days: 3
+
+  # Final notification job
+  notify:
+    name: Notify Results
+    runs-on: ubuntu-latest
+    needs: [e2e-tests]
+    if: always()
+    
+    steps:
+      - name: Notify Slack on success
+        if: success() && needs.e2e-tests.result == 'success'
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{
+              "text": ":white_check_mark: Playwright E2E Tests **PASSED**\nRepository: `${{ github.repository }}`\nBranch: `${{ github.ref_name }}`\nTesting: `main_stage` branch\nCommit: `${{ github.sha }}`\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }' \
+            ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Notify Slack on failure
+        if: failure() || needs.e2e-tests.result == 'failure'
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+            --data '{
+              "text": ":x: Playwright E2E Tests **FAILED**\nRepository: `${{ github.repository }}`\nBranch: `${{ github.ref_name }}`\nTesting: `main_stage` branch\nCommit: `${{ github.sha }}`\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\nArtifacts: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts"
+            }' \
+            ${{ secrets.SLACK_WEBHOOK }}

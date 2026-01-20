@@ -2,15 +2,18 @@
  * Generate CSV buffer from data rows
  * @param {Array} data - Array of data objects to convert to CSV
  * @param {Array<string>} headers - Array of header names (exact column names)
+ * @param {boolean} includeHeaders - Whether to include header row (default: true)
  * @returns {Promise<Buffer>} Promise resolving to CSV buffer
  */
-function generateCSV(data, headers) {
+function generateCSV(data, headers, includeHeaders = true) {
   return new Promise((resolve, reject) => {
     try {
       const rows = [];
 
-      // Add header row
-      rows.push(headers);
+      // Add header row only if includeHeaders is true
+      if (includeHeaders) {
+        rows.push(headers);
+      }
 
       // Add data rows
       data.forEach((row) => {

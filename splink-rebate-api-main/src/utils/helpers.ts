@@ -457,6 +457,88 @@ export const getPreviousYearDate = (date: Date) => {
   return previousYearDate;
 };
 
+/**
+ * Calculates date ranges for a given year and its previous year with week-boundary adjustments.
+ * Adjusts dates to avoid weeks that span year boundaries, preventing data exclusion issues
+ * with materialized views that exclude Dec 30-31 transactions when the week contains Jan 1.
+ *
+ * Logic:
+ * - Start Date (Jan 1): If Jan 1 is Sunday, use Jan 1. If Jan 1 is mid-week (Mon-Fri),
+ *   skip that week and use the Monday of the next week (don't go back to December).
+ * - End Date (Dec 31): If Dec 31 is mid-week (Mon-Fri), use the previous Sunday
+ *   (end of previous complete week). If Dec 31 is Sat/Sun, use Dec 31 as-is.
+ * - Previous Year: Apply the same logic to previous year dates for YoY comparison.
+ *
+ * @param {number} year - The year to calculate dates for (e.g., 2025)
+ * @returns {Object} Object containing start and end dates for current and previous years
+ */
+export const calculateYearBasedDates = (
+  year: number
+): {
+  currentYearStartDate: Date;
+  currentYearEndDate: Date;
+  previousYearStartDate: Date;
+  previousYearEndDate: Date;
+} => {
+  // Helper function to adjust Jan 1 date based on day of week
+  const adjustStartDate = (jan1Date: Date): Date => {
+    const dayOfWeek = jan1Date.getUTCDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+    // If Jan 1 is Sunday (0) or Saturday (6), use Jan 1 as-is
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      return jan1Date;
+    }
+
+    // If Jan 1 is mid-week (Mon-Fri, 1-5), skip that week and use Monday of next week
+    // Calculate: Jan 1 + (8 - dayOfWeek) days to get to next Monday
+    // Examples: Mon (1) → +7 days = Jan 8, Tue (2) → +6 days = Jan 7, Wed (3) → +5 days = Jan 6
+    const daysToAdd = 8 - dayOfWeek;
+    const adjustedDate = new Date(jan1Date);
+    adjustedDate.setUTCDate(adjustedDate.getUTCDate() + daysToAdd);
+    adjustedDate.setUTCHours(0, 0, 0, 0);
+    return adjustedDate;
+  };
+
+  // Helper function to adjust Dec 31 date based on day of week
+  const adjustEndDate = (dec31Date: Date): Date => {
+    const dayOfWeek = dec31Date.getUTCDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+
+    // If Dec 31 is Saturday (6) or Sunday (0), use Dec 31 as-is
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      return dec31Date;
+    }
+
+    // If Dec 31 is mid-week (Mon-Fri, 1-5), use the previous Sunday
+    // Calculate: Dec 31 - dayOfWeek days to get to Sunday of that week
+    const adjustedDate = new Date(dec31Date);
+    adjustedDate.setUTCDate(adjustedDate.getUTCDate() - dayOfWeek);
+    adjustedDate.setUTCHours(23, 59, 59, 999);
+    return adjustedDate;
+  };
+
+  // Current year: January 1 to December 31 with week-boundary adjustments
+  const jan1Current = new Date(Date.UTC(year, 0, 1, 0, 0, 0, 0));
+  const dec31Current = new Date(Date.UTC(year, 11, 31, 23, 59, 59, 999));
+  const currentYearStartDate = adjustStartDate(jan1Current);
+  const currentYearEndDate = adjustEndDate(dec31Current);
+
+  // Previous year: January 1 to December 31 with week-boundary adjustments
+  const previousYear = year - 1;
+  const jan1Previous = new Date(Date.UTC(previousYear, 0, 1, 0, 0, 0, 0));
+  const dec31Previous = new Date(
+    Date.UTC(previousYear, 11, 31, 23, 59, 59, 999)
+  );
+  const previousYearStartDate = adjustStartDate(jan1Previous);
+  const previousYearEndDate = adjustEndDate(dec31Previous);
+
+  return {
+    currentYearStartDate,
+    currentYearEndDate,
+    previousYearStartDate,
+    previousYearEndDate
+  };
+};
+
 export const buildGrowthProgramData = (prevData: any[], currData: any[]) => {
   const result: any[] = [];
 

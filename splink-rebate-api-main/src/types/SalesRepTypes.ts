@@ -175,7 +175,7 @@ export interface SPIFFOpportunityTierDetails {
 }
 
 export interface SPIFFOpportunityModalData {
-  totalSpiffEarning?: number;
+  totalSpiffEarning?: number | null;
   totalSpiffEarningOpp?: number;
   tierDetails?: SPIFFOpportunityTierDetails[];
   quantitySold?: number;

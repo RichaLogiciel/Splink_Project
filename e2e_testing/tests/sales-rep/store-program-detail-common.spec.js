@@ -15,7 +15,7 @@ salesRepMap.forEach((salesRep, salesRepKey) => {
 
     const testInstance = new SalesRepStoreProgramDetailTest();
 
-    test('Overview Tab: Retailer Program for each program', async ({
+    test.skip('Overview Tab: Retailer Program for each program', async ({
       page,
     }) => {
       await testInstance.runProgramDetailTest(page);

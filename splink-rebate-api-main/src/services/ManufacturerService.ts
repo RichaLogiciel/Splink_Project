@@ -41,6 +41,7 @@ import { FormattedStoredData, Store } from "../types/StoreTypes";
 import {
   buildGrowthData,
   calculateYOYGrowth,
+  calculateYearBasedDates,
   getDateMinusDays,
   getMinMaxProgramDatesWithManufacturerId,
   getPreviousYearDate,
@@ -60,7 +61,7 @@ import {
   getMonthBasedStartDate,
   getNearestSunday,
   getStartDate,
-  getStartDateWithPreviousSaturday,
+  getStartDateWithPreviousMonday,
   getStorePenetrationChartData,
   processSalesData
 } from "../utils/salesUtils";
@@ -412,12 +413,14 @@ class ManufacturerDashboardService {
     manufacturerId,
     distributorIds,
     monthRange,
-    selectedProductIds
+    selectedProductIds,
+    year
   }: {
     manufacturerId: number;
     distributorIds: number[];
     monthRange?: string;
     selectedProductIds?: number[];
+    year?: number;
   }): Promise<ManufacturerProductInsightsKeyMetrics> {
     const allowedDistributorIds =
       await ManufacturerRepository.filterAllowedDistributorIds(
@@ -425,13 +428,18 @@ class ManufacturerDashboardService {
         distributorIds
       );
 
+    // When year is provided, treat monthRange as "12" for cache key
+    const effectiveMonthRange =
+      year !== null && year !== undefined ? "12" : monthRange || "all";
+
     const cacheKey: string = getCacheKey(
       "manufacturer",
       "key-metrics-optimized",
       manufacturerId.toString(),
       allowedDistributorIds.length ? allowedDistributorIds.join(",") : "none",
-      monthRange || "all",
-      selectedProductIds?.sort().join(",") || "all"
+      effectiveMonthRange,
+      selectedProductIds?.sort().join(",") || "all",
+      year?.toString() || "all"
     );
 
     if (allowedDistributorIds.length === 0) {
@@ -464,31 +472,50 @@ class ManufacturerDashboardService {
       });
     const totalStoresCount = totalStoresCountResult?.storeCount || 0;
 
-    const latestTransactionDate =
-      await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
-        allowedDistributorIds,
-        [manufacturerId]
+    let actualStartDate: Date;
+    let actualEndDate: Date;
+    let prevYearStartDate: Date;
+    let prevYearEndDate: Date;
+    let latestTransactionDate: Date | string | null;
+
+    // If year is provided, use year-based date calculation
+    if (year !== null && year !== undefined) {
+      const yearDates = calculateYearBasedDates(year);
+      actualStartDate = yearDates.currentYearStartDate;
+      actualEndDate = yearDates.currentYearEndDate;
+      prevYearStartDate = yearDates.previousYearStartDate;
+      prevYearEndDate = yearDates.previousYearEndDate;
+      // Set latestTransactionDate to Dec 31 of the provided year as date-only string (YYYY-MM-DD)
+      // to avoid timezone conversion issues. This represents the actual year end,
+      // while actualEndDate is adjusted for week boundaries in queries.
+      latestTransactionDate = `${year}-12-31`;
+    } else {
+      latestTransactionDate =
+        await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
+          allowedDistributorIds,
+          [manufacturerId]
+        );
+
+      // Round endDate to nearest Saturday to ensure consistency between line_items and product_insights queries
+      // This ensures both queries use the same week boundary
+      const rawEndDate = latestTransactionDate
+        ? new Date(latestTransactionDate)
+        : new Date();
+      const endDate = getNearestSunday(rawEndDate);
+
+      // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
+      const startDate = getStartDateWithPreviousMonday(
+        endDate,
+        monthRange ?? "1"
       );
 
-    // Round endDate to nearest Saturday to ensure consistency between line_items and product_insights queries
-    // This ensures both queries use the same week boundary
-    const rawEndDate = latestTransactionDate
-      ? new Date(latestTransactionDate)
-      : new Date();
-    const endDate = getNearestSunday(rawEndDate);
+      // The getStartDateWithPreviousMonday handles year boundaries and previous Saturday logic
+      actualStartDate = startDate;
+      actualEndDate = endDate;
 
-    // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
-    const startDate = getStartDateWithPreviousSaturday(
-      endDate,
-      monthRange ?? "1"
-    );
-
-    // The getStartDateWithPreviousSaturday handles year boundaries and previous Saturday logic
-    const actualStartDate = startDate;
-    const actualEndDate = endDate;
-
-    const prevYearStartDate = getPreviousYearDate(actualStartDate);
-    const prevYearEndDate = getPreviousYearDate(actualEndDate);
+      prevYearStartDate = getPreviousYearDate(actualStartDate);
+      prevYearEndDate = getPreviousYearDate(actualEndDate);
+    }
 
     // Fetch grouped data based on month range
     // Execute with increased work_mem for better performance on large aggregations
@@ -502,7 +529,11 @@ class ManufacturerDashboardService {
             let groupedData: any[] = [];
             let prevYearGroupedData: any[] = [];
 
-            if (String(monthRange) === "1") {
+            // When year is provided, use monthly grouping (treat as 12 months)
+            const effectiveMonthRangeForGrouping =
+              year !== null && year !== undefined ? "12" : (monthRange ?? "1");
+
+            if (String(effectiveMonthRangeForGrouping) === "1") {
               // Use weekly grouping for 1 month filter
               const { current, previous } =
                 await ManufacturerRepository.getGroupedSalesDataByWeekOptimized(
@@ -553,7 +584,13 @@ class ManufacturerDashboardService {
               let groupedData: any[] = [];
               let prevYearGroupedData: any[] = [];
 
-              if (String(monthRange) === "1") {
+              // When year is provided, use monthly grouping (treat as 12 months)
+              const effectiveMonthRangeForGrouping =
+                year !== null && year !== undefined
+                  ? "12"
+                  : (monthRange ?? "1");
+
+              if (String(effectiveMonthRangeForGrouping) === "1") {
                 // Use weekly grouping for 1 month filter
                 const { current, previous } =
                   await ManufacturerRepository.getGroupedSalesDataByWeekOptimized(
@@ -690,51 +727,72 @@ class ManufacturerDashboardService {
     manufacturerId,
     distributorIds,
     monthRange,
-    selectedProductIds
+    selectedProductIds,
+    year
   }: {
     manufacturerId: number;
     distributorIds: number[];
     monthRange?: string;
     selectedProductIds?: number[];
+    year?: number;
   }): Promise<ManufacturerTopProductsOptimized> {
     const MAX_PRODUCTS = 1000;
     const useProductsFilter =
       selectedProductIds?.length && selectedProductIds?.length <= MAX_PRODUCTS;
+
+    // When year is provided, treat monthRange as "12" for cache key
+    const effectiveMonthRange =
+      year !== null && year !== undefined ? "12" : monthRange || "all";
 
     const cacheKey: string = getCacheKey(
       "manufacturer",
       "top-products-optimized",
       manufacturerId.toString(),
       distributorIds.join(","),
-      monthRange || "all",
-      selectedProductIds?.sort().join(",") || "all"
+      effectiveMonthRange,
+      selectedProductIds?.sort().join(",") || "all",
+      year?.toString() || "all"
     );
 
-    const latestTransactionDate =
-      await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
-        distributorIds,
-        [manufacturerId]
+    let actualStartDate: Date;
+    let actualEndDate: Date;
+    let prevYearStartDate: Date;
+    let prevYearEndDate: Date;
+
+    // If year is provided, use year-based date calculation
+    if (year !== null && year !== undefined) {
+      const yearDates = calculateYearBasedDates(year);
+      actualStartDate = yearDates.currentYearStartDate;
+      actualEndDate = yearDates.currentYearEndDate;
+      prevYearStartDate = yearDates.previousYearStartDate;
+      prevYearEndDate = yearDates.previousYearEndDate;
+    } else {
+      const latestTransactionDate =
+        await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
+          distributorIds,
+          [manufacturerId]
+        );
+
+      // Round endDate to nearest Saturday to ensure consistency between line_items and product_insights queries
+      // This ensures both queries use the same week boundary
+      const rawEndDate = latestTransactionDate
+        ? new Date(latestTransactionDate)
+        : new Date();
+      const endDate = getNearestSunday(rawEndDate);
+
+      // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
+      const startDate = getStartDateWithPreviousMonday(
+        endDate,
+        monthRange ?? "1"
       );
 
-    // Round endDate to nearest Saturday to ensure consistency between line_items and product_insights queries
-    // This ensures both queries use the same week boundary
-    const rawEndDate = latestTransactionDate
-      ? new Date(latestTransactionDate)
-      : new Date();
-    const endDate = getNearestSunday(rawEndDate);
+      // The getStartDateWithPreviousMonday handles year boundaries and previous Saturday logic
+      actualStartDate = startDate;
+      actualEndDate = endDate;
 
-    // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
-    const startDate = getStartDateWithPreviousSaturday(
-      endDate,
-      monthRange ?? "1"
-    );
-
-    // The getStartDateWithPreviousSaturday handles year boundaries and previous Saturday logic
-    const actualStartDate = startDate;
-    const actualEndDate = endDate;
-
-    const prevYearStartDate = getPreviousYearDate(actualStartDate);
-    const prevYearEndDate = getPreviousYearDate(actualEndDate);
+      prevYearStartDate = getPreviousYearDate(actualStartDate);
+      prevYearEndDate = getPreviousYearDate(actualEndDate);
+    }
 
     // map the 10 color to seect products
     const productColorMap = this.mapProductColors(selectedProductIds);
@@ -852,12 +910,14 @@ class ManufacturerDashboardService {
     manufacturerId,
     distributorIds,
     monthRange,
-    selectedProductIds
+    selectedProductIds,
+    year
   }: {
     manufacturerId: number;
     distributorIds: number[];
     monthRange?: string;
     selectedProductIds?: number[];
+    year?: number;
   }): Promise<ManufacturerDistributorSales> {
     const allowedDistributorIds =
       await ManufacturerRepository.filterAllowedDistributorIds(
@@ -865,13 +925,18 @@ class ManufacturerDashboardService {
         distributorIds
       );
 
+    // When year is provided, treat monthRange as "12" for cache key
+    const effectiveMonthRange =
+      year !== null && year !== undefined ? "12" : monthRange || "all";
+
     const cacheKey: string = getCacheKey(
       "manufacturer",
       "distributor-sales",
       manufacturerId.toString(),
       allowedDistributorIds.length ? allowedDistributorIds.join(",") : "none",
-      monthRange || "all",
-      selectedProductIds?.sort().join(",") || "all"
+      effectiveMonthRange,
+      selectedProductIds?.sort().join(",") || "all",
+      year?.toString() || "all"
     );
 
     if (allowedDistributorIds.length === 0) {
@@ -893,29 +958,43 @@ class ManufacturerDashboardService {
       return emptyResponse;
     }
 
-    const latestTransactionDate =
-      await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
-        allowedDistributorIds,
-        [manufacturerId]
+    let actualStartDate: Date;
+    let actualEndDate: Date;
+    let prevYearStartDate: Date;
+    let prevYearEndDate: Date;
+
+    // If year is provided, use year-based date calculation
+    if (year !== null && year !== undefined) {
+      const yearDates = calculateYearBasedDates(year);
+      actualStartDate = yearDates.currentYearStartDate;
+      actualEndDate = yearDates.currentYearEndDate;
+      prevYearStartDate = yearDates.previousYearStartDate;
+      prevYearEndDate = yearDates.previousYearEndDate;
+    } else {
+      const latestTransactionDate =
+        await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
+          allowedDistributorIds,
+          [manufacturerId]
+        );
+
+      const rawEndDate = latestTransactionDate
+        ? new Date(latestTransactionDate)
+        : new Date();
+      const endDate = getNearestSunday(rawEndDate);
+
+      // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
+      const startDate = getStartDateWithPreviousMonday(
+        endDate,
+        monthRange ?? "1"
       );
 
-    const rawEndDate = latestTransactionDate
-      ? new Date(latestTransactionDate)
-      : new Date();
-    const endDate = getNearestSunday(rawEndDate);
+      // The getStartDateWithPreviousMonday handles year boundaries and previous Saturday logic
+      actualStartDate = startDate;
+      actualEndDate = endDate;
 
-    // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
-    const startDate = getStartDateWithPreviousSaturday(
-      endDate,
-      monthRange ?? "1"
-    );
-
-    // The getStartDateWithPreviousSaturday handles year boundaries and previous Saturday logic
-    const actualStartDate = startDate;
-    const actualEndDate = endDate;
-
-    const prevYearStartDate = getPreviousYearDate(actualStartDate);
-    const prevYearEndDate = getPreviousYearDate(actualEndDate);
+      prevYearStartDate = getPreviousYearDate(actualStartDate);
+      prevYearEndDate = getPreviousYearDate(actualEndDate);
+    }
 
     // map the 10 color to seect products
     const productColorMap = this.mapProductColors(selectedProductIds);
@@ -930,7 +1009,11 @@ class ManufacturerDashboardService {
             let groupedData: any[] = [];
             let prevYearGroupedData: any[] = [];
 
-            if (String(monthRange) === "1") {
+            // When year is provided, use monthly grouping (treat as 12 months)
+            const effectiveMonthRangeForGrouping =
+              year !== null && year !== undefined ? "12" : (monthRange ?? "1");
+
+            if (String(effectiveMonthRangeForGrouping) === "1") {
               // Use weekly grouping for 1 month filter
               const { current, previous } =
                 await ManufacturerRepository.getGroupedSalesDataByWeekOptimized(
@@ -971,17 +1054,21 @@ class ManufacturerDashboardService {
     const groupedData = groupedDataResult.groupedData;
     const prevYearGroupedData = groupedDataResult.prevYearGroupedData;
 
+    // When year is provided, use monthly grouping (treat as 12 months)
+    const effectiveMonthRangeForTransform =
+      year !== null && year !== undefined ? "12" : (monthRange ?? "1");
+
     // Transform the data to match expected format with product-specific keys when selectedProductIds are provided
     const transformedGroupedData = this.transformGroupedDataForChart(
       groupedData,
-      monthRange ?? "1",
+      effectiveMonthRangeForTransform,
       selectedProductIds,
       productColorMap
     );
 
     const transformedPrevYearGroupedData = this.transformGroupedDataForChart(
       prevYearGroupedData,
-      monthRange ?? "1",
+      effectiveMonthRangeForTransform,
       selectedProductIds,
       productColorMap
     );
@@ -1016,12 +1103,14 @@ class ManufacturerDashboardService {
     manufacturerId,
     distributorIds,
     monthRange,
-    selectedProductIds
+    selectedProductIds,
+    year
   }: {
     manufacturerId: number;
     distributorIds: number[];
     monthRange?: string;
     selectedProductIds?: number[];
+    year?: number;
   }): Promise<ManufacturerStorePenetration> {
     const allowedDistributorIds =
       await ManufacturerRepository.filterAllowedDistributorIds(
@@ -1029,13 +1118,18 @@ class ManufacturerDashboardService {
         distributorIds
       );
 
+    // When year is provided, treat monthRange as "12" for cache key
+    const effectiveMonthRange =
+      year !== null && year !== undefined ? "12" : monthRange || "all";
+
     const cacheKey: string = getCacheKey(
       "manufacturer",
       "store-penetration",
       manufacturerId.toString(),
       allowedDistributorIds.length ? allowedDistributorIds.join(",") : "none",
-      monthRange || "all",
-      selectedProductIds?.sort().join(",") || "all"
+      effectiveMonthRange,
+      selectedProductIds?.sort().join(",") || "all",
+      year?.toString() || "all"
     );
 
     if (allowedDistributorIds.length === 0) {
@@ -1057,29 +1151,43 @@ class ManufacturerDashboardService {
       return emptyResponse;
     }
 
-    const latestTransactionDate =
-      await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
-        allowedDistributorIds,
-        [manufacturerId]
+    let actualStartDate: Date;
+    let actualEndDate: Date;
+    let prevYearStartDate: Date;
+    let prevYearEndDate: Date;
+
+    // If year is provided, use year-based date calculation
+    if (year !== null && year !== undefined) {
+      const yearDates = calculateYearBasedDates(year);
+      actualStartDate = yearDates.currentYearStartDate;
+      actualEndDate = yearDates.currentYearEndDate;
+      prevYearStartDate = yearDates.previousYearStartDate;
+      prevYearEndDate = yearDates.previousYearEndDate;
+    } else {
+      const latestTransactionDate =
+        await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
+          allowedDistributorIds,
+          [manufacturerId]
+        );
+
+      const rawEndDate = latestTransactionDate
+        ? new Date(latestTransactionDate)
+        : new Date();
+      const endDate = getNearestSunday(rawEndDate);
+
+      // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
+      const startDate = getStartDateWithPreviousMonday(
+        endDate,
+        monthRange ?? "1"
       );
 
-    const rawEndDate = latestTransactionDate
-      ? new Date(latestTransactionDate)
-      : new Date();
-    const endDate = getNearestSunday(rawEndDate);
+      // The getStartDateWithPreviousMonday handles year boundaries and previous Saturday logic
+      actualStartDate = startDate;
+      actualEndDate = endDate;
 
-    // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
-    const startDate = getStartDateWithPreviousSaturday(
-      endDate,
-      monthRange ?? "1"
-    );
-
-    // The getStartDateWithPreviousSaturday handles year boundaries and previous Saturday logic
-    const actualStartDate = startDate;
-    const actualEndDate = endDate;
-
-    const prevYearStartDate = getPreviousYearDate(actualStartDate);
-    const prevYearEndDate = getPreviousYearDate(actualEndDate);
+      prevYearStartDate = getPreviousYearDate(actualStartDate);
+      prevYearEndDate = getPreviousYearDate(actualEndDate);
+    }
 
     // Fetch store penetration data using new repository methods
     // Execute with increased work_mem for better performance on large aggregations
@@ -1092,14 +1200,17 @@ class ManufacturerDashboardService {
             let storePenetrationData: any[] = [];
             let prevYearStorePenetrationData: any[] = [];
 
-            const isDaily = String(monthRange) === "1"; // Use daily data for 1 month range
+            // When year is provided, use monthly data (treat as 12 months)
+            const effectiveMonthRangeForGrouping =
+              year !== null && year !== undefined ? "12" : (monthRange ?? "1");
+            const isDaily = String(effectiveMonthRangeForGrouping) === "1"; // Use daily data for 1 month range
 
             const { current, previous } =
               await ManufacturerRepository.getStorePenetrationDataOptimized(
                 manufacturerId,
                 allowedDistributorIds,
-                startDate,
-                endDate,
+                actualStartDate,
+                actualEndDate,
                 prevYearStartDate,
                 prevYearEndDate,
                 isDaily,
@@ -1128,10 +1239,14 @@ class ManufacturerDashboardService {
     // map the 10 color to seect products
     const productColorMap = this.mapProductColors(selectedProductIds);
 
+    // When year is provided, use monthly grouping (treat as 12 months)
+    const effectiveMonthRangeForTransform =
+      year !== null && year !== undefined ? "12" : (monthRange ?? "1");
+
     // Transform store penetration data to handle product-specific keys when selectedProductIds are provided
     const storePenetration = this.transformStorePenetrationDataForChart(
       storePenetrationData,
-      monthRange ?? "1",
+      effectiveMonthRangeForTransform,
       totalStoresCount,
       selectedProductIds,
       productColorMap
@@ -1139,7 +1254,7 @@ class ManufacturerDashboardService {
 
     const prevYearStorePenetration = this.transformStorePenetrationDataForChart(
       prevYearStorePenetrationData,
-      monthRange ?? "1",
+      effectiveMonthRangeForTransform,
       totalStoresCount,
       selectedProductIds,
       productColorMap
@@ -1227,12 +1342,12 @@ class ManufacturerDashboardService {
         const endDate = getNearestSunday(rawEndDate);
 
         // Use proper date calculation with previous Saturday logic for 1,3,6 month ranges
-        const startDate = getStartDateWithPreviousSaturday(
+        const startDate = getStartDateWithPreviousMonday(
           endDate,
           monthRange ?? "1"
         );
 
-        // The getStartDateWithPreviousSaturday handles year boundaries and previous Saturday logic
+        // The getStartDateWithPreviousMonday handles year boundaries and previous Saturday logic
         const actualStartDate = startDate;
         const actualEndDate = endDate;
 
@@ -3573,7 +3688,8 @@ class ManufacturerDashboardService {
     distributorManagerId,
     isGeneralManager,
     selectedWarehouseId,
-    parsedDistributorIds
+    parsedDistributorIds,
+    year
   }: {
     manufacturerId: number;
     distributorId: number | null;
@@ -3584,6 +3700,7 @@ class ManufacturerDashboardService {
     isGeneralManager?: boolean;
     selectedWarehouseId?: number;
     parsedDistributorIds?: number[];
+    year?: number;
   }) {
     let warehouseIds = undefined;
     if (distributorId && distributorManagerId) {
@@ -3600,48 +3717,62 @@ class ManufacturerDashboardService {
       ? [distributorId]
       : parsedDistributorIds || [];
 
-    // Get latest transaction date once
-    const latestTransactionDate =
-      await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
-        distributorIds,
-        !isNaN(manufacturerId) ? [manufacturerId] : undefined
+    let currentYearStartDate: Date;
+    let currentYearEndDate: Date;
+    let lastYearStartDate: Date;
+    let lastYearEndDate: Date;
+
+    // If year is provided, use year-based date calculation
+    if (year !== null && year !== undefined) {
+      const yearDates = calculateYearBasedDates(year);
+      currentYearStartDate = yearDates.currentYearStartDate;
+      currentYearEndDate = yearDates.currentYearEndDate;
+      lastYearStartDate = yearDates.previousYearStartDate;
+      lastYearEndDate = yearDates.previousYearEndDate;
+    } else {
+      // Get latest transaction date once
+      const latestTransactionDate =
+        await ManufacturerRepository.getLatestTransactionDateByManufacturersAndDistributors(
+          distributorIds,
+          !isNaN(manufacturerId) ? [manufacturerId] : undefined
+        );
+
+      const rawEndDate = latestTransactionDate
+        ? new Date(latestTransactionDate)
+        : new Date();
+      const endDate = getNearestSunday(rawEndDate);
+      // Calculate base dates once
+      const baseEndDate = endDate;
+      const baseStartDate =
+        monthRange == "12"
+          ? this.getMonthBasedDate(baseEndDate, monthRange ?? "")
+          : getStartDate(baseEndDate, monthRange ?? "");
+
+      // Calculate current year and last year dates
+      currentYearStartDate = new Date(baseStartDate);
+      currentYearEndDate = new Date(baseEndDate);
+
+      // For last year, we want the exact same dates but in the previous year
+      lastYearStartDate = new Date(
+        baseStartDate.getFullYear() - 1,
+        baseStartDate.getMonth(),
+        baseStartDate.getDate(),
+        baseStartDate.getHours(),
+        baseStartDate.getMinutes(),
+        baseStartDate.getSeconds(),
+        baseStartDate.getMilliseconds()
       );
 
-    const rawEndDate = latestTransactionDate
-      ? new Date(latestTransactionDate)
-      : new Date();
-    const endDate = getNearestSunday(rawEndDate);
-    // Calculate base dates once
-    const baseEndDate = endDate;
-    const baseStartDate =
-      monthRange == "12"
-        ? this.getMonthBasedDate(baseEndDate, monthRange ?? "")
-        : getStartDate(baseEndDate, monthRange ?? "");
-
-    // Calculate current year and last year dates
-    const currentYearStartDate = new Date(baseStartDate);
-    const currentYearEndDate = new Date(baseEndDate);
-
-    // For last year, we want the exact same dates but in the previous year
-    const lastYearStartDate = new Date(
-      baseStartDate.getFullYear() - 1,
-      baseStartDate.getMonth(),
-      baseStartDate.getDate(),
-      baseStartDate.getHours(),
-      baseStartDate.getMinutes(),
-      baseStartDate.getSeconds(),
-      baseStartDate.getMilliseconds()
-    );
-
-    const lastYearEndDate = new Date(
-      baseEndDate.getFullYear() - 1,
-      baseEndDate.getMonth(),
-      baseEndDate.getDate(),
-      baseEndDate.getHours(),
-      baseEndDate.getMinutes(),
-      baseEndDate.getSeconds(),
-      baseEndDate.getMilliseconds()
-    );
+      lastYearEndDate = new Date(
+        baseEndDate.getFullYear() - 1,
+        baseEndDate.getMonth(),
+        baseEndDate.getDate(),
+        baseEndDate.getHours(),
+        baseEndDate.getMinutes(),
+        baseEndDate.getSeconds(),
+        baseEndDate.getMilliseconds()
+      );
+    }
 
     // Fetch all data in parallel using Promise.all
     const skusCountResultCombined: any = await this.getSkusPerStoreOptimized(

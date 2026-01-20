@@ -753,6 +753,13 @@ router.get(
  *         description: The ID of the Manufacturer for whom to retrieve SKU data per store.
  *         schema:
  *           type: string
+ *       - name: year
+ *         in: query
+ *         required: false
+ *         description: Optional year parameter. When provided, returns data for the full year (Jan 1 - Dec 31) and previous year. monthRange is treated as "12" when year is provided.
+ *         schema:
+ *           type: integer
+ *           example: 2025
  *     responses:
  *       200:
  *         description: Successful retrieval of SKU data per store.
@@ -1032,10 +1039,10 @@ router.post(
  *       - name: monthRange
  *         in: query
  *         required: false
- *         description: Month range for filtering data (e.g., "2024-01,2024-12").
+ *         description: Month range for filtering data (e.g., "1", "3", "6", "12"). When year parameter is provided, this is treated as "12".
  *         schema:
  *           type: string
- *           example: "2024-01,2024-12"
+ *           example: "3"
  *       - name: selectedProducts
  *         in: query
  *         required: false
@@ -1043,6 +1050,13 @@ router.post(
  *         schema:
  *           type: string
  *           example: "101,102,103"
+ *       - name: year
+ *         in: query
+ *         required: false
+ *         description: Optional year parameter. When provided, returns data for the full year (Jan 1 - Dec 31) and previous year. monthRange is treated as "12" when year is provided. latestTransactionDate in response will be Dec 31 of the provided year.
+ *         schema:
+ *           type: integer
+ *           example: 2025
  *     responses:
  *       200:
  *         description: Successful retrieval of optimized key metrics.
@@ -1175,6 +1189,13 @@ router.get(
  *         schema:
  *           type: string
  *           example: "101,102,103"
+ *       - name: year
+ *         in: query
+ *         required: false
+ *         description: Optional year parameter. When provided, returns data for the full year (Jan 1 - Dec 31) and previous year. monthRange is treated as "12" when year is provided.
+ *         schema:
+ *           type: integer
+ *           example: 2025
  *     responses:
  *       200:
  *         description: Successful retrieval of top products data.
@@ -1305,6 +1326,13 @@ router.get(
  *         schema:
  *           type: string
  *           example: "101,102,103"
+ *       - name: year
+ *         in: query
+ *         required: false
+ *         description: Optional year parameter. When provided, returns data for the full year (Jan 1 - Dec 31) and previous year. monthRange is treated as "12" when year is provided.
+ *         schema:
+ *           type: integer
+ *           example: 2025
  *     responses:
  *       200:
  *         description: Successful retrieval of distributor sales data.
@@ -1441,6 +1469,13 @@ router.get(
  *         schema:
  *           type: string
  *           example: "101,102,103"
+ *       - name: year
+ *         in: query
+ *         required: false
+ *         description: Optional year parameter. When provided, returns data for the full year (Jan 1 - Dec 31) and previous year. monthRange is treated as "12" when year is provided.
+ *         schema:
+ *           type: integer
+ *           example: 2025
  *     responses:
  *       200:
  *         description: Successful retrieval of store penetration data.

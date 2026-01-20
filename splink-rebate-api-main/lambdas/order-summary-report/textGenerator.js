@@ -1,3 +1,5 @@
+const iconv = require("iconv-lite");
+
 /**
  * Interface for J-Polep report row data
  * @typedef {Object} JPolepReportRow
@@ -125,14 +127,14 @@ function formatDateYYMMDD(date) {
 function generateAllenbrotherText(data) {
   return new Promise((resolve, reject) => {
     try {
-      const THORN = "\u00FE"; // Unicode U+00FE
+      const THORN = "\u00FE"; // þ (lowercase thorn — Windows-1252 at 0xFE)
       const lines = [];
 
       data.forEach((record) => {
         let line = "";
 
         if (record.type === "SOH") {
-          // SOH Record: SOHþ{CustomerNumber}þ{OrderDate}þNCDþREGþ{DeliveryDate}þNCD
+          // SOH Record: SOHþ{CustomerNumber}þ{OrderDate}þþNCDþþþþþþþþþþþREGþþþþþ{DeliveryDate}þþNCDþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþ
           // Customer Number: 6 chars, left-pad zeros
           const customerNumber = (record.customerNumber || "")
             .replace(/\D/g, "") // Extract only digits
@@ -147,51 +149,58 @@ function generateAllenbrotherText(data) {
             record.deliveryDate || new Date()
           );
 
-          // Build SOH record
-          line = `SOH${THORN}${customerNumber}${THORN}${orderDate}${THORN}NCD${THORN}REG${THORN}${deliveryDate}${THORN}NCD`;
+          // Build SOH record with exact number of þ delimiters
+          // After OrderDate: 2 þ, After first NCD: 11 þ, After REG: 5 þ, After DeliveryDate: 2 þ, After second NCD: 49 þ
+          const thorn2 = THORN.repeat(2);
+          const thorn11 = THORN.repeat(11);
+          const thorn5 = THORN.repeat(5);
+          const thorn49 = THORN.repeat(49);
+          line = `SOH${THORN}${customerNumber}${THORN}${orderDate}${thorn2}NCD${thorn11}REG${thorn5}${deliveryDate}${thorn2}NCD${thorn49}`;
         } else if (record.type === "SOD") {
-          // SOD Record: SODþ{DeliveryDate}þ{Quantity}þ{ItemNumber}þ\|01
+          // SOD Record: SODþ{DeliveryDate}þ{Quantity}þþþ{ItemNumber}|01þþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþþ
           // Delivery Date: 6 chars, YYMMDD format
           const deliveryDate = formatDateYYMMDD(
             record.deliveryDate || new Date()
           );
 
-          // Quantity: 5 chars, left-pad zeros
-          const quantity = String(record.quantity || 0)
-            .padStart(5, "0")
-            .slice(0, 5); // Ensure exactly 5 chars
+          // Quantity: No leading zeros (just the number)
+          const quantity = String(record.quantity || 0);
 
-          // Item Number: 10 chars, right-pad spaces
-          const itemNumber = (record.itemNumber || "")
-            .slice(0, 10) // Truncate if longer than 10 chars
-            .padEnd(10, " "); // Right-pad with spaces
+          // Item Number: Attach |01 directly (no spaces, no padding, no backslash)
+          const itemNumber = (record.itemNumber || "").replace(/\s/g, ""); // Remove any spaces
+          const itemNumberWithEnd = `${itemNumber}|01`;
 
-          // End Row: Literal \|01 (backslash is literal, not escape)
-          const endRow = "\\|01";
-
-          // Build SOD record
-          line = `SOD${THORN}${deliveryDate}${THORN}${quantity}${THORN}${itemNumber}${THORN}${endRow}`;
+          // Build SOD record with exact number of þ delimiters
+          // After Quantity: 3 þ, After ItemNumber|01: 51 þ
+          const thorn3 = THORN.repeat(3);
+          const thorn51 = THORN.repeat(51);
+          line = `SOD${THORN}${deliveryDate}${THORN}${quantity}${thorn3}${itemNumberWithEnd}${thorn51}`;
         } else {
           throw new Error(`Invalid record type: ${record.type}`);
         }
 
-        // Right-pad with spaces to exactly 100 characters
-        line = line.padEnd(100, " ");
-
-        // Validate line length (should be exactly 100)
-        if (line.length !== 100) {
-          throw new Error(
-            `Invalid line length: expected 100, got ${line.length}. Line: ${line}`
-          );
+        // Validate line length
+        // TODO: Temporarily allow 101 for SOH records until format is finalized
+        // TODO: Temporarily skip SOD record length validation until format is finalized
+        if (record.type === "SOH") {
+          const expectedLength = 101;
+          if (line.length !== expectedLength) {
+            throw new Error(
+              `Invalid line length: expected ${expectedLength}, got ${line.length}. Line: ${line}`
+            );
+          }
         }
+        // SOD record length validation is temporarily disabled
 
         lines.push(line);
       });
 
-      // Join lines with newline (\n)
-      const textContent = lines.join("\n");
+      // Join lines with CRLF (\r\n) and add line feed after the last line for Windows compatibility
+      const textContent = lines.join("\r\n") + "\r\n";
 
-      resolve(Buffer.from(textContent, "utf-8"));
+      // Convert UTF-8 to ANSI (Windows-1252) encoding
+      const ansiBuffer = iconv.encode(textContent, "win1252");
+      resolve(ansiBuffer);
     } catch (error) {
       reject(error);
     }

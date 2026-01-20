@@ -93,14 +93,14 @@ class StoreDetailsPageBase extends BasePage {
         // Columns Manufacturer	Program Compliance	Purchase Volume	Estimated Earnings	Earnings Opp.
         return cells[0]?.trim() != errorMessage
           ? {
-              manufacturer: cells[0]?.trim() || '',
+              manufacturer: cells[1]?.trim() || '',
               programCompliance: {
-                completed: parseInt(cells[1]?.trim()?.split('/')?.[0] || '0'),
-                total: parseInt(cells[1]?.trim()?.split('/')?.[1] || '0'),
+                completed: parseInt(cells[2]?.trim()?.split('/')?.[0] || '0'),
+                total: parseInt(cells[2]?.trim()?.split('/')?.[2] || '0'),
               },
-              purchaseVolume: parseCurrency(cells[3]?.trim() || '0'),
-              estimatedEarnings: parseCurrency(cells[4]?.trim() || '0'),
-              earningsOpportunity: parseCurrency(cells[5]?.trim() || '0'),
+              purchaseVolume: parseCurrency(cells[4]?.trim() || '0'),
+              estimatedEarnings: parseCurrency(cells[5]?.trim() || '0'),
+              earningsOpportunity: parseCurrency(cells[6]?.trim() || '0'),
             }
           : null;
       })

@@ -5,18 +5,17 @@ import StoreDetailsPage, {
 } from '../../pages/sales-rep/StoreDetailsPage';
 import StorePage from '../../pages/sales-rep/StorePage';
 import SuperAdminUsersTable from '../../pages/SuperAdminUsersTable';
-import { ENTITY_TYPE, MAX_STORES_TO_TEST } from '../../utils/constant';
+import {
+  ENTITY_TYPE,
+  MANUFACTURER_TO_SKIP,
+  MAX_STORES_TO_TEST,
+} from '../../utils/constant';
 import {
   expectWithMessage,
   saveScreenshot,
   waitForPageLoad,
 } from '../../utils/helper';
 import { salesRepMap } from '../../utils/userMap';
-
-const MANUFACTURER_TO_SKIP: string[] = [
-  // 'Jack Links', 'HERSHEY',
-  // 'Old Trapper',
-];
 
 salesRepMap.forEach((salesRep, salesRepKey) => {
   // if (salesRep.name !== 'Pitco') return;

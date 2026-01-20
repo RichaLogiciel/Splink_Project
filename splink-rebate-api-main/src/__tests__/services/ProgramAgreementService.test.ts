@@ -838,4 +838,89 @@ describe("ProgramAgreementService", () => {
       expect(result.enrollments).toHaveLength(1);
     });
   });
+
+  describe("generateMessageGroupId", () => {
+    // Access private method for testing
+    const generateMessageGroupId = (agreementIds: number[]): string => {
+      return (ProgramAgreementService as any).generateMessageGroupId(
+        agreementIds
+      );
+    };
+
+    it("should generate deterministic output for same input", () => {
+      const agreementIds = [1, 2, 3, 4, 5];
+
+      const result1 = generateMessageGroupId(agreementIds);
+      const result2 = generateMessageGroupId(agreementIds);
+
+      expect(result1).toBe(result2);
+    });
+
+    it("should generate same hash regardless of input order", () => {
+      const agreementIds1 = [1, 2, 3, 4, 5];
+      const agreementIds2 = [5, 4, 3, 2, 1];
+      const agreementIds3 = [3, 1, 5, 2, 4];
+
+      const result1 = generateMessageGroupId(agreementIds1);
+      const result2 = generateMessageGroupId(agreementIds2);
+      const result3 = generateMessageGroupId(agreementIds3);
+
+      expect(result1).toBe(result2);
+      expect(result2).toBe(result3);
+    });
+
+    it("should generate output under 128 characters (SQS FIFO limit)", () => {
+      // Test with many large agreement IDs
+      const agreementIds = Array.from({ length: 50 }, (_, i) => 10000 + i);
+
+      const result = generateMessageGroupId(agreementIds);
+
+      expect(result.length).toBeLessThanOrEqual(128);
+    });
+
+    it("should generate different hashes for different agreement IDs", () => {
+      const agreementIds1 = [1, 2, 3];
+      const agreementIds2 = [4, 5, 6];
+
+      const result1 = generateMessageGroupId(agreementIds1);
+      const result2 = generateMessageGroupId(agreementIds2);
+
+      expect(result1).not.toBe(result2);
+    });
+
+    it("should have correct prefix format", () => {
+      const agreementIds = [1, 2, 3];
+
+      const result = generateMessageGroupId(agreementIds);
+
+      expect(result).toMatch(/^agreement-enrollment-[a-f0-9]{32}$/);
+    });
+
+    it("should handle single agreement ID", () => {
+      const agreementIds = [42];
+
+      const result = generateMessageGroupId(agreementIds);
+
+      expect(result).toMatch(/^agreement-enrollment-[a-f0-9]{32}$/);
+      expect(result.length).toBeLessThanOrEqual(128);
+    });
+
+    it("should handle maximum allowed agreements (25)", () => {
+      const agreementIds = Array.from({ length: 25 }, (_, i) => i + 1);
+
+      const result = generateMessageGroupId(agreementIds);
+
+      expect(result.length).toBeLessThanOrEqual(128);
+      expect(result).toMatch(/^agreement-enrollment-[a-f0-9]{32}$/);
+    });
+
+    it("should not mutate the input array", () => {
+      const agreementIds = [5, 3, 1, 4, 2];
+      const originalOrder = [...agreementIds];
+
+      generateMessageGroupId(agreementIds);
+
+      expect(agreementIds).toEqual(originalOrder);
+    });
+  });
 });

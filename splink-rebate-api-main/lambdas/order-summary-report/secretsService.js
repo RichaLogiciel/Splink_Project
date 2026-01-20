@@ -10,7 +10,7 @@ const {
 
 // Default secret ARN
 const DEFAULT_SECRET_ARN =
-  "arn:aws:secretsmanager:us-west-2:920373008286:secret:main-stage-cron-lambda-vuGSMG";
+  "arn:aws:secretsmanager:us-west-2:920373008286:secret:prod-cron-lambda-xa1Hua";
 
 // Cache for secrets (reused across Lambda invocations)
 let cachedSecrets = null;
@@ -85,6 +85,9 @@ async function getSecrets() {
       const secretArn =
         process.env.SECRETS_MANAGER_SECRET_ARN || DEFAULT_SECRET_ARN;
       cachedSecrets = await fetchSecretsFromManager(secretArn);
+      console.log(
+        `Successfully loaded secrets from Secrets Manager (ARN: ${secretArn})`
+      );
       return cachedSecrets;
     } catch (error) {
       // If Secrets Manager fails, fall back to environment variables

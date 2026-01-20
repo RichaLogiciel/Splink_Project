@@ -158,7 +158,9 @@ describe("ProgramAgreementService", () => {
             userId: 123,
             reason: "Testing enrollment"
           }),
-          messageGroupId: "agreement-enrollment-1-2-3"
+          messageGroupId: expect.stringMatching(
+            /^agreement-enrollment-[a-f0-9]{32}$/
+          )
         });
       });
 
@@ -194,7 +196,9 @@ describe("ProgramAgreementService", () => {
             userId: 456,
             reason: "Agreement-based unenroll"
           }),
-          messageGroupId: "agreement-enrollment-5-6"
+          messageGroupId: expect.stringMatching(
+            /^agreement-enrollment-[a-f0-9]{32}$/
+          )
         });
       });
 
@@ -224,7 +228,9 @@ describe("ProgramAgreementService", () => {
           payload: expect.objectContaining({
             programIds: [101, 102] // Deduplicated
           }),
-          messageGroupId: "agreement-enrollment-1-2-3"
+          messageGroupId: expect.stringMatching(
+            /^agreement-enrollment-[a-f0-9]{32}$/
+          )
         });
       });
     });

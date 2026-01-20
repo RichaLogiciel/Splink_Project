@@ -313,11 +313,11 @@ salesRepMap.forEach((salesRep, salesRepKey) => {
         // Wait up to 30 seconds for network to be idle
         try {
           await page.waitForLoadState('networkidle', {
-            timeout: 15000,
+            timeout: 30000,
           });
           await page.waitForSelector(detailPage.selectors.allTabs, {
             state: 'visible',
-            timeout: 15000,
+            timeout: 30000,
           });
         } catch (error) {
           console.log(

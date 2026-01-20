@@ -1029,11 +1029,14 @@ export function getNearestMonday(date: Date): Date {
 // Function to get start date with nearest Monday logic for 1,3,6 month ranges
 // For YTD (monthRange = "12"), returns January 1st
 // For month ranges 1, 3, 6: calculates date and rounds forward to nearest Monday
-export function getStartDateWithPreviousSaturday(
+// Ensures that if the calculated date goes back to previous year, it adjusts to Jan 1 of the current year
+export function getStartDateWithPreviousMonday(
   endDate: Date,
   monthRange: string
 ): Date {
   const months = Number(monthRange);
+  const endYear = endDate.getFullYear();
+  const jan1OfEndYear = new Date(Date.UTC(endYear, 0, 1, 0, 0, 0, 0));
 
   // For 1, 3, 6 month ranges: go back 30, 90, 180 days and round to nearest Monday
   if (months === 1 || months === 3 || months === 6) {
@@ -1042,12 +1045,18 @@ export function getStartDateWithPreviousSaturday(
     calculatedDate.setDate(calculatedDate.getDate() - daysToSubtract);
 
     // Round forward to the nearest Monday to align with week boundaries
-    const result = getNearestMonday(calculatedDate);
+    let result = getNearestMonday(calculatedDate);
+
+    // If the result goes back to previous year, adjust to January 1st of the current year
+    if (result < jan1OfEndYear) {
+      result = jan1OfEndYear;
+    }
+
     return result;
   }
 
   // For YTD (monthRange = "12") or other month ranges, use the existing month-based logic
-  // This returns January 1st for YTD
+  // This returns January 1st for YTD and handles year boundaries
   const result = getMonthBasedStartDate(endDate, monthRange);
   return result;
 }

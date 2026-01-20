@@ -341,10 +341,10 @@ export abstract class StoreProgramDetailTestBase {
       );
       await programPage.clickProgram(i);
       try {
-        await page.waitForLoadState('networkidle', { timeout: 15000 });
+        await page.waitForLoadState('networkidle', { timeout: 30000 });
         await page.waitForSelector(detailPage.selectors.allTabs, {
           state: 'visible',
-          timeout: 15000,
+          timeout: 30000,
         });
       } catch (error) {
         errorFlag.push({

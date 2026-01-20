@@ -336,6 +336,15 @@ export const PROGRAM_TIMELINE = {
 export const CHAIN_PROGRAMS_ENABLED =
   process.env.CHAIN_PROGRAMS_ENABLED_FOR_DISTRIBUTOR_IDS ?? "";
 
+// Distributor IDs enabled for UPC type filtering in per_category_item PurchaseQuantity programs
+// Format: comma-separated distributor IDs (e.g., "327,123,456")
+export const PURCHASE_QUANTITY_WITH_PER_CATEGORY_ITEM_TRACKER_DISTRIBUTOR_IDS: number[] =
+  parseEnvCsvValues(
+    process.env.PURCHASE_QUANTITY_WITH_PER_CATEGORY_ITEM_TRACKER_DISTRIBUTOR_IDS
+  )
+    .map((id) => parseInt(id, 10))
+    .filter((id) => !isNaN(id));
+
 export const SKU_COUNT_KEYS = {
   CURRENT: "skuCount",
   PREVIOUS: "skuCountLastYear"

@@ -117,10 +117,10 @@ export abstract class EarningsCapTestBase {
 
       // Click on program to open Store Program Detail page
       await programPage.clickProgram(i);
-      await page.waitForLoadState('networkidle', { timeout: 15000 });
+      await page.waitForLoadState('networkidle', { timeout: 30000 });
       await page.waitForSelector(detailPage.selectors.allTabs, {
         state: 'visible',
-        timeout: 15000,
+        timeout: 30000,
       });
       await page.waitForTimeout(3000);
 

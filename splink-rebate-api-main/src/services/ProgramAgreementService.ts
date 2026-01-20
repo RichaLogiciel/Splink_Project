@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import newrelic from "newrelic";
 import { Op, QueryTypes, Sequelize } from "sequelize";
 import sequelize from "../db";
@@ -39,14 +40,6 @@ class ProgramAgreementService {
       async () => {
         const { action, agreementIds, storeIds, userId, reason, requestId } =
           params;
-
-        // Validate agreement count limit (prevents SQS MessageGroupId length errors)
-        const MAX_AGREEMENTS = 25;
-        if (agreementIds.length > MAX_AGREEMENTS) {
-          throw ApiError.badRequest(
-            "Please select 25 or less agreements at a time"
-          );
-        }
 
         logger.info("Starting agreement-based enrollment validation", {
           action,
@@ -186,6 +179,19 @@ class ProgramAgreementService {
   }
 
   /**
+   * Generate a deterministic MessageGroupId from agreement IDs.
+   * Uses SHA-256 hash to ensure the ID stays under SQS FIFO's 128 character limit.
+   */
+  private generateMessageGroupId(agreementIds: number[]): string {
+    const hash = crypto
+      .createHash("sha256")
+      .update([...agreementIds].sort((a, b) => a - b).join(","))
+      .digest("hex")
+      .substring(0, 32);
+    return `agreement-enrollment-${hash}`;
+  }
+
+  /**
    * Enqueue worker job for agreement-based enrollment
    */
   private async enqueueAgreementEnrollmentJob(params: {
@@ -228,10 +234,12 @@ class ProgramAgreementService {
         requestId
       };
 
+      const messageGroupId = this.generateMessageGroupId(agreementIds);
+
       logger.info("Calling enqueueJob", {
         jobType: "AGREEMENT_STORE_ENROLLMENT_CHANGED",
         payloadSize: JSON.stringify(payload).length,
-        messageGroupId: `agreement-enrollment-${agreementIds.join("-")}`,
+        messageGroupId,
         requestId,
         payloadKeys: Object.keys(payload),
         agreementIdsCount: agreementIds.length,
@@ -242,13 +250,13 @@ class ProgramAgreementService {
       logger.info("📤 [AGREEMENT-ENROLLMENT] About to call enqueueJob", {
         requestId,
         jobType: "AGREEMENT_STORE_ENROLLMENT_CHANGED",
-        messageGroupId: `agreement-enrollment-${agreementIds.join("-")}`
+        messageGroupId
       });
 
       const messageId = await enqueueJob({
         jobType: "AGREEMENT_STORE_ENROLLMENT_CHANGED",
         payload,
-        messageGroupId: `agreement-enrollment-${agreementIds.join("-")}`
+        messageGroupId
       });
 
       logger.info(

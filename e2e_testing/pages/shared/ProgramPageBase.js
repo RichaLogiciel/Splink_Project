@@ -84,11 +84,15 @@ class ProgramPageBase extends BasePage {
         `Program card index ${index} is out of bounds. Total cards: ${cards.length}`
       );
     }
+    const cardSaleInfo = await cards[index].$('.saleinfo');
+    console.log('Card Sale Info: ', await cardSaleInfo.textContent());
 
-    await cards[index].click();
+    cardSaleInfo.click();
+    await this.page.waitForLoadState('networkidle');
 
     // Determine which details panel to wait for based on current URL
     const currentUrl = this.page.url();
+    console.log(`Current URL: ${currentUrl}`);
     const detailsSelector = currentUrl.includes('/store')
       ? this.selectors.storeProgramDetails
       : this.selectors.distributorProgramDetails;
@@ -97,6 +101,8 @@ class ProgramPageBase extends BasePage {
       state: 'visible',
       timeout: timeOut,
     });
+    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(1500); // Wait for any animations or transitions
   }
 
   // Abstract methods that MUST be implemented by child classes

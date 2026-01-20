@@ -2171,7 +2171,9 @@ class ProgramController {
     try {
       const { manufacturerId } = req.params;
       const { timeline, programType } = req.query;
+
       const distributorId = getParentDistributorId(req.user, req.user.role);
+
       // Validate manufacturerId
       if (!manufacturerId || isNaN(Number(manufacturerId))) {
         return sendErrorResponse(
@@ -2180,6 +2182,7 @@ class ProgramController {
           HttpStatus.BAD_REQUEST
         );
       }
+
       // Validate timeline
       const validTimeline = timeline === "Current" || timeline === "Upcoming";
       if (!validTimeline) {
@@ -2189,6 +2192,7 @@ class ProgramController {
           HttpStatus.BAD_REQUEST
         );
       }
+
       if (!distributorId) {
         return sendErrorResponse(
           res,
@@ -2196,44 +2200,21 @@ class ProgramController {
           HttpStatus.BAD_REQUEST
         );
       }
+
       // Default programType to STORE if not provided and validate programType
       const validProgramType = ["DISTRIBUTOR", "STORE", "SPIFF"];
       const finalProgramType = validProgramType.includes(programType as string)
         ? (programType as string)
         : "STORE";
-          // :key: CREATE CACHE KEY
-      const cacheKey = createCacheKey("program_pdf_v1", {
-        manufacturerId: Number(manufacturerId),
-        distributorId: Number(distributorId),
-        timeline,
-        programType: finalProgramType
-      });
-      console.log("[CACHE] Checking cache for key: aaaaaa", cacheKey);
-      let result;
-      // :magnifying_glass: CHECK CACHE FIRST
-      if (useApiCaching) {
-        const cachedData = await redisClient.get(cacheKey);
-        console.log("[CACHE] Found cached data: aaaaaa", cachedData);
-        if (cachedData) {
-          return sendSuccessResponse(res, JSON.parse(cachedData));
-        }
-      }
+
       // Get PDF URL
-      // :turtle: CACHE MISS → DB / SERVICE CALL
-      result = await ProgramPdfService.getProgramPdfUrl(
+      const result = await ProgramPdfService.getProgramPdfUrl(
         Number(manufacturerId),
         Number(distributorId),
         timeline as "Current" | "Upcoming",
         finalProgramType as "DISTRIBUTOR" | "STORE" | "SPIFF"
       );
-      // :floppy_disk: SAVE TO CACHE
-      if (useApiCaching) {
-        await redisClient.setEx(
-          cacheKey,
-          CACHE_TTL_TIME,
-          JSON.stringify(result)
-        );
-      }
+
       return sendSuccessResponse(res, result);
     } catch (error: any) {
       console.error("Error getting program PDF:", error);

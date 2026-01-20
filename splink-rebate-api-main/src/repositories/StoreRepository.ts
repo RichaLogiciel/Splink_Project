@@ -768,6 +768,7 @@ class StoreRepository {
                         FROM manager_sales_rep_mapping
                         WHERE sales_manager_id = ${user?.associatedUserId}
                         AND deleted_at IS NULL
+                        AND (assignment_type = 'PRIMARY' OR assignment_type = 'SECONDARY' OR assignment_type IS NULL)
                       )`)
                             }
                           }
@@ -3402,6 +3403,7 @@ class StoreRepository {
             FROM manager_sales_rep_mapping
             WHERE sales_manager_id = ${salesRepManagerId}
             AND deleted_at IS NULL
+            AND (assignment_type = 'PRIMARY' OR assignment_type = 'SECONDARY' OR assignment_type IS NULL)
           )`)
         }
       },
@@ -4171,6 +4173,12 @@ class StoreRepository {
         ...(salesRepIds
           ? { sales_rep_id: { [Op.in]: salesRepIds } }
           : { sales_rep_id: salesRepId }),
+        // Include both PRIMARY and SECONDARY assignments for visibility (or NULL for legacy records)
+        [Op.or]: [
+          { assignment_type: "PRIMARY" },
+          { assignment_type: "SECONDARY" },
+          { assignment_type: { [Op.is]: null } } // Handle legacy records without assignment_type
+        ],
         ...(excludeChainStores
           ? {
               "$SalesRepChainStore.id$": {
@@ -4248,6 +4256,7 @@ class StoreRepository {
             ON d.id = msrm.sales_rep_id
             AND msrm.sales_manager_id = :salesRepManagerId
             AND msrm.deleted_at IS NULL
+            AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
           LEFT JOIN chain_stores cs
             ON s.id = cs.store_id
           WHERE s.deleted_at IS NULL
@@ -4318,6 +4327,12 @@ class StoreRepository {
                   attributes: [],
                   where: {
                     sales_manager_id: salesRepManagerId,
+                    // Include both PRIMARY and SECONDARY assignments for visibility
+                    [Op.or]: [
+                      { assignment_type: "PRIMARY" },
+                      { assignment_type: "SECONDARY" },
+                      { assignment_type: { [Op.is]: null } } // Handle legacy records without assignment_type
+                    ],
                     //need to check if salesRepIds is not null and has length
                     ...(salesRepIds && salesRepIds.length > 0
                       ? {
@@ -4375,7 +4390,8 @@ class StoreRepository {
     includeProducts?: boolean,
     warehouseIds?: number[],
     programTerm?: { startDate: string; endDate: string },
-    includeInternalCode: boolean = false
+    includeInternalCode: boolean = false,
+    includeUpcType: boolean = false
   ) {
     return newrelic.startSegment(
       "StoreRepository.getTransactionsByManufacturerId",
@@ -4532,6 +4548,13 @@ class StoreRepository {
                   "internal_code"
                 ];
                 attributes.push(internalCodeAttribute);
+              }
+
+              if (includeUpcType) {
+                attributes.push([
+                  fn("MIN", col("LineItem.upc_type")),
+                  "upc_type"
+                ]);
               }
 
               return await LineItem.findAll({
@@ -6550,6 +6573,7 @@ class StoreRepository {
         salesRepManagerCondition = `
           AND msrm.sales_manager_id = :salesManagerId
           AND msrm.deleted_at IS NULL
+          AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
           AND ssr.deleted_at IS NULL
         `;
       }
@@ -8137,7 +8161,8 @@ class StoreRepository {
     programTimeline,
     excludeChainStores,
     salesManagerId,
-    generalManagerId
+    generalManagerId,
+    loggedInUser = null
   }: {
     distributorId: number;
     manufacturerIds: number[];
@@ -8152,6 +8177,7 @@ class StoreRepository {
     excludeChainStores?: boolean;
     salesManagerId?: number;
     generalManagerId?: number;
+    loggedInUser?: any;
   }): Promise<{ stores: any[]; totalCount: number }> {
     return newrelic.startSegment(
       "StoreRepository.getFilteredStoreIdsFromAggregates",
@@ -8247,6 +8273,7 @@ class StoreRepository {
                 FROM manager_sales_rep_mapping msrm
                 WHERE msrm.sales_manager_id = :salesManagerId
                   AND msrm.deleted_at IS NULL
+                  AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
                   ${
                     selectedSalesRepId
                       ? `AND msrm.sales_rep_id = (SELECT d.id FROM distributors d 
@@ -8464,6 +8491,11 @@ class StoreRepository {
             LEFT JOIN users u ON ur.user_id = u.id
             LEFT JOIN store_sales_reps ssr ON s.id = ssr.store_id 
               AND ssr.deleted_at IS NULL
+              ${
+                loggedInUser?.role === "DISTRIBUTOR_SALES_REP"
+                  ? `AND ssr.sales_rep_id = :loggedInSalesRepId`
+                  : `AND (ssr.assignment_type = 'PRIMARY' OR ssr.assignment_type IS NULL)`
+              }
             LEFT JOIN distributors d ON ssr.sales_rep_id = d.id
             LEFT JOIN user_roles ur_sales_rep ON d.id = ur_sales_rep.associated_user_id
               AND ur_sales_rep.role = 'DISTRIBUTOR_SALES_REP'
@@ -8488,6 +8520,7 @@ class StoreRepository {
                       FROM manager_sales_rep_mapping msrm
                       WHERE msrm.sales_manager_id = :salesManagerId
                         AND msrm.deleted_at IS NULL
+                        AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
                         AND msrm.sales_rep_id = (
                           SELECT d.id FROM distributors d 
                           INNER JOIN user_roles ur_sr ON d.id = ur_sr.associated_user_id 
@@ -8501,6 +8534,7 @@ class StoreRepository {
                       FROM manager_sales_rep_mapping 
                       WHERE sales_manager_id = :salesManagerId 
                         AND deleted_at IS NULL
+                        AND (assignment_type = 'PRIMARY' OR assignment_type = 'SECONDARY' OR assignment_type IS NULL)
                     )`
                 : `AND ssr.sales_rep_id = (SELECT d.id FROM distributors d 
                     INNER JOIN user_roles ur_sr ON d.id = ur_sr.associated_user_id 
@@ -8552,6 +8586,11 @@ class StoreRepository {
 
           if (generalManagerStoreIds) {
             replacements.generalManagerStoreIds = generalManagerStoreIds;
+          }
+
+          // Add logged-in sales rep ID if user is a sales rep
+          if (loggedInUser?.role === "DISTRIBUTOR_SALES_REP") {
+            replacements.loggedInSalesRepId = loggedInUser.associatedUserId;
           }
 
           if (hasSearchQuery) {
@@ -8771,6 +8810,7 @@ class StoreRepository {
                 AND ssr.deleted_at IS NULL
                 AND msrm.sales_manager_id = :salesManagerId
                 AND msrm.deleted_at IS NULL
+                AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
               LIMIT 1
             `;
 

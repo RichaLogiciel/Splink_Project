@@ -3151,6 +3151,7 @@ export class ProgramRepository {
               FROM manager_sales_rep_mapping msrm 
               WHERE msrm.sales_manager_id = :salesRepId              
 			        AND msrm.deleted_at IS NULL
+              AND (msrm.assignment_type = 'PRIMARY' OR msrm.assignment_type = 'SECONDARY' OR msrm.assignment_type IS NULL)
             )`;
           } else {
             // For DISTRIBUTOR_ADMIN/EXECUTIVE, get all sales reps under the distributor

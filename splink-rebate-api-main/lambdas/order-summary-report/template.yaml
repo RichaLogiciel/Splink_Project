@@ -1,0 +1,140 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Warehouse report Lambda (EventBridge scheduled, no API Gateway). RDS is inside a VPC.
+
+Parameters:
+  SecretArn:
+    Type: String
+    Default: arn:aws:secretsmanager:us-west-2:920373008286:secret:main-stage-cron-lambda-vuGSMG
+    Description: ARN of the secret that contains DB, mail, S3 config (JSON)
+  S3BucketName:
+    Type: String
+    Default: sftp-splink-bucket
+    Description: S3 bucket used for jpolep uploads (adjust if different)
+  LambdaRuntime:
+    Type: String
+    Default: nodejs18.x
+    Description: Lambda runtime to use
+  VpcSubnetIds:
+    Type: List<AWS::EC2::Subnet::Id>
+    Description: Comma-separated list of private subnet IDs for Lambda (used to reach RDS)
+  VpcSecurityGroupIds:
+    Type: List<AWS::EC2::SecurityGroup::Id>
+    Description: Comma-separated list of security group IDs for Lambda (allow DB access)
+
+Globals:
+  Function:
+    Runtime: !Ref LambdaRuntime
+    Timeout: 300
+    MemorySize: 1024
+
+Resources:
+
+  WarehouseReportExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${AWS::StackName}-WarehouseReportExecutionRole"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: "/"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+      Policies:
+        - PolicyName: WarehouseReportInlinePolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - secretsmanager:GetSecretValue
+                  - secretsmanager:DescribeSecret
+                Resource: !Ref SecretArn
+
+              - Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                  - s3:PutObjectAcl
+                Resource: !Sub arn:aws:s3:::${S3BucketName}/*
+
+              - Effect: Allow
+                Action:
+                  - ses:SendEmail
+                  - ses:SendRawEmail
+                  - ses:SendTemplatedEmail
+                Resource: "*"
+
+  WarehouseReportFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-WarehouseReportFunction"
+      Handler: index.handler
+      CodeUri: .
+      Description: Generates HLA / JPOLEP / ALLENBROTHER reports
+      Role: !GetAtt WarehouseReportExecutionRole.Arn
+      Environment:
+        Variables:
+          SECRETS_MANAGER_SECRET_ARN: !Ref SecretArn
+          # DO NOT set AWS_REGION or any AWS_* reserved environment variables here.
+      Events:
+
+        AllenbrotherSchedule:
+          Type: Schedule
+          Properties:
+            Schedule: 'cron(0 16,21 * * ? *)'
+            Name: !Sub "${AWS::StackName}-AllenbrotherSchedule"
+            Description: Allenbrother warehouse report (11 AM & 4 PM EST)
+            Input: |
+              {
+                "reportType": "ALLENBROTHER",
+                "distributorCode": "NCD"
+              }
+
+        HLASchedule:
+          Type: Schedule
+          Properties:
+            Schedule: 'cron(0 16,21 * * ? *)'
+            Name: !Sub "${AWS::StackName}-HLASchedule"
+            Description: HLA warehouse report (11 AM & 4 PM EST)
+            Input: |
+              {
+                "reportType": "HLA",
+                "distributorCode": "NCD"
+              }
+
+        JPOLEPSchedule:
+          Type: Schedule
+          Properties:
+            Schedule: 'cron(0 16,21 * * ? *)'
+            Name: !Sub "${AWS::StackName}-JPOLEPSchedule"
+            Description: JPOLEP warehouse report (11 AM & 4 PM EST)
+            Input: |
+              {
+                "reportType": "JPOLEP",
+                "distributorCode": "NCD"
+              }
+
+      VpcConfig:
+        SecurityGroupIds: !Ref VpcSecurityGroupIds
+        SubnetIds: !Ref VpcSubnetIds
+
+Outputs:
+  FunctionName:
+    Description: Lambda function name
+    Value: !Ref WarehouseReportFunction
+
+  FunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt WarehouseReportFunction.Arn
+
+  RoleArn:
+    Description: Execution role ARN
+    Value: !GetAtt WarehouseReportExecutionRole.Arn

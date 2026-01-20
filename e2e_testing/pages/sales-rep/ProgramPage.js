@@ -115,32 +115,6 @@ class ProgramPage extends ProgramPageBase {
   }
 
   /**
-   * Click on a program card by index
-   */
-  async clickProgram(index) {
-    const cards = await this.getProgramCards();
-    if (index >= cards.length) {
-      throw new Error(
-        `Program card index ${index} is out of bounds. Total cards: ${cards.length}`
-      );
-    }
-
-    await cards[index].click();
-
-    // Determine which details panel to wait for based on current URL
-    const currentUrl = this.page.url();
-    const detailsSelector = currentUrl.includes('/store')
-      ? this.selectors.storeProgramDetails
-      : this.selectors.distributorProgramDetails;
-
-    await this.page.waitForSelector(detailsSelector, {
-      state: 'visible',
-      timeout: timeOut,
-    });
-    await this.page.waitForLoadState('networkidle');
-  }
-
-  /**
    * Get all programs with their titles and statuses
    */
   async getPrograms() {

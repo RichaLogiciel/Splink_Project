@@ -4,36 +4,47 @@ const queries = require("./queries");
  * Generate HLA warehouse-level order report
  * @param {Object} sequelize - Sequelize instance
  * @param {number} warehouseId - Warehouse ID
- * @param {Date} targetDate - Target date (defaults to today)
+ * @param {Date} startDate - Start date for the report (inclusive)
+ * @param {Date} endDate - End date for the report (inclusive)
+ * @param {string|null} dateString - Optional date string (YYYY-MM-DD) for date-only comparison
+ * @param {number|null} lastSentOrderId - Optional last sent order ID for tracking
  * @returns {Promise<Array>} Array of report rows
  */
 async function generateWarehouseOrderReport(
   sequelize,
   warehouseId,
-  targetDate
+  startDate,
+  endDate,
+  dateString = null,
+  lastSentOrderId = null
 ) {
   // Validate warehouseId
   if (!warehouseId || warehouseId <= 0) {
     throw new Error("Invalid warehouse ID");
   }
 
-  // Use today's date if no target date provided
-  const reportDate = targetDate || new Date();
+  // Validate date range (only if not using date-only comparison and not using lastSentOrderId)
+  if (!dateString && lastSentOrderId === null) {
+    if (!startDate || !endDate) {
+      throw new Error("startDate and endDate are required");
+    }
 
-  // Set start and end of day for the target date
-  const startOfDay = new Date(reportDate);
-  startOfDay.setHours(0, 0, 0, 0);
-
-  const endOfDay = new Date(reportDate);
-  endOfDay.setHours(23, 59, 59, 999);
+    if (startDate > endDate) {
+      throw new Error("startDate must be before or equal to endDate");
+    }
+  }
 
   // Get order items
   const orderItems = await queries.getOrderItems(
     sequelize,
     warehouseId,
-    startOfDay,
-    endOfDay
+    startDate,
+    endDate,
+    dateString,
+    lastSentOrderId
   );
+
+  console.log(`[DEBUG] Order items: ${JSON.stringify(orderItems, null, 2)}`);
 
   // Get unique store IDs and product IDs for batch lookups
   const storeIds = new Set();
@@ -71,18 +82,25 @@ async function generateWarehouseOrderReport(
   const reportRows = [];
 
   for (const orderItem of orderItems) {
-    if (!orderItem.entity_id) continue;
-
-    // Get store from stores array
-    const store = stores.find((s) => s.id === orderItem.entity_id);
-
-    // Ensure store belongs to this warehouse
-    if (!store || store.warehouse_id !== warehouseId) {
+    if (!orderItem.entity_id) {
+      console.log(
+        `[DEBUG] Skipping order item ${orderItem.id}: missing entity_id`
+      );
       continue;
     }
 
-    // Get internal store ID
-    const internalStoreId = storeMap.get(orderItem.entity_id) || null;
+    // Get internal store ID directly from map (getStores already filters by warehouse_id)
+    let internalStoreId = storeMap.get(orderItem.entity_id) || null;
+
+    if (!internalStoreId) {
+      console.log(
+        `[DEBUG] Skipping order item ${orderItem.id}: store ${orderItem.entity_id} not found or missing external_store_id`
+      );
+      continue;
+    }
+
+    // Remove "_hla" suffix from store ID for HLA reports (case-insensitive)
+    internalStoreId = internalStoreId.replace(/_hla$/i, "");
 
     // Get internal product ID from ProductCodeMapping or use distProductId as fallback
     let internalProductId = null;
@@ -97,15 +115,20 @@ async function generateWarehouseOrderReport(
       internalProductId = orderItem.dist_product_id;
     }
 
-    // Only include rows where we have both store and product IDs
-    if (internalStoreId !== null && internalProductId !== null) {
-      reportRows.push({
-        internalStoreId,
-        internalProductId,
-        quantity: orderItem.quantity,
-        orderDate: new Date(orderItem.order_created_at)
-      });
+    if (!internalProductId) {
+      console.log(
+        `[DEBUG] Skipping order item ${orderItem.id}: missing product ID (splink_product_id: ${orderItem.splink_product_id}, dist_product_id: ${orderItem.dist_product_id})`
+      );
+      continue;
     }
+
+    // Include row if we have both store and product IDs
+    reportRows.push({
+      internalStoreId,
+      internalProductId,
+      quantity: orderItem.quantity,
+      orderDate: new Date(orderItem.order_created_at)
+    });
   }
 
   return reportRows;
@@ -115,31 +138,44 @@ async function generateWarehouseOrderReport(
  * Generate J-Polep warehouse-level order report
  * @param {Object} sequelize - Sequelize instance
  * @param {number} warehouseId - Warehouse ID
- * @param {Date} targetDate - Target date (defaults to today)
+ * @param {Date} startDate - Start date for the report (inclusive)
+ * @param {Date} endDate - End date for the report (inclusive)
+ * @param {string|null} dateString - Optional date string (YYYY-MM-DD) for date-only comparison
+ * @param {number|null} lastSentOrderId - Optional last sent order ID for tracking
  * @returns {Promise<Array>} Array of report rows
  */
-async function generateJPolepReport(sequelize, warehouseId, targetDate) {
+async function generateJPolepReport(
+  sequelize,
+  warehouseId,
+  startDate,
+  endDate,
+  dateString = null,
+  lastSentOrderId = null
+) {
   // Validate warehouseId
   if (!warehouseId || warehouseId <= 0) {
     throw new Error("Invalid warehouse ID");
   }
 
-  // Use today's date if no target date provided
-  const reportDate = targetDate || new Date();
+  // Validate date range (only if not using date-only comparison and not using lastSentOrderId)
+  if (!dateString && lastSentOrderId === null) {
+    if (!startDate || !endDate) {
+      throw new Error("startDate and endDate are required");
+    }
 
-  // Set start and end of day for the target date
-  const startOfDay = new Date(reportDate);
-  startOfDay.setHours(0, 0, 0, 0);
-
-  const endOfDay = new Date(reportDate);
-  endOfDay.setHours(23, 59, 59, 999);
+    if (startDate > endDate) {
+      throw new Error("startDate must be before or equal to endDate");
+    }
+  }
 
   // Get order items
   const orderItems = await queries.getOrderItems(
     sequelize,
     warehouseId,
-    startOfDay,
-    endOfDay
+    startDate,
+    endDate,
+    dateString,
+    lastSentOrderId
   );
 
   // Get unique store IDs and product IDs for batch lookups
@@ -232,31 +268,44 @@ async function generateJPolepReport(sequelize, warehouseId, targetDate) {
  * Returns SOH (header) and SOD (detail) records grouped by order
  * @param {Object} sequelize - Sequelize instance
  * @param {number} warehouseId - Warehouse ID
- * @param {Date} targetDate - Target date (defaults to today)
+ * @param {Date} startDate - Start date for the report (inclusive)
+ * @param {Date} endDate - End date for the report (inclusive)
+ * @param {string|null} dateString - Optional date string (YYYY-MM-DD) for date-only comparison
+ * @param {number|null} lastSentOrderId - Optional last sent order ID for tracking
  * @returns {Promise<Array>} Array of report records (SOH and SOD)
  */
-async function generateAllenbrotherReport(sequelize, warehouseId, targetDate) {
+async function generateAllenbrotherReport(
+  sequelize,
+  warehouseId,
+  startDate,
+  endDate,
+  dateString = null,
+  lastSentOrderId = null
+) {
   // Validate warehouseId
   if (!warehouseId || warehouseId <= 0) {
     throw new Error("Invalid warehouse ID");
   }
 
-  // Use today's date if no target date provided
-  const reportDate = targetDate || new Date();
+  // Validate date range (only if not using date-only comparison and not using lastSentOrderId)
+  if (!dateString && lastSentOrderId === null) {
+    if (!startDate || !endDate) {
+      throw new Error("startDate and endDate are required");
+    }
 
-  // Set start and end of day for the target date
-  const startOfDay = new Date(reportDate);
-  startOfDay.setHours(0, 0, 0, 0);
-
-  const endOfDay = new Date(reportDate);
-  endOfDay.setHours(23, 59, 59, 999);
+    if (startDate > endDate) {
+      throw new Error("startDate must be before or equal to endDate");
+    }
+  }
 
   // Get order items
   const orderItems = await queries.getOrderItems(
     sequelize,
     warehouseId,
-    startOfDay,
-    endOfDay
+    startDate,
+    endDate,
+    dateString,
+    lastSentOrderId
   );
 
   // Get unique store IDs and product IDs for batch lookups
@@ -319,9 +368,11 @@ async function generateAllenbrotherReport(sequelize, warehouseId, targetDate) {
     orderGroups.get(orderKey).items.push(orderItem);
   }
 
-  // Generate report records: SOH (one per order) and SOD (one per item)
+  // Generate report records: ONE SOH per order, then SOD records for that order
+  // IMPORTANT: SOH must appear before any SOD records for the same order
   const reportRecords = [];
 
+  // Generate records for each order: SOH first, then SOD records
   for (const [, orderGroup] of orderGroups) {
     const entityId = orderGroup.entityId;
     const orderDate = orderGroup.orderDate;
@@ -335,15 +386,15 @@ async function generateAllenbrotherReport(sequelize, warehouseId, targetDate) {
       orderDate.getTime() + 14 * 24 * 60 * 60 * 1000
     );
 
-    // Generate SOH record (one per order)
+    // Generate ONE SOH record for this order
     reportRecords.push({
       type: "SOH",
-      customerNumber,
-      orderDate,
-      deliveryDate
+      customerNumber: customerNumber,
+      orderDate: orderDate,
+      deliveryDate: deliveryDate
     });
 
-    // Generate SOD records (one per order item)
+    // Generate SOD records (one per order item) for this order
     for (const orderItem of orderGroup.items) {
       const splinkProductId = orderItem.splink_product_id
         ? Number(orderItem.splink_product_id)

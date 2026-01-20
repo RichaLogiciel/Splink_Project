@@ -5,6 +5,7 @@ class StoreSalesRep extends Model {
   public id!: number;
   public salesRepId!: number;
   public storeId!: number;
+  public assignmentType!: "PRIMARY" | "SECONDARY" | null;
   public createdAt!: Date;
   public updatedAt!: Date;
   public deletedAt!: Date | null;
@@ -55,6 +56,12 @@ StoreSalesRep.init(
       type: DataTypes.DATE,
       allowNull: true,
       field: "deleted_at"
+    },
+    assignmentType: {
+      type: DataTypes.ENUM("PRIMARY", "SECONDARY"),
+      allowNull: true,
+      defaultValue: null,
+      field: "assignment_type"
     }
   },
   {

@@ -1,0 +1,25 @@
+name: Run Playwright test on E2E-Testing 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger-playwright-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger - Execute Playwright Test Cases
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GIT_PAT }}
+          repository: 'Splink-Technologies/e2e_testing'
+          event-type: 'run-playwright-tests'
+          client-payload: |-
+            {
+              "ref": "${{ github.ref }}", 
+              "sha": "${{ github.sha }}", 
+              "pr": "${{ github.event.pull_request.number }}", 
+              "pr_merged_by": "${{ github.event.pull_request.merged_by.login }}",
+              "pr_created_by": "${{ github.event.pull_request.user.login }}",
+              "source_repo": "${{ github.repository }}"
+            }
+    

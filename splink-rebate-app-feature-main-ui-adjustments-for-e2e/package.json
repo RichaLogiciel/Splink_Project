@@ -1,0 +1,88 @@
+{
+  "name": "splink-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,css,md}": "prettier --write",
+    "*.ts,tsx,js,jsx": [
+      "next lint --fix"
+    ]
+  },
+  "dependencies": {
+    "@embedpdf/core": "^1.4.1",
+    "@embedpdf/engines": "^1.4.1",
+    "@embedpdf/plugin-fullscreen": "^1.4.1",
+    "@embedpdf/plugin-interaction-manager": "^1.4.1",
+    "@embedpdf/plugin-loader": "^1.4.1",
+    "@embedpdf/plugin-pan": "^1.4.1",
+    "@embedpdf/plugin-render": "^1.4.1",
+    "@embedpdf/plugin-rotate": "^1.4.1",
+    "@embedpdf/plugin-scroll": "^1.4.1",
+    "@embedpdf/plugin-search": "^1.4.1",
+    "@embedpdf/plugin-spread": "^1.4.1",
+    "@embedpdf/plugin-thumbnail": "^1.4.1",
+    "@embedpdf/plugin-tiling": "^1.4.1",
+    "@embedpdf/plugin-viewport": "^1.4.1",
+    "@embedpdf/plugin-zoom": "^1.4.1",
+    "@headlessui/react": "^2.1.9",
+    "@types/axios": "^0.14.0",
+    "add": "^2.0.6",
+    "axios": "^1.7.7",
+    "lucide-react": "^0.511.0",
+    "mixpanel-browser": "^2.60.0",
+    "next": "14.2.14",
+    "react": "^18",
+    "react-datepicker": "^8.3.0",
+    "react-dom": "^18",
+    "react-hook-form": "^7.53.1",
+    "react-select": "^5.10.1",
+    "react-toastify": "^10.0.6",
+    "recharts": "^2.13.3",
+    "swr": "^2.2.5"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.13",
+    "@types/mixpanel-browser": "^2.51.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.10",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "husky": "^4.3.8",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.9",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "sass": "^1.80.3",
+    "tailwindcss": "^3.4.1",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}

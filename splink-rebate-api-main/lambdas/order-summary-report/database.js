@@ -10,39 +10,48 @@ const poolConfig = {
   idle: 10000 // Maximum time connection can be idle (10 seconds)
 };
 
-// Get database configuration from secrets (with fallback to env vars)
-// Note: In Lambda handler, secrets should be loaded first to cache them
-// Then getSecretSync will use cached values. For first invocation or local testing, uses env vars.
-const getDbConfig = () => {
-  return {
-    host: secretsService.getSecretSync("DB_HOST"),
-    port: parseInt(secretsService.getSecretSync("DB_PORT") || "5432"),
-    database: secretsService.getSecretSync("DB_NAME"),
-    username: secretsService.getSecretSync("DB_USER"),
-    password: secretsService.getSecretSync("DB_PASSWORD"),
-    dialect: secretsService.getSecretSync("DB_DIALECT", "postgres"),
-    ssl: secretsService.getSecretSync("DB_SSL") === "true"
-  };
-};
+// Sequelize instance (lazy initialization)
+let sequelize = null;
 
-// Initialize Sequelize with secrets (sync for module load, will use env vars if secrets not cached)
-// In Lambda, secrets will be cached after first async fetch in handler, so subsequent calls use cached values
-const dbConfig = getDbConfig();
+/**
+ * Get or create Sequelize instance (lazy initialization)
+ * Uses secrets from Secrets Manager (cached) or falls back to environment variables
+ * @returns {Promise<Sequelize>} Sequelize instance
+ */
+async function getSequelize() {
+  // Return existing instance if already initialized
+  if (sequelize) {
+    return sequelize;
+  }
 
-// Sequelize configuration for RDS Proxy
-const sequelize = new Sequelize(
-  dbConfig.database,
-  dbConfig.username,
-  dbConfig.password,
-  {
-    host: dbConfig.host,
-    port: dbConfig.port,
-    dialect: dbConfig.dialect,
+  // Fetch secrets (will use cached if already fetched)
+  const dbHost = await secretsService.getSecret("DB_HOST");
+  const dbPort = parseInt(
+    (await secretsService.getSecret("DB_PORT")) || "5432"
+  );
+  const dbName = await secretsService.getSecret("DB_NAME");
+  const dbUser = await secretsService.getSecret("DB_USER");
+  const dbPassword = await secretsService.getSecret("DB_PASSWORD");
+  const dbDialect =
+    (await secretsService.getSecret("DB_DIALECT")) || "postgres";
+  const dbSsl = (await secretsService.getSecret("DB_SSL")) === "true";
+
+  if (!dbHost || !dbName || !dbUser || !dbPassword) {
+    throw new Error(
+      "Database credentials are missing. Please configure DB_HOST, DB_NAME, DB_USER, and DB_PASSWORD in Secrets Manager or environment variables."
+    );
+  }
+
+  // Create Sequelize instance with secrets
+  sequelize = new Sequelize(dbName, dbUser, dbPassword, {
+    host: dbHost,
+    port: dbPort,
+    dialect: dbDialect,
     pool: poolConfig,
     logging: false, // Disable SQL logging in Lambda
     dialectOptions: {
       // SSL configuration for RDS (if needed)
-      ssl: dbConfig.ssl
+      ssl: dbSsl
         ? {
             require: true,
             rejectUnauthorized: false
@@ -53,16 +62,21 @@ const sequelize = new Sequelize(
       timestamps: true,
       underscored: true
     }
-  }
-);
+  });
+
+  return sequelize;
+}
 
 // Test connection (will be reused across Lambda invocations)
 let connectionTested = false;
 
 async function testConnection() {
+  // Ensure sequelize is initialized with secrets
+  const seq = await getSequelize();
+
   if (!connectionTested) {
     try {
-      await sequelize.authenticate();
+      await seq.authenticate();
       console.log("Database connection established successfully");
       connectionTested = true;
     } catch (error) {
@@ -72,10 +86,7 @@ async function testConnection() {
   }
 }
 
-// Note: Connection test on module load is disabled to allow secrets to load first in handler
-// Connection will be tested in handler after secrets are loaded
-
 module.exports = {
-  sequelize,
+  getSequelize,
   testConnection
 };

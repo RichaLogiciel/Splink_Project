@@ -26,7 +26,8 @@
     "pg-hstore": "^2.3.4",
     "nodemailer": "^6.9.7",
     "@aws-sdk/client-s3": "^3.490.0",
-    "@aws-sdk/client-secrets-manager": "^3.490.0"
+    "@aws-sdk/client-secrets-manager": "^3.490.0",
+    "iconv-lite": "^0.6.3"
   },
   "devDependencies": {
     "dotenv": "^16.3.1"

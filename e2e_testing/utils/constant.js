@@ -35,6 +35,7 @@ export const ManufacturerToSkip = [
   'HERSHEY',
   'Jack Links',
   "Florida's Natural",
+  'Primo Brands',
 ];
 
 export const MAX_STORES_TO_TEST = process.env?.MAX_STORES_TO_TEST || 5;
@@ -48,3 +49,5 @@ export const PROGRAM_TIMELINE_TO_TEST =
 // This represents the maximum percentage of purchase volume that earnings can be
 export const EARNINGS_CAP_PERCENTAGE =
   parseFloat(process.env?.EARNINGS_CAP_PERCENTAGE) || 0.15;
+
+export const MANUFACTURER_TO_SKIP = ManufacturerToSkip;

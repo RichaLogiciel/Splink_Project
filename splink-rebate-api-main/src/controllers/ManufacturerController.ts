@@ -97,7 +97,7 @@ class ManufacturerDashboardController {
     res: Response
   ): Promise<Response> {
     try {
-      const { distributorId, monthRange, selectedProducts } = req.query;
+      const { distributorId, monthRange, selectedProducts, year } = req.query;
 
       const manufacturerId = [
         USER_ROLES.MANUFACTURER_EXECUTIVE,
@@ -122,11 +122,14 @@ class ManufacturerDashboardController {
         ? selectedProducts?.toString().split(",").map(Number)
         : undefined;
 
+      const parsedYear = year ? Number(year) : undefined;
+
       const data = await ManufacturerDashboardService.getKeyMetricsOptimized({
         manufacturerId: Number(manufacturerId),
         distributorIds: parsedDistributorIds ?? [],
         monthRange: monthRange as string,
-        selectedProductIds: parsedSelectedProducts
+        selectedProductIds: parsedSelectedProducts,
+        year: parsedYear
       });
 
       return sendSuccessResponse(res, data);
@@ -140,7 +143,7 @@ class ManufacturerDashboardController {
     res: Response
   ): Promise<Response> {
     try {
-      const { distributorId, monthRange, selectedProducts } = req.query;
+      const { distributorId, monthRange, selectedProducts, year } = req.query;
 
       const manufacturerId = [
         USER_ROLES.MANUFACTURER_EXECUTIVE,
@@ -165,11 +168,14 @@ class ManufacturerDashboardController {
         ? selectedProducts?.toString().split(",").map(Number)
         : undefined;
 
+      const parsedYear = year ? Number(year) : undefined;
+
       const data = await ManufacturerDashboardService.getTopProductsOptimized({
         manufacturerId: Number(manufacturerId),
         distributorIds: parsedDistributorIds ?? [],
         monthRange: monthRange as string,
-        selectedProductIds: parsedSelectedProducts
+        selectedProductIds: parsedSelectedProducts,
+        year: parsedYear
       });
 
       return sendSuccessResponse(res, data);
@@ -183,7 +189,7 @@ class ManufacturerDashboardController {
     res: Response
   ): Promise<Response> {
     try {
-      const { distributorId, monthRange, selectedProducts } = req.query;
+      const { distributorId, monthRange, selectedProducts, year } = req.query;
 
       const manufacturerId = [
         USER_ROLES.MANUFACTURER_EXECUTIVE,
@@ -208,11 +214,14 @@ class ManufacturerDashboardController {
         ? selectedProducts?.toString().split(",").map(Number)
         : undefined;
 
+      const parsedYear = year ? Number(year) : undefined;
+
       const data = await ManufacturerDashboardService.getDistributorSales({
         manufacturerId: Number(manufacturerId),
         distributorIds: parsedDistributorIds ?? [],
         monthRange: monthRange as string,
-        selectedProductIds: parsedSelectedProducts
+        selectedProductIds: parsedSelectedProducts,
+        year: parsedYear
       });
 
       return sendSuccessResponse(res, data);
@@ -226,7 +235,7 @@ class ManufacturerDashboardController {
     res: Response
   ): Promise<Response> {
     try {
-      const { distributorId, monthRange, selectedProducts } = req.query;
+      const { distributorId, monthRange, selectedProducts, year } = req.query;
 
       const manufacturerId = [
         USER_ROLES.MANUFACTURER_EXECUTIVE,
@@ -251,11 +260,14 @@ class ManufacturerDashboardController {
         ? selectedProducts?.toString().split(",").map(Number)
         : undefined;
 
+      const parsedYear = year ? Number(year) : undefined;
+
       const data = await ManufacturerDashboardService.getStorePenetration({
         manufacturerId: Number(manufacturerId),
         distributorIds: parsedDistributorIds ?? [],
         monthRange: monthRange as string,
-        selectedProductIds: parsedSelectedProducts
+        selectedProductIds: parsedSelectedProducts,
+        year: parsedYear
       });
 
       return sendSuccessResponse(res, data);
@@ -684,7 +696,8 @@ class ManufacturerDashboardController {
         categoryId,
         monthRange,
         warehouseId: selectedWarehouseId,
-        distributorIds
+        distributorIds,
+        year
       } = req.query;
 
       const { user } = req;
@@ -739,6 +752,8 @@ class ManufacturerDashboardController {
         ? distributorIds?.toString().split(",").map(Number)
         : undefined;
 
+      const parsedYear = year ? Number(year) : undefined;
+
       // Call the service to get the sales data, passing in the optional distributorId and categoryId
       const salesData =
         await ManufacturerService.getMergedSkusPerStoreDataOptimized({
@@ -752,7 +767,8 @@ class ManufacturerDashboardController {
           distributorManagerId: Number(distributorManagerId),
           isGeneralManager,
           selectedWarehouseId: Number(selectedWarehouseId),
-          parsedDistributorIds: parsedDistributorIds
+          parsedDistributorIds: parsedDistributorIds,
+          year: parsedYear
         });
 
       // Return the success response with sales data

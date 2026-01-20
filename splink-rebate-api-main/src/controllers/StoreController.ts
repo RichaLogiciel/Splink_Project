@@ -334,7 +334,8 @@ class StoreController {
         isInternalInitiative: isInternal === "true" ? true : false,
         excludeChainStores: isExcludeChainStores == "true" ? true : false,
         salesManagerId,
-        generalManagerId
+        generalManagerId,
+        loggedInUser: req.user
       });
       return sendSuccessResponse(res, data);
     } catch (error: any) {

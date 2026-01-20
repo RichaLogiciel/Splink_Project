@@ -29,25 +29,6 @@ async function getS3Client() {
 }
 
 /**
- * Get S3 client synchronously (for backward compatibility)
- * Uses cached secrets or falls back to environment variables
- * @returns {S3Client} S3 client instance
- */
-function getS3ClientSync() {
-  if (s3Client) {
-    return s3Client;
-  }
-
-  const s3Region = secretsService.getSecretSync("S3_AWS_REGION", "us-west-2");
-
-  s3Client = new S3Client({
-    region: s3Region
-  });
-
-  return s3Client;
-}
-
-/**
  * Upload a file buffer to S3
  * @param {Buffer} fileBuffer - File buffer to upload
  * @param {string} filename - Filename for the uploaded file
@@ -90,14 +71,14 @@ async function uploadFile(fileBuffer, filename, bucketName, folder = "") {
  * Path format: ncd/transactions/jpolep/orders/YYYY-MM-DD/jpolep_YYYYMMDD_HHMMSS.txt
  * @param {Buffer} fileBuffer - Report file buffer
  * @param {string} filename - Base filename (e.g., "jpolep_20250120.txt")
- * @param {Date} targetDate - Target date for the report
+ * @param {string} dateString - Date string (YYYY-MM-DD) for folder structure
  * @param {string} [bucketName] - S3 bucket name (from env if not provided)
  * @returns {Promise<string>} Promise resolving to the S3 object key
  */
 async function uploadJPolepReport(
   fileBuffer,
   filename,
-  targetDate,
+  dateString,
   bucketName = null
 ) {
   // Fetch bucket name from secrets (will use cached if already fetched)
@@ -107,17 +88,14 @@ async function uploadJPolepReport(
   );
   const bucket = bucketName || secretBucketName;
 
-  // Format date as YYYY-MM-DD for folder path
-  const year = targetDate.getFullYear();
-  const month = String(targetDate.getMonth() + 1).padStart(2, "0");
-  const day = String(targetDate.getDate()).padStart(2, "0");
-  const dateFolder = `${year}-${month}-${day}`;
+  // Use dateString directly for folder path (already in YYYY-MM-DD format)
+  const dateFolder = dateString;
 
-  // Get current time for timestamp (HHMMSS)
+  // Get current time for timestamp (HHMMSS) - use UTC to prevent timezone shifts
   const now = new Date();
-  const hours = String(now.getHours()).padStart(2, "0");
-  const minutes = String(now.getMinutes()).padStart(2, "0");
-  const seconds = String(now.getSeconds()).padStart(2, "0");
+  const hours = String(now.getUTCHours()).padStart(2, "0");
+  const minutes = String(now.getUTCMinutes()).padStart(2, "0");
+  const seconds = String(now.getUTCSeconds()).padStart(2, "0");
   const timestamp = `${hours}${minutes}${seconds}`;
 
   // Extract base filename without extension
@@ -135,6 +113,5 @@ async function uploadJPolepReport(
 module.exports = {
   uploadFile,
   uploadJPolepReport,
-  getS3Client,
-  getS3ClientSync
+  getS3Client
 };

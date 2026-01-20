@@ -59,7 +59,7 @@ export interface ManufacturerProductInsightsKeyMetrics {
         units?: number;
       }
     | undefined;
-  latestTransactionDate?: Date | null;
+  latestTransactionDate?: Date | string | null;
 }
 
 export interface ManufacturerTopProductsOptimized {
@@ -86,7 +86,7 @@ export interface ManufacturerProductInsights
   chartData?: any[];
   storePenetrationChartData?: any[];
   growth?: ManufacturerProductInsightsGrowth;
-  latestTransactionDate?: Date | null;
+  latestTransactionDate?: Date | string | null;
 }
 
 export interface SalesRepKeyMetrics {

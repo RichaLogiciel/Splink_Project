@@ -9,6 +9,9 @@ import {
   SalesRepSpiffProgramsDetailCriteria
 } from "../config/appConstants";
 import { ApiError } from "../lib/errors/APIError";
+import logger from "../lib/logger";
+import sequelize from "../db";
+import { QueryTypes } from "sequelize";
 import LineItem from "../models/LineItem";
 import Manufacturer from "../models/Manufacturer";
 import Product from "../models/Product";
@@ -16,6 +19,7 @@ import ProductCodeMapping from "../models/ProductCodeMapping";
 import Program from "../models/Program";
 import ProgramDetail from "../models/ProgramDetail";
 import Store from "../models/Store";
+import StoreSalesRep from "../models/StoreSalesRep";
 import UserRole from "../models/UserRole";
 import Warehouse from "../models/Warehouse";
 import DistributorRepository from "../repositories/DistributorRepository";
@@ -46,6 +50,7 @@ import {
   resolveProductName
 } from "../utils/helpers";
 import { overrideProgramDetailOverviewText } from "../utils/programHelper";
+import { getCurrentUser } from "../utils/requestContext";
 import DistributorService from "./DistributorService";
 import StoreService from "./StoreService";
 
@@ -1310,9 +1315,40 @@ class SalesRepDashboardService {
           e.program_detail_id === programDetailId
       );
 
+      // Check if the logged-in user is a Secondary sales rep for this store
+      // If they are, set totalSpiffEarning to null (only Primary should see earnings)
+      let isSecondarySalesRep = false;
+      const currentUser = getCurrentUser();
+      if (currentUser && currentUser.role === ENTITY_TYPE.DISTRIBUTOR_SALES_REP) {
+        const salesRepAssociatedUserId = currentUser.associatedUserId;
+        try {
+          // Check if this sales rep has SECONDARY assignment for this store
+          const storeSalesRepAssignment = await StoreSalesRep.findOne({
+            where: {
+              storeId: storeId,
+              salesRepId: salesRepAssociatedUserId,
+              deletedAt: null
+            },
+            attributes: ["assignmentType"]
+          });
+          isSecondarySalesRep = storeSalesRepAssignment?.assignmentType === "SECONDARY";
+        } catch (error) {
+          // If query fails, log error but default to showing earnings (fail-safe)
+          logger.error(
+            `[getSpiffEarningStoreDetailByManufacturer] Error checking assignment type for store ${storeId}, salesRep ${salesRepAssociatedUserId}:`,
+            error
+          );
+          // Default to false (show earnings) if we can't determine assignment type
+          isSecondarySalesRep = false;
+        }
+      }
+
       // Initialize result object with earnings and quantity data
+      // Set totalSpiffEarning to null if user is Secondary sales rep (only Primary should see earnings)
       const result: SPIFFOpportunityModalData = {
-        totalSpiffEarning: Number(earning?.total_earning) || 0,
+        totalSpiffEarning: isSecondarySalesRep
+          ? null
+          : Number(earning?.total_earning) || 0,
         tierDetails: []
       };
 
@@ -1326,7 +1362,7 @@ class SalesRepDashboardService {
             return await StoreRepository.getWarehouseId(Number(storeId));
           }
         );
-        resolvedWarehouseId = storeWarehouseId ?? undefined;
+        resolvedWarehouseId = storeWarehouseId || undefined;
       }
 
       // Fallback: If no warehouse found, get first warehouse from distributor
@@ -1625,7 +1661,10 @@ class SalesRepDashboardService {
 
         if (voidFillData) {
           result.categorizedProducts = voidFillData.categorizedProducts;
-          result.totalSpiffEarning = voidFillData.totalSpiffEarning;
+          // Set totalSpiffEarning to null if user is Secondary sales rep (only Primary should see earnings)
+          result.totalSpiffEarning = isSecondarySalesRep
+            ? null
+            : voidFillData.totalSpiffEarning;
           result.storeTierDetails = voidFillData.storeTierDetails;
 
           // Only set quantitySold for VOID_FILL if it's PODPerCategory or PerQuantity
@@ -1661,6 +1700,9 @@ class SalesRepDashboardService {
         const programStartDate = salesRepProgram[0].startDate;
 
         // Get actual purchased products from line_items/transactions after program start date
+        // Use the program's full date range (startDate to endDate)
+        // Note: endDate is on the Program model, not ProgramDetail
+        const programEndDate = salesRepProgram[0]?.endDate;
         const actualPurchasedProducts = await this.getActualPurchasedProducts(
           storeId,
           distributorId,
@@ -1668,7 +1710,8 @@ class SalesRepDashboardService {
           products.map((p) => p.id),
           programStartDate,
           products,
-          selectedWarehouseId
+          selectedWarehouseId,
+          programEndDate // Pass end date to use program date range
         );
 
         // The actualPurchasedProducts are already filtered to only include
@@ -2145,8 +2188,9 @@ class SalesRepDashboardService {
       }
 
       // Get program start date for purchase calculation
-      const programStartDate =
-        program.startDate || program.ProgramDetails?.[0]?.startDate;
+      const programStartDate = program.startDate || program.ProgramDetails?.[0]?.startDate;
+      // For VOID_FILL programs, use the program's full date range (startDate to endDate)
+      const programEndDate = program.endDate;
 
       // Get all products to match against
       const allProducts = await StoreRepository.getManufacturerProducts({
@@ -2167,7 +2211,8 @@ class SalesRepDashboardService {
             programProductIds,
             programStartDate,
             allProducts,
-            selectedWarehouseId
+            selectedWarehouseId,
+            programEndDate // Pass end date to use program date range instead of "today"
           )
         : [];
 
@@ -2493,6 +2538,21 @@ class SalesRepDashboardService {
   /**
    * Get actual purchased products from line_items/transactions after program start date
    */
+  /**
+   * Get actual purchased products for a store within a program's date range
+   * Uses raw SQL query with LATERAL JOIN to match product variants correctly
+   * This matches the ETL logic used in materialized views and validation queries
+   * 
+   * @param storeId - Store ID to query purchases for
+   * @param distributorId - Distributor ID
+   * @param manufacturerId - Manufacturer ID to filter products
+   * @param programProductIds - Array of product IDs that are eligible for this program
+   * @param programStartDate - Program start date (string or Date)
+   * @param allProducts - All products available for this program
+   * @param selectedWarehouseId - Optional warehouse ID
+   * @param programEndDate - Optional program end date (if not provided, uses today)
+   * @returns Array of purchased products that match the program's eligible products
+   */
   private async getActualPurchasedProducts(
     storeId: number,
     distributorId: number,
@@ -2500,7 +2560,8 @@ class SalesRepDashboardService {
     programProductIds: number[],
     programStartDate: string | Date,
     allProducts: any[],
-    selectedWarehouseId?: number
+    selectedWarehouseId?: number,
+    programEndDate?: string | Date
   ): Promise<any[]> {
     try {
       // Convert program start date to Date object if it's a string
@@ -2509,54 +2570,93 @@ class SalesRepDashboardService {
           ? new Date(programStartDate)
           : programStartDate;
 
-      // Query line_items joined with transactions to get products purchased after program start
-      const purchasedTransactions =
-        await StoreRepository.getTransactionsByManufacturerId(
-          [storeId],
-          [manufacturerId],
-          "STORE",
-          false,
-          undefined,
-          undefined,
-          true, // includeProducts
-          undefined,
-          {
-            startDate: startDate.toISOString().split("T")[0], // Format as YYYY-MM-DD
-            endDate: new Date().toISOString().split("T")[0] // Today
+      // Use program end date if provided, otherwise use today
+      // This ensures we query transactions within the program's actual date range
+      const endDate = programEndDate
+        ? typeof programEndDate === "string"
+          ? new Date(programEndDate)
+          : programEndDate
+        : new Date();
+
+      const startDateStr = startDate.toISOString().split("T")[0];
+      const endDateStr = endDate.toISOString().split("T")[0];
+
+      // Use raw SQL query matching the validation query logic to properly handle variant matching
+      // This matches the ETL logic used in the materialized view and validation queries
+      const purchasedProductIdsResult = await sequelize.query(
+        `
+        SELECT DISTINCT
+          p.id as product_id
+        FROM line_items li
+        JOIN LATERAL (
+          SELECT 
+            p_variant.id as variant_id,
+            COALESCE(p_variant.parent_product_id, p_variant.id) as primary_id
+          FROM products p_variant
+          WHERE (
+            (p_variant.primary_variant = true AND li.product_id = p_variant.unit_skus_id)
+            OR
+            (p_variant.primary_variant = true 
+             AND (p_variant.unit_skus_id IS NULL OR li.product_id != p_variant.unit_skus_id)
+             AND li.product_id = p_variant.box_skus_id)
+            OR
+            (p_variant.primary_variant = true 
+             AND (p_variant.unit_skus_id IS NULL OR li.product_id != p_variant.unit_skus_id)
+             AND (p_variant.box_skus_id IS NULL OR li.product_id != p_variant.box_skus_id)
+             AND li.product_id = p_variant.case_skus_id)
+            OR
+            (p_variant.primary_variant = false AND (
+              li.product_id = p_variant.unit_skus_id
+              OR li.product_id = p_variant.case_skus_id
+              OR li.product_id = p_variant.box_skus_id
+            ))
+          )
+          AND p_variant.deleted_at IS NULL
+          AND p_variant.manufacturer_id = :manufacturerId
+          ORDER BY 
+            CASE 
+              WHEN p_variant.primary_variant = true AND li.product_id = p_variant.unit_skus_id THEN 1
+              WHEN p_variant.primary_variant = true AND li.product_id = p_variant.box_skus_id THEN 2
+              WHEN p_variant.primary_variant = true AND li.product_id = p_variant.case_skus_id THEN 3
+              ELSE 4
+            END,
+            p_variant.primary_variant DESC NULLS LAST,
+            p_variant.id
+          LIMIT 1
+        ) p_variant_match ON true
+        JOIN products p ON p.id = p_variant_match.primary_id AND p.deleted_at IS NULL
+        WHERE li.buyer_id = :storeId
+          AND li.buyer_type = 'STORE'
+          AND li.seller_type = 'DISTRIBUTOR'
+          AND DATE(li.transaction_date) >= DATE(:startDate)
+          AND DATE(li.transaction_date) <= DATE(:endDate)
+          AND p.id = ANY(ARRAY[:programProductIds]::integer[])
+          AND li.deleted_at IS NULL
+          AND p.manufacturer_id = :manufacturerId
+        GROUP BY p.id
+        HAVING SUM(li.total_price) > 0
+        ORDER BY p.id
+        `,
+        {
+          replacements: {
+            storeId,
+            manufacturerId,
+            startDate: startDateStr,
+            endDate: endDateStr,
+            programProductIds
           },
-          true // includeInternalCode
-        );
+          type: QueryTypes.SELECT
+        }
+      );
 
-      // Extract unique product IDs from purchased transactions
-      // The product_id in transactions is actually a SKU ID, we need to map it back to product IDs
-      // First, get all purchased SKU IDs from transactions
-      const purchasedSKUIDs = [
-        ...new Set(
-          purchasedTransactions
-            .filter(
-              (item: any) =>
-                item.product && item.product.manufacturer_id === manufacturerId
-            )
-            .map((item: any) => item.product_id)
-        )
-      ];
+      const purchasedProductIds = (purchasedProductIdsResult as any[]).map(
+        (row: any) => row.product_id
+      );
 
-      // Now find which products from our program have SKUs that match the purchased SKUs
-      const purchasedProductIds = [
-        ...new Set(
-          allProducts
-            .filter((product: any) => {
-              // Check if any of the product's SKU IDs match the purchased SKU IDs
-              return purchasedSKUIDs.some(
-                (skuId: string) =>
-                  product.case_skus_id === skuId ||
-                  product.unit_skus_id === skuId ||
-                  product.box_skus_id === skuId
-              );
-            })
-            .map((product: any) => product.id)
-        )
-      ];
+      logger.info(
+        `[getActualPurchasedProducts] Found ${purchasedProductIds.length} purchased products matching program eligible list: [${purchasedProductIds.join(", ")}]`
+      );
+
       // Get full product details with category_flags for purchased products
       if (purchasedProductIds.length > 0) {
         const fullProductDetails =
@@ -2577,7 +2677,7 @@ class SalesRepDashboardService {
 
       return [];
     } catch (error) {
-      console.error("Error getting actual purchased products:", error);
+      logger.error("[getActualPurchasedProducts] Error getting actual purchased products:", error);
       return [];
     }
   }

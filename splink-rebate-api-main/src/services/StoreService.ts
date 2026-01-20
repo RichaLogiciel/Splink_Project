@@ -8,6 +8,7 @@ import {
   PROGRAM_TYPE,
   ProgramsComplianceStatus,
   ProgramsDetailCriteria,
+  PURCHASE_QUANTITY_WITH_PER_CATEGORY_ITEM_TRACKER_DISTRIBUTOR_IDS,
   skuFieldMapping,
   SORT_KEYS,
   useApiCaching
@@ -209,7 +210,8 @@ class StoreService {
     isInternalInitiative,
     excludeChainStores,
     salesManagerId,
-    generalManagerId
+    generalManagerId,
+    loggedInUser
   }: {
     distributorId: number;
     page: number;
@@ -223,6 +225,7 @@ class StoreService {
     excludeChainStores?: boolean;
     salesManagerId?: number;
     generalManagerId?: number;
+    loggedInUser?: any;
   }): Promise<FormattedStoredData> {
     return newrelic.startSegment(
       "StoreService.getListingV2",
@@ -331,7 +334,8 @@ class StoreService {
               programTimeline: currentProgramTimeline,
               excludeChainStores: excludeChainStores || false,
               salesManagerId,
-              generalManagerId
+              generalManagerId,
+              loggedInUser
             });
 
           // Step 3: Format response to match the expected structure
@@ -3116,10 +3120,20 @@ class StoreService {
     compliances?: any[],
     isManufacturerUser?: boolean
   ): Promise<ManufacturerTierDetail> {
-    // Get distributorId for grey-out logic
+    // Get distributorId for grey-out logic and UPC filtering
     const distributorId = storeId
       ? await StoreRepository.getDistributorId(storeId)
       : undefined;
+
+    // Check if distributor is enabled for UPC filtering
+    // For PurchaseQuantity: requires per_category_item rebate_type
+    const isNCDPurchaseQuantityCase =
+      distributorId !== undefined &&
+      PURCHASE_QUANTITY_WITH_PER_CATEGORY_ITEM_TRACKER_DISTRIBUTOR_IDS.includes(
+        distributorId
+      ) &&
+      pr.rebate_type === "per_category_item" &&
+      pr.criteria === ProgramsDetailCriteria.PurchaseQuantity;
 
     // Fetch transaction line items for program date range if store and manufacturer IDs provided
     const transactionLineItems =
@@ -3134,7 +3148,8 @@ class StoreService {
             undefined,
             undefined,
             { startDate: pr.start_date, endDate: pr.end_date },
-            true
+            true,
+            isNCDPurchaseQuantityCase // includeUpcType: true for NCD special case
           )
         : [];
 
@@ -3157,6 +3172,47 @@ class StoreService {
     const productCategoryTags =
       await StoreRepository.getCategoryTagsReference();
 
+    // Filter line items by UPC type for NCD special case BEFORE aggregation
+    let filteredTransactionLineItems = transactionLineItems;
+    if (
+      isNCDPurchaseQuantityCase &&
+      transactionLineItems &&
+      transactionLineItems.length > 0
+    ) {
+      const QtyType = pr.quantity_type?.toLowerCase();
+      let upcTypeFilter: string[] = [];
+
+      if (QtyType === "case") {
+        upcTypeFilter = ["Case", "Case UPC", "New Case UPC"];
+      } else if (QtyType === "box") {
+        upcTypeFilter = [
+          "Box",
+          "Box UPC",
+          "New Box UPC",
+          "Case",
+          "Case UPC",
+          "New Case UPC"
+        ];
+      }
+
+      if (upcTypeFilter.length > 0) {
+        filteredTransactionLineItems = transactionLineItems.filter(
+          (item: any) => {
+            const itemUpcType =
+              item.upc_type || item.upcType || item.get?.("upc_type");
+            // Only include items with valid upc_type that matches filter
+            // Exclude null, undefined, or empty string values
+            return (
+              itemUpcType !== undefined &&
+              itemUpcType !== null &&
+              itemUpcType !== "" &&
+              upcTypeFilter.includes(itemUpcType)
+            );
+          }
+        );
+      }
+    }
+
     // Aggregate line items by product_id to calculate net prices and quantities
     // This handles returns and multiple purchases of the same SKU correctly
     // Business Rule: Count products where net price > 0 (regardless of quantity)
@@ -3171,7 +3227,7 @@ class StoreService {
       }
     >();
 
-    transactionLineItems?.forEach((item: any) => {
+    filteredTransactionLineItems?.forEach((item: any) => {
       const productId = item.product_id;
       const totalPrice = parseFloat(item?.total_price || "0");
       const quantity = parseFloat(item?.quantity || "0");
@@ -3271,7 +3327,9 @@ class StoreService {
       productCategoryTags,
       aggregatedLineItems as any, // Type cast needed as aggregatedLineItems is simplified structure
       salesTransactionLineItems,
-      purchasedProductIds
+      purchasedProductIds,
+      distributorId, // Pass distributorId for NCD special case handling
+      pr.rebate_type // Pass rebate_type for NCD special case handling
     );
     detail.graph = graph;
     detail.progressAchieved = progressText;
@@ -3965,7 +4023,9 @@ class StoreService {
     productCategoryTags: ProductCategoryTag[],
     transactionLineItems?: LineItem[],
     salesTransactionLineItems?: LineItem[],
-    purchasedProductIds: number[] = []
+    purchasedProductIds: number[] = [],
+    distributorId?: number,
+    rebateType?: string
   ): {
     graph:
       | { [label: string]: { completed: number; total: number } }
@@ -4008,34 +4068,159 @@ class StoreService {
       case ProgramsDetailCriteria.PurchaseQuantity:
         {
           const skuField = skuFieldMapping[QtyType];
+          // Map camelCase SKU field names to snake_case for product lookup
+          const skuFieldMap: { [key: string]: string } = {
+            caseSkusId: "case_skus_id",
+            unitSkusId: "unit_skus_id",
+            boxSkusId: "box_skus_id"
+          };
+
+          // Get program's category tags to filter products
+          const programTags = (pr.products_tags ?? pr.productsTags ?? "")
+            .split(",")
+            .map((tag: string) => tag.trim())
+            .filter((tag: string) => tag.length > 0);
 
           const totalQuantity =
             transactionLineItems?.reduce((itemAcc: any, item: any) => {
-              const product = item.product;
-              if (
-                item.product_id != product[skuField] &&
-                item.product_id != item[skuField]
-              ) {
+              // For PurchaseQuantity criteria, we need to match item.product_id against the specific SKU type
+              // item.product_id is a SKU ID (case/unit/box), so we need to check if this SKU ID
+              // matches the program's quantity_type (case/unit/box) for any product
+
+              const itemProductIdStr =
+                item.product_id != null ? String(item.product_id) : null;
+
+              if (!itemProductIdStr || !products?.length) {
                 return itemAcc;
               }
 
+              // Check if distributor is enabled for UPC filtering: per_category_item
+              const isNCDSpecialCase =
+                distributorId !== undefined &&
+                PURCHASE_QUANTITY_WITH_PER_CATEGORY_ITEM_TRACKER_DISTRIBUTOR_IDS.includes(
+                  distributorId
+                ) &&
+                rebateType === "per_category_item";
+
+              // Find product where the SKU field for this quantity_type matches item.product_id
+              // This ensures we only count line items that match the program's quantity_type
+              // For quantity_type=case, only count items where product_id matches a product's case_skus_id
+              // For NCD special case, match ALL SKU types (case/box/unit)
+              const matchingProduct = products.find((p: any) => {
+                if (isNCDSpecialCase) {
+                  // Match ALL SKU types for NCD
+                  const caseSkuId = p.case_skus_id ?? p.caseSkusId;
+                  const boxSkuId = p.box_skus_id ?? p.boxSkusId;
+                  const unitSkuId = p.unit_skus_id ?? p.unitSkusId;
+                  return (
+                    (caseSkuId != null &&
+                      String(caseSkuId) === itemProductIdStr) ||
+                    (boxSkuId != null &&
+                      String(boxSkuId) === itemProductIdStr) ||
+                    (unitSkuId != null &&
+                      String(unitSkuId) === itemProductIdStr)
+                  );
+                } else {
+                  // Regular logic: match only specific SKU type
+                  const skuId = p[skuField] ?? p[skuFieldMap[skuField]];
+                  // Match against item.product_id (which is a SKU ID)
+                  // Use strict string comparison to handle type mismatches
+                  if (skuId == null) return false;
+                  return String(skuId) === itemProductIdStr;
+                }
+              });
+
+              // Skip if no matching product found (this SKU doesn't match the quantity_type)
+              if (!matchingProduct) {
+                return itemAcc;
+              }
+
+              // Filter by program's category tags if specified
+              // Only count products that have at least one of the program's category tags
+              if (programTags.length > 0 && matchingProduct) {
+                // Use category_flags if available (computed from category_tags_json)
+                // category_flags is an object with tagKey as keys and boolean values
+                // Also check category_tags_json as fallback for different data formats
+                const categoryFlags = matchingProduct.category_flags || {};
+                const productTags =
+                  matchingProduct.category_tags_json ||
+                  matchingProduct.categoryTagsJson ||
+                  matchingProduct.CategoryTagsJson ||
+                  matchingProduct.categoryTags ||
+                  [];
+
+                // Handle different data formats: array, string, or object
+                let productTagsArray: string[] = [];
+                if (Array.isArray(productTags)) {
+                  productTagsArray = productTags;
+                } else if (typeof productTags === "string") {
+                  try {
+                    const parsed = JSON.parse(productTags);
+                    productTagsArray = Array.isArray(parsed) ? parsed : [];
+                  } catch (e) {
+                    // If parsing fails, treat as empty array
+                    productTagsArray = [];
+                  }
+                } else if (productTags && typeof productTags === "object") {
+                  // If it's an object, extract keys where value is true (for boolean flag objects)
+                  productTagsArray = Object.keys(productTags).filter(
+                    (key) => productTags[key] === true
+                  );
+                }
+
+                // Add tag keys from category_flags where value is true
+                // category_flags keys are in tagKey format (with underscores)
+                const categoryFlagTags = Object.keys(categoryFlags).filter(
+                  (key) => categoryFlags[key] === true
+                );
+                productTagsArray = [
+                  ...new Set([...productTagsArray, ...categoryFlagTags])
+                ];
+
+                // Normalize tag names (handle underscores vs spaces)
+                // Convert underscores to spaces for comparison, as tags in DB use underscores
+                // but program tags might use spaces
+                const normalizedProductTags = productTagsArray.map((tag: any) =>
+                  String(tag).trim().replace(/_/g, " ")
+                );
+                const normalizedProgramTags = programTags.map((tag: string) =>
+                  String(tag).trim().replace(/_/g, " ")
+                );
+
+                const hasMatchingTag = normalizedProgramTags.some(
+                  (programTag: string) =>
+                    normalizedProductTags.includes(programTag)
+                );
+
+                if (!hasMatchingTag) {
+                  return itemAcc;
+                }
+              }
+
+              // Get quantity and calculate accumulated total
               const quantity =
                 typeof item?.get === "function"
                   ? item.get("quantity")
                   : item?.quantity;
 
-              return itemAcc + parseInt(quantity?.toString() || "0");
+              // Use parseFloat to handle decimal quantities correctly
+              return itemAcc + parseFloat(quantity?.toString() || "0");
             }, 0) ?? 0;
+
+          // For compliance display: show progress towards min_qty
+          // If purchased >= min_qty, show compliance achieved (min_qty/min_qty, e.g., "1/1")
+          // If purchased < min_qty, show progress towards min_qty (e.g., "0/1")
+          const minQty = parseFloat(pr.min_qty) || 0;
+          const maxQty = pr.max_qty ? parseFloat(pr.max_qty) : null;
+
+          // Cap completed at minQty when compliance is achieved to show "1/1" instead of "25/1"
+          const isCompliant = Number(totalQuantity) >= minQty;
+          const completedDisplay = isCompliant ? minQty : totalQuantity;
 
           graphData = {
             ["Quantity"]: {
-              completed: totalQuantity,
-              total:
-                Number(totalQuantity) >= parseFloat(pr.min_qty)
-                  ? pr.max_qty == null
-                    ? 0
-                    : parseFloat(pr.max_qty)
-                  : parseFloat(pr.min_qty)
+              completed: completedDisplay,
+              total: minQty // Always show min_qty as total for compliance display
             }
           };
         }
